@@ -5,7 +5,9 @@ using UnityEngine;
 public class MobCollider : MonoBehaviour {
 
 	void OnTriggerEnter2D(Collider2D coll) {
-		Debug.Log ("coucou");
-		Destroy(gameObject, 0f);
+		if (coll.GetComponent<Collider2D>().tag == gameObject.GetComponent<Collider2D>().tag) {
+			Destroy(coll.gameObject, 0f);
+			Destroy(gameObject, 0f);
+		}
 	}
 }
