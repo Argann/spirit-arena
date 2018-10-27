@@ -1,0 +1,67 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 1110607890413084}
+  m_IsPrefabAsset: 1
+--- !u!1 &1110607890413084
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4087528184296052}
+  - component: {fileID: 114459246662927476}
+  m_Layer: 0
+  m_Name: Sound Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4087528184296052
+Transform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1110607890413084}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 865.6532, y: 701.13434, z: -7.875}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114459246662927476
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1110607890413084}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6027ebfc51c80604db8643f0410e23e0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mainSource: {fileID: 0}
+  bodyMonsters:
+  - {fileID: 8300000, guid: a445b95b2cfdf5848b72e70aca8d7d2e, type: 3}
+  - {fileID: 8300000, guid: d31e94da9f6d7164a937fbf32a245304, type: 3}
+  - {fileID: 8300000, guid: 4da9786111b9dfc4b8251f2bbd655769, type: 3}
+  - {fileID: 8300000, guid: bae8221b4a6201347a2f7a414a93fa39, type: 3}
+  - {fileID: 8300000, guid: cbb65e4a800f95a4b912517a8187fff1, type: 3}
+  - {fileID: 8300000, guid: e498d5fe10a9f75468b789852d549bf5, type: 3}
+  - {fileID: 8300000, guid: eebc1b50f3274594f891522fd91d3316, type: 3}
+  spiritMonsters:
+  - {fileID: 8300000, guid: 2fe412b2c6b3e944da4b765f7e7bec48, type: 3}
+  - {fileID: 8300000, guid: 74aeffdc33d868b468a616e28436a483, type: 3}
+  - {fileID: 8300000, guid: 261b4970333616048a2c781eb8b609c1, type: 3}
+  - {fileID: 8300000, guid: deba08bf426956d49a61105d5cb10c12, type: 3}

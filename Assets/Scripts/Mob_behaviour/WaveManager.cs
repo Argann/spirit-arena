@@ -24,6 +24,11 @@ public class WaveManager : MonoBehaviour {
 
 	public static void DeleteEnemy(GameObject enemy) {
 		currentEnemies.Remove(enemy);
+		if (enemy.tag == "Physical") {
+			SoundManager.PlaySoundBodyMonster();
+		} else if (enemy.tag == "Spirit") {
+			SoundManager.PlaySoundSpiritMonster();
+		}
 	}
 
 	public static void StartGame() {
