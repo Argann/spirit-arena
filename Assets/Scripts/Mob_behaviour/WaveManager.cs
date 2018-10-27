@@ -10,16 +10,23 @@ public class WaveManager : MonoBehaviour {
 	[SerializeField]
 	private List<GameObject> enemies;
 
+	[SerializeField]
 	private static List<GameObject> currentEnemies = new List<GameObject>();
 
 	private int waveNumber = 0;
 
 	private bool startingWave = false;
 
+	private static bool gameLaunched = false;
+
 
 	public static void DeleteEnemy(GameObject enemy) {
 		Debug.Log("Destruction d'un ennemi ! Reste " + currentEnemies.Count);
 		currentEnemies.Remove(enemy);
+	}
+
+	public static void StartGame() {
+		gameLaunched = true;
 	}
 
 
@@ -49,7 +56,7 @@ public class WaveManager : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (!startingWave && currentEnemies.Count == 0) {
+		if (gameLaunched && !startingWave && currentEnemies.Count == 0) {
 			Debug.Log("Début de la manche "+(waveNumber+1));
 			StartNewWave();
 		}

@@ -14,6 +14,9 @@ public class MenuManager : MonoBehaviour {
 	[SerializeField]
 	private string mainMenuSceneName;
 
+	[SerializeField]
+	private GameObject mainMenuGameObject;
+
 	public void ButtonQuit() {
 		Debug.Log("Goodbye !");
 		Application.Quit();
@@ -27,6 +30,12 @@ public class MenuManager : MonoBehaviour {
 	public void ButtonPlay() {
 		Debug.Log("Go To Play ["+ this.playSceneName +"] !");
 		SceneManager.LoadScene(this.playSceneName);
+	}
+
+	public void ButtonStart() {
+		Debug.Log("Let's start the game !");
+		WaveManager.StartGame();
+		mainMenuGameObject.SetActive(false);
 	}
 
 	public void ButtonMainMenu() {
