@@ -7,6 +7,10 @@ public class PlayerControls : MonoBehaviour {
 	public float playerSpeed;
 	private Vector2 movement;
 
+	void Start () {
+		gameObject.GetComponent<Rigidbody2D>().freezeRotation = true;
+	}
+
 	void Update () {
 		string horizontalInputLabel = string.Concat(playerPrefix, "_Horizontal");
 		string VerticalInputLabel   = string.Concat(playerPrefix, "_Vertical");
