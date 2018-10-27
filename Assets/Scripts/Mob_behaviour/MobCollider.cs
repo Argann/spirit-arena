@@ -8,9 +8,10 @@ public class MobCollider : MonoBehaviour {
 
 	void OnTriggerEnter2D(Collider2D coll) {
 		if (coll.GetComponent<Collider2D>().tag == gameObject.GetComponent<Collider2D>().tag) {
-			Destroy(coll.gameObject, 0f);
+			coll.gameObject.GetComponent<Animator>().SetBool("Exploded", true);
 			Debug.Log("life = " + lifePoints);
 			Bullet bullet = coll.gameObject.GetComponent<Bullet>();
+			bullet.StopMe();
 			lifePoints -= bullet.damages;
 			if (lifePoints <= 0)
 			{
@@ -22,6 +23,7 @@ public class MobCollider : MonoBehaviour {
 		}
 		else if (coll.GetComponent<Collider2D>().tag == "Player")
 		{
+			Debug.Log("There is damage");
 			PlayerControls player = coll.GetComponent<PlayerControls>();
 			player.TakeDamages(damage);
 			WaveManager.DeleteEnemy(gameObject);
