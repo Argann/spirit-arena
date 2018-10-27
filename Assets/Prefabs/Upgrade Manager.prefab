@@ -1,0 +1,82 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 1372170629245348}
+  m_IsPrefabAsset: 1
+--- !u!1 &1372170629245348
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4953456096893106}
+  - component: {fileID: 114980079049442184}
+  m_Layer: 0
+  m_Name: Upgrade Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4953456096893106
+Transform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1372170629245348}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 865.6532, y: 701.13434, z: -7.875}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114980079049442184
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1372170629245348}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5064489290d471649b178e6b125f163f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player1: {fileID: 0}
+  player2: {fileID: 0}
+  buffs:
+  - description: +10% Attack Speed
+    type: 0
+    mult: 0.2
+    image: {fileID: 21300000, guid: c55d6bfa453c8824fa394739c92e9947, type: 3}
+  - description: +10% Attack Damage
+    type: 1
+    mult: 0.1
+    image: {fileID: 21300000, guid: 632ff4afd4ad6f342b361f63e845be10, type: 3}
+  - description: +10% Movement Speed
+    type: 2
+    mult: 0.1
+    image: {fileID: 21300000, guid: ff9fcff068594554094c78521cccd608, type: 3}
+  - description: +10% Bonus Time
+    type: 4
+    mult: 0.1
+    image: {fileID: 21300000, guid: d24898a2b83da3d458922a48795f112c, type: 3}
+  waveManager: {fileID: 0}
+  upgradeScreenCanvas: {fileID: 0}
+  timerUI: {fileID: 0}
+  scoreP1UI: {fileID: 0}
+  scoreP2UI: {fileID: 0}
+  upgradeImage: {fileID: 0}
+  upgradeDescription: {fileID: 0}
+  minigameTimer: 7
+  afterMinigameTimer: 4
+  currentlyUpgrading: 0
