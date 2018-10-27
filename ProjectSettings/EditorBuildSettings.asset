@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Etienne_spawn.unity
     guid: ef0996d7fe45fec41915c1d433d04672
+  - enabled: 1
+    path: Assets/Scenes/PlayScene.unity
+    guid: 0732cc3892ce465458101c0b0d9317ea
   m_configObjects: {}

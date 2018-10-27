@@ -52,5 +52,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   creditsSceneName: CreditsScene
-  playSceneName: Etienne_spawn
+  playSceneName: PlayScene
   mainMenuSceneName: StartScene

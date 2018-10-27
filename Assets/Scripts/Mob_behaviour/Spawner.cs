@@ -3,12 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Spawner : MonoBehaviour {
-	public GameObject[] mobs_prefab;
-	public float delay = 5;
+
+	[SerializeField]
+	private float delay = 5;
+	private Queue<GameObject> enemyQueue = new Queue<GameObject>();
 	private float start_time = 0;
 
-	// Use this for initialization
-	void Start () {}
+	public void AddToQueue(GameObject enemy) {
+		enemyQueue.Enqueue(enemy);
+	}
+
 	
 	// Update is called once per frame
 	void Update () {
@@ -19,7 +23,10 @@ public class Spawner : MonoBehaviour {
 	}
 
 	void Spawn() {
-		int index = Random.Range(0, 6);
-		Instantiate(mobs_prefab[index], transform.position, transform.rotation);
+		if (enemyQueue.Count > 0) {
+			GameObject enemy = enemyQueue.Dequeue();
+			enemy.transform.position = transform.position;
+			enemy.SetActive(true);
+		}
 	}
 }
