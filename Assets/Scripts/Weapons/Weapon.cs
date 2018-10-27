@@ -9,13 +9,12 @@ public abstract class Weapon : MonoBehaviour
 	public float projectileSpeed = 10;
 	public float projectileTtlMs = 100;
 	public float distanceToPLayer = 2f;
-	protected long lastShotTiming = 0;
 	public void fire(GameObject playerObject)
 	{
         PlayerControls player = playerObject.GetComponent<PlayerControls>();
 		long now = System.DateTime.Now.Ticks / System.TimeSpan.TicksPerMillisecond;
-        if (now >= lastShotTiming + (long)(player.attackSpeedMultiplicator * cooldownMs)) {
-            lastShotTiming = now;
+        if (now >= player.lastShotTiming + (long)(player.attackSpeedMultiplicator * cooldownMs)) {
+            player.lastShotTiming = now;
             fireImplementation(playerObject);
         }
 	}

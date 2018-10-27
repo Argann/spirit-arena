@@ -917,7 +917,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_HorizontalAxis: P1_Horizontal_Menu
   m_VerticalAxis: P1_Vertical_Menu
-  m_SubmitButton: P1_action
+  m_SubmitButton: P1_menu_interact
   m_CancelButton: P1_swap
   m_InputActionsPerSecond: 10
   m_RepeatDelay: 0.5
