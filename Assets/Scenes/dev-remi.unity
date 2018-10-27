@@ -197,6 +197,11 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 114112321355307320, guid: b75ffdfbc7ed4854eb0d62421a54b905,
+        type: 2}
+      propertyPath: spells.Array.size
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 4937403908158194, guid: b75ffdfbc7ed4854eb0d62421a54b905, type: 2}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -228,6 +233,23 @@ Prefab:
     - target: {fileID: 4937403908158194, guid: b75ffdfbc7ed4854eb0d62421a54b905, type: 2}
       propertyPath: m_RootOrder
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114112321355307320, guid: b75ffdfbc7ed4854eb0d62421a54b905,
+        type: 2}
+      propertyPath: spells.Array.data[0]
+      value: 
+      objectReference: {fileID: 1032951220512420, guid: c87a6921def0a9845bfd4147f422bc6d,
+        type: 2}
+    - target: {fileID: 114112321355307320, guid: b75ffdfbc7ed4854eb0d62421a54b905,
+        type: 2}
+      propertyPath: spells.Array.data[1]
+      value: 
+      objectReference: {fileID: 1310789113905822, guid: e35e4209832309d4aab8b6d47a7061dd,
+        type: 2}
+    - target: {fileID: 114112321355307320, guid: b75ffdfbc7ed4854eb0d62421a54b905,
+        type: 2}
+      propertyPath: attackCooldown
+      value: 0.1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b75ffdfbc7ed4854eb0d62421a54b905, type: 2}
