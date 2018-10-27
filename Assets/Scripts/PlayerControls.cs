@@ -115,62 +115,74 @@ public class PlayerControls : MonoBehaviour {
         movement = new Vector2(Input.GetAxisRaw(horizontalInputLabel), Input.GetAxisRaw(VerticalInputLabel));
 		movement.Normalize();
 		movement = movement * movementSpeed * movementSpeedMultiplicator;
-        
-        if (movement.Equals(Vector2.zero)) {
+
+        if (lifePoints == 0) {
+            animator.SetBool("Dead", true);
             animator.SetBool("Running", false);
+            movement = Vector2.zero;
+        } else if (lifePoints < 0) {
+            lifePoints = 0;
         } else {
-            animator.SetBool("Running", true);
-        }
+            animator.SetBool("Dead", false);
 
-        if(movement.x > 0) {
-            transform.localScale = new Vector3(-5, transform.localScale.y, transform.localScale.z);
-        } else if (movement.x < 0) {
-            transform.localScale = new Vector3(5, transform.localScale.y, transform.localScale.z);
-        }
+            if (movement.Equals(Vector2.zero)) {
+                animator.SetBool("Running", false);
+            } else {
+                animator.SetBool("Running", true);
+            }
 
-        if (isSpirit) {
-            animator.SetBool("Spirit", true);
-        } else {
-            animator.SetBool("Spirit", false);            
-        }
+            if(movement.x > 0) {
+                transform.localScale = new Vector3(-5, transform.localScale.y, transform.localScale.z);
+            } else if (movement.x < 0) {
+                transform.localScale = new Vector3(5, transform.localScale.y, transform.localScale.z);
+            }
 
-        // ------ attacks ------
-        if (aim.magnitude >= 0.1f)
-        {
-		    aim.Normalize();
-            if (bonusWeapon)
-            {
-                bonusWeapon.GetComponent<Weapon>().fire(gameObject);
+            if (isSpirit) {
+                animator.SetBool("Spirit", true);
+            } else {
+                animator.SetBool("Spirit", false);            
             }
-            else if (defaultWeapon)
+
+            // ------ attacks ------
+            if (aim.magnitude >= 0.1f)
             {
-                defaultWeapon.GetComponent<Weapon>().fire(gameObject);
+                aim.Normalize();
+                if (bonusWeapon)
+                {
+                    bonusWeapon.GetComponent<Weapon>().fire(gameObject);
+                }
+                else if (defaultWeapon)
+                {
+                    defaultWeapon.GetComponent<Weapon>().fire(gameObject);
+                }
+                else
+                {
+                    Debug.LogError("no weapon equiped");
+                }
             }
-            else
-            {
-                Debug.LogError("no weapon equiped");
+            // ------ swaps ------
+            bool swapButtonPressed = (Input.GetAxisRaw(playerSwapLabel) != 0);
+            long now = System.DateTime.Now.Ticks / System.TimeSpan.TicksPerMillisecond;
+            if(previousFrameSwapUp && swapButtonPressed && (now >= lastSwapTimingMs + (long)(swapCooldownMultiplicator * swapCooldownMs))) {
+                lastSwapTimingMs = now;
+                isSpirit = !isSpirit;
+                if (otherPlayer)
+                {
+                    PlayerControls P2 = otherPlayer.GetComponent<PlayerControls>();
+                    GameObject tmp = bullet;
+                    bullet = P2.bullet;
+                    P2.bullet = tmp;
+                    P2.isSpirit = !P2.isSpirit;
+                }
+                else
+                {
+                    Debug.LogError("other player not set");
+                }
             }
+            previousFrameSwapUp = !swapButtonPressed;
         }
-        // ------ swaps ------
-        bool swapButtonPressed = (Input.GetAxisRaw(playerSwapLabel) != 0);
-        long now = System.DateTime.Now.Ticks / System.TimeSpan.TicksPerMillisecond;
-        if(previousFrameSwapUp && swapButtonPressed && (now >= lastSwapTimingMs + (long)(swapCooldownMultiplicator * swapCooldownMs))) {
-            lastSwapTimingMs = now;
-            isSpirit = !isSpirit;
-            if (otherPlayer)
-            {
-                PlayerControls P2 = otherPlayer.GetComponent<PlayerControls>();
-                GameObject tmp = bullet;
-                bullet = P2.bullet;
-                P2.bullet = tmp;
-                P2.isSpirit = !P2.isSpirit;
-            }
-            else
-            {
-                Debug.LogError("other player not set");
-            }
-        }
-        previousFrameSwapUp = !swapButtonPressed;
+        
+        
 	}
 
 	void FixedUpdate() {

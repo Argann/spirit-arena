@@ -81,6 +81,17 @@ public class UpgradeManager : MonoBehaviour {
 			
 		}
 
+		// We reset life of dead heroes
+		if (player1.lifePoints <= 0) {
+			player1.lifePoints = 10;
+			player1.gameObject.transform.rotation = new Quaternion(0, 0, 0, player1.gameObject.transform.rotation.w);
+		}
+
+		if (player2.lifePoints <= 0) {
+			player2.lifePoints = 10;
+			player2.gameObject.transform.rotation = new Quaternion(0, 0, 0, player2.gameObject.transform.rotation.w);
+		}
+
 
 		// And then we go back to the game
 		Debug.Log("END OF UPGRADE");
