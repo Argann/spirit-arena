@@ -5,6 +5,9 @@ using UnityEngine;
 public class WaveManager : MonoBehaviour {
 
 	[SerializeField]
+	private UpgradeManager upgradeManager;
+
+	[SerializeField]
 	private List<Spawner> spawners;
 
 	[SerializeField]
@@ -15,13 +18,11 @@ public class WaveManager : MonoBehaviour {
 
 	private int waveNumber = 0;
 
-	private bool startingWave = false;
-
 	private static bool gameLaunched = false;
 
+	public bool upgradeComplete = false;
 
 	public static void DeleteEnemy(GameObject enemy) {
-		Debug.Log("Destruction d'un ennemi ! Reste " + currentEnemies.Count);
 		currentEnemies.Remove(enemy);
 	}
 
@@ -30,13 +31,7 @@ public class WaveManager : MonoBehaviour {
 	}
 
 
-
-	private void StartNewWave() {
-
-		startingWave = true;
-		
-		waveNumber++;
-
+	private void SpawnEnemies() {
 		int enemyNumber = waveNumber * spawners.Count;
 
 		for (int i = 0; i < enemyNumber; i++)
@@ -50,15 +45,25 @@ public class WaveManager : MonoBehaviour {
 
 			currentEnemies.Add(enemy);
 		}
-
-		startingWave = false;
 	}
 	
-	// Update is called once per frame
-	void Update () {
-		if (gameLaunched && !startingWave && currentEnemies.Count == 0) {
-			Debug.Log("Début de la manche "+(waveNumber+1));
-			StartNewWave();
+
+	void Update() {
+		
+		if (gameLaunched && currentEnemies.Count == 0 && !upgradeComplete && !upgradeManager.currentlyUpgrading) {
+			waveNumber++;
+			if (waveNumber > 1) {
+				upgradeManager.StartUpgrade();
+			} else {
+				upgradeComplete = true;
+			}
 		}
+
+		if (gameLaunched && currentEnemies.Count == 0 && upgradeComplete) {
+			SpawnEnemies();
+			upgradeComplete = false;
+		}
+
 	}
+
 }
