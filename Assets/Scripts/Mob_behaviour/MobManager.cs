@@ -3,15 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class MobManager : MonoBehaviour {
-	public GameObject player;
-	private static GameObject staticPlayer;
+	public GameObject[] players;
+	private static GameObject[] staticPlayers;
 
 	// Use this for initialization
 	void Start () {
-		staticPlayer = player;
+		staticPlayers = players;
 	}
 
-	public static Vector2 GetPlayerPosition() {
-		return staticPlayer.transform.position;
+	public static GameObject GetPlayer(int i) {
+		return staticPlayers[i];
 	}
 }

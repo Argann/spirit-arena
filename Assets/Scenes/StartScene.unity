@@ -633,6 +633,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 114082703024097312, guid: 7a31239aff693b5439c5edb611d4bbe3,
+        type: 2}
+      propertyPath: playSceneName
+      value: Etienne_spawn
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7a31239aff693b5439c5edb611d4bbe3, type: 2}
   m_IsPrefabAsset: 0

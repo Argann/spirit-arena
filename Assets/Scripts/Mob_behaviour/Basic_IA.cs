@@ -4,15 +4,16 @@ using UnityEngine;
 
 public class Basic_IA : MonoBehaviour {
 	public float step = 0.02f;
-	private Vector2 player_position;
+	private GameObject player;
 
 	// Use this for initialization
 	void Start () {
-		player_position = MobManager.GetPlayerPosition();
+		int index = Random.Range(0, 2);
+		player = MobManager.GetPlayer(index);
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		transform.position = Vector2.MoveTowards(transform.position, player_position, step);
+		transform.position = Vector2.MoveTowards(transform.position, player.transform.position, step);
 	}
 }
