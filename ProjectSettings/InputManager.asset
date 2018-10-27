@@ -262,7 +262,7 @@ InputManager:
     axis: 4
     joyNum: 2
   - serializedVersion: 3
-    m_Name: P1_menu_interact
+    m_Name: P1_interact
     descriptiveName: 
     descriptiveNegativeName: 
     negativeButton: 
@@ -278,7 +278,7 @@ InputManager:
     axis: 0
     joyNum: 1
   - serializedVersion: 3
-    m_Name: P2_menu_interact
+    m_Name: P2_interact
     descriptiveName: 
     descriptiveNegativeName: 
     negativeButton: 
