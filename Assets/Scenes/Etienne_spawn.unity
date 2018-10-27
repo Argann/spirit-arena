@@ -153,13 +153,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6d7e7d822a7b4049b6d26329990a3f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mobs_prefab:
-  - {fileID: 1969296268583146, guid: 5363e5fd495ca5f4a885103d5aa3f63e, type: 2}
-  - {fileID: 1638144853290686, guid: 0423bde6302d0fb4ab0c63de440dea01, type: 2}
-  - {fileID: 1210298402709090, guid: 2e39e08b32e78b547addeb6a69a0c6e1, type: 2}
-  - {fileID: 1631536832355956, guid: e6ff25ac9e11abd41972b103d91ac65d, type: 2}
-  - {fileID: 1285256623527926, guid: eacd8ea4bca77ba4287572b2556f5e4c, type: 2}
-  - {fileID: 1565918588881444, guid: e8b5ff88859b96546b668e0636bc79ee, type: 2}
   delay: 2
 --- !u!1001 &362934347
 Prefab:
@@ -260,13 +253,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6d7e7d822a7b4049b6d26329990a3f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mobs_prefab:
-  - {fileID: 1969296268583146, guid: 5363e5fd495ca5f4a885103d5aa3f63e, type: 2}
-  - {fileID: 1638144853290686, guid: 0423bde6302d0fb4ab0c63de440dea01, type: 2}
-  - {fileID: 1210298402709090, guid: 2e39e08b32e78b547addeb6a69a0c6e1, type: 2}
-  - {fileID: 1631536832355956, guid: e6ff25ac9e11abd41972b103d91ac65d, type: 2}
-  - {fileID: 1285256623527926, guid: eacd8ea4bca77ba4287572b2556f5e4c, type: 2}
-  - {fileID: 1565918588881444, guid: e8b5ff88859b96546b668e0636bc79ee, type: 2}
   delay: 2
 --- !u!1 &684570873
 GameObject:
@@ -308,13 +294,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6d7e7d822a7b4049b6d26329990a3f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mobs_prefab:
-  - {fileID: 1969296268583146, guid: 5363e5fd495ca5f4a885103d5aa3f63e, type: 2}
-  - {fileID: 1638144853290686, guid: 0423bde6302d0fb4ab0c63de440dea01, type: 2}
-  - {fileID: 1210298402709090, guid: 2e39e08b32e78b547addeb6a69a0c6e1, type: 2}
-  - {fileID: 1631536832355956, guid: e6ff25ac9e11abd41972b103d91ac65d, type: 2}
-  - {fileID: 1285256623527926, guid: eacd8ea4bca77ba4287572b2556f5e4c, type: 2}
-  - {fileID: 1565918588881444, guid: e8b5ff88859b96546b668e0636bc79ee, type: 2}
   delay: 2
 --- !u!1 &963222346 stripped
 GameObject:
@@ -361,13 +340,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6d7e7d822a7b4049b6d26329990a3f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mobs_prefab:
-  - {fileID: 1969296268583146, guid: 5363e5fd495ca5f4a885103d5aa3f63e, type: 2}
-  - {fileID: 1638144853290686, guid: 0423bde6302d0fb4ab0c63de440dea01, type: 2}
-  - {fileID: 1210298402709090, guid: 2e39e08b32e78b547addeb6a69a0c6e1, type: 2}
-  - {fileID: 1631536832355956, guid: e6ff25ac9e11abd41972b103d91ac65d, type: 2}
-  - {fileID: 1285256623527926, guid: eacd8ea4bca77ba4287572b2556f5e4c, type: 2}
-  - {fileID: 1565918588881444, guid: e8b5ff88859b96546b668e0636bc79ee, type: 2}
   delay: 2
 --- !u!1 &1203834999
 GameObject:
@@ -495,6 +467,12 @@ Prefab:
       propertyPath: players.Array.data[1]
       value: 
       objectReference: {fileID: 963222346}
+    - target: {fileID: 114093985373479590, guid: e9dd09229bfb4614fa2c816711f194c5,
+        type: 2}
+      propertyPath: mob
+      value: 
+      objectReference: {fileID: 1210298402709090, guid: 2e39e08b32e78b547addeb6a69a0c6e1,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e9dd09229bfb4614fa2c816711f194c5, type: 2}
   m_IsPrefabAsset: 0
@@ -538,13 +516,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6d7e7d822a7b4049b6d26329990a3f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mobs_prefab:
-  - {fileID: 1969296268583146, guid: 5363e5fd495ca5f4a885103d5aa3f63e, type: 2}
-  - {fileID: 1638144853290686, guid: 0423bde6302d0fb4ab0c63de440dea01, type: 2}
-  - {fileID: 1210298402709090, guid: 2e39e08b32e78b547addeb6a69a0c6e1, type: 2}
-  - {fileID: 1631536832355956, guid: e6ff25ac9e11abd41972b103d91ac65d, type: 2}
-  - {fileID: 1285256623527926, guid: eacd8ea4bca77ba4287572b2556f5e4c, type: 2}
-  - {fileID: 1565918588881444, guid: e8b5ff88859b96546b668e0636bc79ee, type: 2}
   delay: 2
 --- !u!1 &1664512035
 GameObject:
@@ -586,13 +557,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6d7e7d822a7b4049b6d26329990a3f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mobs_prefab:
-  - {fileID: 1969296268583146, guid: 5363e5fd495ca5f4a885103d5aa3f63e, type: 2}
-  - {fileID: 1638144853290686, guid: 0423bde6302d0fb4ab0c63de440dea01, type: 2}
-  - {fileID: 1210298402709090, guid: 2e39e08b32e78b547addeb6a69a0c6e1, type: 2}
-  - {fileID: 1631536832355956, guid: e6ff25ac9e11abd41972b103d91ac65d, type: 2}
-  - {fileID: 1285256623527926, guid: eacd8ea4bca77ba4287572b2556f5e4c, type: 2}
-  - {fileID: 1565918588881444, guid: e8b5ff88859b96546b668e0636bc79ee, type: 2}
   delay: 2
 --- !u!1 &1671051060
 GameObject:
@@ -608,7 +572,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1671051061
 Transform:
   m_ObjectHideFlags: 0
@@ -670,13 +634,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6d7e7d822a7b4049b6d26329990a3f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mobs_prefab:
-  - {fileID: 1969296268583146, guid: 5363e5fd495ca5f4a885103d5aa3f63e, type: 2}
-  - {fileID: 1638144853290686, guid: 0423bde6302d0fb4ab0c63de440dea01, type: 2}
-  - {fileID: 1210298402709090, guid: 2e39e08b32e78b547addeb6a69a0c6e1, type: 2}
-  - {fileID: 1631536832355956, guid: e6ff25ac9e11abd41972b103d91ac65d, type: 2}
-  - {fileID: 1285256623527926, guid: eacd8ea4bca77ba4287572b2556f5e4c, type: 2}
-  - {fileID: 1565918588881444, guid: e8b5ff88859b96546b668e0636bc79ee, type: 2}
   delay: 2
 --- !u!1 &1842478390
 GameObject:
@@ -718,13 +675,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6d7e7d822a7b4049b6d26329990a3f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mobs_prefab:
-  - {fileID: 1969296268583146, guid: 5363e5fd495ca5f4a885103d5aa3f63e, type: 2}
-  - {fileID: 1638144853290686, guid: 0423bde6302d0fb4ab0c63de440dea01, type: 2}
-  - {fileID: 1210298402709090, guid: 2e39e08b32e78b547addeb6a69a0c6e1, type: 2}
-  - {fileID: 1631536832355956, guid: e6ff25ac9e11abd41972b103d91ac65d, type: 2}
-  - {fileID: 1285256623527926, guid: eacd8ea4bca77ba4287572b2556f5e4c, type: 2}
-  - {fileID: 1565918588881444, guid: e8b5ff88859b96546b668e0636bc79ee, type: 2}
   delay: 2
 --- !u!1001 &1988900670
 Prefab:
