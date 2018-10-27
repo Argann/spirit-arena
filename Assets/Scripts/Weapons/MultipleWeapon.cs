@@ -12,7 +12,7 @@ public class MultipleWeapon : Weapon
         PlayerControls player = playerObject.GetComponent<PlayerControls>();
         Vector2 position = playerObject.transform.position;
         Vector2 direction = player.GetAim();
-        float damageMultiplicator = player.damageMultiplicator;
+        float damageMultiplicator = player.DamageMultiplicator;
         if (numberOfBullets % 2 == 1)
             createSingleBullet(player.bullet, position + direction * distanceToPLayer, direction, damageMultiplicator);
         for (int n = 0; n < (int)(numberOfBullets/2); n++)

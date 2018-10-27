@@ -9,7 +9,7 @@ public class LineWeapon : Weapon
         PlayerControls player = playerObject.GetComponent<PlayerControls>();
         Vector2 position = playerObject.transform.position;
         Vector2 direction = player.GetAim();
-        float damageMultiplicator = player.damageMultiplicator;
+        float damageMultiplicator = player.DamageMultiplicator;
         createSingleBullet(player.bullet, position + direction * distanceToPLayer, direction, damageMultiplicator);
     }
 }
