@@ -15,11 +15,47 @@ public class PlayerControls : MonoBehaviour {
 	// ================================================
 	[Header("Buffs")]
     public int armor = 0;
-	public float damageMultiplicator = 1f;
-	public float attackSpeedMultiplicator = 1f;
-    public float movementSpeedMultiplicator = 1f;
-    public float bonusDurationMultiplicator = 1f;
-    public float swapCooldownMultiplicator = 1f;
+
+    [SerializeField]
+    private float damageMultiplicator = 1f;
+    public float DamageMultiplicator
+    {
+        get { return damageMultiplicator;}
+        set { damageMultiplicator = value;}
+    }
+
+    [SerializeField]
+    private float attackSpeedMultiplicator = 1f;
+    public float AttackSpeedMultiplicator
+    {
+        get { return attackSpeedMultiplicator;}
+        set { attackSpeedMultiplicator = value;}
+    }
+    
+    [SerializeField]    
+    private float movementSpeedMultiplicator = 1f;
+    public float MovementSpeedMultiplicator
+    {
+        get { return movementSpeedMultiplicator;}
+        set { movementSpeedMultiplicator = value;}
+    }
+    
+    [SerializeField]
+    private float bonusDurationMultiplicator = 1f;
+    public float BonusDurationMultiplicator
+    {
+        get { return bonusDurationMultiplicator;}
+        set { bonusDurationMultiplicator = value;}
+    }
+
+    [SerializeField]
+    private float swapCooldownMultiplicator = 1f;
+    public float SwapCooldownMultiplicator
+    {
+        get { return swapCooldownMultiplicator;}
+        set { swapCooldownMultiplicator = value;}
+    }
+    
 	// ================================================
 	[Header("Bonus weapon")]
     public GameObject bonusWeapon = null;

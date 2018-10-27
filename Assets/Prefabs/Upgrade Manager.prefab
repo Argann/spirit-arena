@@ -51,6 +51,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5064489290d471649b178e6b125f163f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player1: {fileID: 0}
+  player2: {fileID: 0}
+  buffs:
+  - description: +10% Attack Speed
+    type: 0
+    mult: 0.1
+    image: {fileID: 21300000, guid: c55d6bfa453c8824fa394739c92e9947, type: 3}
+  - description: +10% Attack Damage
+    type: 1
+    mult: 0.1
+    image: {fileID: 21300000, guid: 632ff4afd4ad6f342b361f63e845be10, type: 3}
+  - description: +10% Movement Speed
+    type: 2
+    mult: 0.1
+    image: {fileID: 21300000, guid: ff9fcff068594554094c78521cccd608, type: 3}
+  - description: +10% Bonus Time
+    type: 4
+    mult: 0.1
+    image: {fileID: 21300000, guid: d24898a2b83da3d458922a48795f112c, type: 3}
+  waveManager: {fileID: 0}
   upgradeScreenCanvas: {fileID: 0}
   timerUI: {fileID: 0}
   scoreP1UI: {fileID: 0}
@@ -59,3 +79,4 @@ MonoBehaviour:
   upgradeDescription: {fileID: 0}
   minigameTimer: 7
   afterMinigameTimer: 4
+  currentlyUpgrading: 0

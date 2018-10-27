@@ -13,7 +13,7 @@ public abstract class Weapon : MonoBehaviour
 	{
         PlayerControls player = playerObject.GetComponent<PlayerControls>();
 		long now = System.DateTime.Now.Ticks / System.TimeSpan.TicksPerMillisecond;
-        if (now >= player.lastShotTiming + (long)(player.attackSpeedMultiplicator * cooldownMs)) {
+        if (now >= player.lastShotTiming + (long)(player.AttackSpeedMultiplicator * cooldownMs)) {
             player.lastShotTiming = now;
             fireImplementation(playerObject);
         }

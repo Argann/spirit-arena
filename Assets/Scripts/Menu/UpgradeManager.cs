@@ -6,6 +6,17 @@ using UnityEngine.UI;
 public class UpgradeManager : MonoBehaviour {
 
 	[SerializeField]
+	private PlayerControls player1;
+
+	[SerializeField]
+	private PlayerControls player2;
+
+	[SerializeField]
+	private List<Buff> buffs;
+
+	private Buff currentBuff;
+
+	[SerializeField]
 	private WaveManager waveManager;
 
 	[SerializeField]
@@ -50,6 +61,26 @@ public class UpgradeManager : MonoBehaviour {
 	void ApplyUpgrade() {
 		// You must apply the upgrade here
 		// You can use the `winnerPlayer` var
+		PlayerControls pc = winnerPlayer == 1 ? player1 : player2;
+
+		if (currentBuff.type == Buff.BuffType.AttackDmg) {
+
+			pc.DamageMultiplicator += currentBuff.mult;
+
+		} else if (currentBuff.type == Buff.BuffType.AttackSpeed) {
+
+			pc.AttackSpeedMultiplicator += currentBuff.mult;
+
+		} else if (currentBuff.type == Buff.BuffType.MovementSpeed) {
+
+			pc.MovementSpeedMultiplicator += currentBuff.mult;
+
+		} else if (currentBuff.type == Buff.BuffType.BonusTime) {
+
+			pc.BonusDurationMultiplicator += currentBuff.mult;
+			
+		}
+
 
 		// And then we go back to the game
 		Debug.Log("END OF UPGRADE");
@@ -74,6 +105,12 @@ public class UpgradeManager : MonoBehaviour {
 
 		scoreP1UI.text = "0";
 		scoreP2UI.text = "0";
+
+		currentBuff = buffs[Random.Range(0, buffs.Count)];
+
+		upgradeImage.sprite = currentBuff.image;
+
+		upgradeDescription.text = currentBuff.description;
 
 		scoreP1UI.color = new Color(144, 144, 144);
 		scoreP2UI.color = new Color(144, 144, 144);
