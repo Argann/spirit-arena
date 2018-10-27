@@ -8,7 +8,7 @@ public class PlayerControls : MonoBehaviour {
 	public GameObject[] spells;
 	private Vector2 movement;
 
-	public float attackCooldown = 2;
+	public float attackCooldown = 1;
 	public float swapCooldown = 2;
 	private float attackStart;
 	private float swapStart;
@@ -34,14 +34,12 @@ public class PlayerControls : MonoBehaviour {
 		movement = movement * playerSpeed;
 
 		if((Input.GetAxisRaw(PlayerAction) != 0) && (Time.time - attackStart > attackCooldown)) {
-			Debug.Log("pew pew");
 			attackStart = Time.time;
-			GameObject instance = Instantiate(spells[state], gameObject.GetComponent<Transform>().position + new Vector3(0.6f,0f,0f), gameObject.GetComponent<Transform>().rotation);
+			GameObject instance = Instantiate(spells[state], transform.position, transform.rotation);
 			instance.GetComponent<Rigidbody2D>().velocity = new Vector2(3, 0);
 		}
 
 		if((Input.GetAxisRaw(PlayerSwap) != 0) && (Time.time - swapStart > swapCooldown)) {
-			Debug.Log("SWAP");
 			swapStart = Time.time;
 			state = 1 - state;
 		}
