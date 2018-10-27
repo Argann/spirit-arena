@@ -290,6 +290,6 @@ InputManager:
     sensitivity: 0.25
     snap: 1
     invert: 0
-    type: 2
-    axis: 4
+    type: 0
+    axis: 0
     joyNum: 2
