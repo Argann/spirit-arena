@@ -8,8 +8,26 @@ public abstract class Weapon : MonoBehaviour
 	public float damages = 1;
 	public float projectileSpeed = 10;
 	public float projectileTtlMs = 100;
+	public float distanceToPLayer = 2f;
 	protected long lastShotTiming = 0;
-	public abstract void fire(GameObject playerObject);
+	public void fire(GameObject playerObject)
+	{
+        PlayerControls player = playerObject.GetComponent<PlayerControls>();
+		long now = System.DateTime.Now.Ticks / System.TimeSpan.TicksPerMillisecond;
+        if (now >= lastShotTiming + (long)(player.attackSpeedMultiplicator * cooldownMs)) {
+            lastShotTiming = now;
+            fireImplementation(playerObject);
+        }
+	}
+
+	public abstract void fireImplementation(GameObject playerObject);
+
+	public void createSingleBullet(GameObject bullet, Vector2 position, Vector2 direction)
+	{
+		GameObject instance = GameObject.Instantiate(bullet, new Vector3(position.x, position.y, 0), Quaternion.identity);
+		instance.GetComponent<Rigidbody2D>().velocity = direction * projectileSpeed;
+		instance.GetComponent<Timeout>().ttlMillis = projectileTtlMs;
+	}
 
 	protected Vector2 RotateVector(Vector2 vector, float angle)
 	{

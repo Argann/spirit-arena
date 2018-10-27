@@ -4,15 +4,11 @@ using UnityEngine;
 
 public class LineWeapon : Weapon
 {
-	public override void fire(GameObject playerObject)
+	public override void fireImplementation(GameObject playerObject)
     {
         PlayerControls player = playerObject.GetComponent<PlayerControls>();
-        long now = System.DateTime.Now.Ticks / System.TimeSpan.TicksPerMillisecond;
-        if (now >= lastShotTiming + (long)(player.attackSpeedMultiplicator * cooldownMs)) {
-            lastShotTiming = now;
-            GameObject instance = GameObject.Instantiate(player.bullet, playerObject.transform.position, playerObject.transform.rotation);
-			instance.GetComponent<Rigidbody2D>().velocity = player.GetAim() * projectileSpeed;
-            instance.GetComponent<Timeout>().ttlMillis = projectileTtlMs;
-        }
+        Vector2 position = playerObject.transform.position;
+        Vector2 direction = player.GetAim();
+        createSingleBullet(player.bullet, position + direction * distanceToPLayer, direction);
     }
 }

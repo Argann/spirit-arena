@@ -32,7 +32,7 @@ public class PlayerControls : MonoBehaviour {
 	private string VerticalInputLabel;
 	private string aimHorizontalInputLabel;
 	private string aimVerticalInputLabel;
-	private string playerActionLabel;
+	// private string playerActionLabel;
 	private string playerSwapLabel;
 
 	private Vector2 aim = new Vector2(0,0);
@@ -48,7 +48,7 @@ public class PlayerControls : MonoBehaviour {
         VerticalInputLabel      = string.Concat(playerPrefix, "_Vertical");
         aimHorizontalInputLabel = string.Concat(playerPrefix, "_aim_horizontal");
         aimVerticalInputLabel   = string.Concat(playerPrefix, "_aim_vertical");
-        playerActionLabel       = string.Concat(playerPrefix, "_action");
+        // playerActionLabel       = string.Concat(playerPrefix, "_action");
         playerSwapLabel         = string.Concat(playerPrefix, "_swap");
 	}
 

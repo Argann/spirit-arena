@@ -55,3 +55,4 @@ MonoBehaviour:
   damages: 1
   projectileSpeed: 10
   projectileTtlMs: 2000
+  distanceToPLayer: 0.6

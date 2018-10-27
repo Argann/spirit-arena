@@ -4,32 +4,22 @@ using UnityEngine;
 
 public class MultipleWeapon : Weapon
 {
-    public int numberOfBullets = 3;
-    public float angleDelta = 0.0872665f;
-	public override void fire(GameObject playerObject)
+    public int numberOfBullets = 5;
+    public float angleDelta = 0.2f;
+
+	public override void fireImplementation(GameObject playerObject)
     {
         PlayerControls player = playerObject.GetComponent<PlayerControls>();
-        long now = System.DateTime.Now.Ticks / System.TimeSpan.TicksPerMillisecond;
-        if (now >= lastShotTiming + (long)(player.attackSpeedMultiplicator * cooldownMs)) {
-            lastShotTiming = now;
-            for (int n = 0; n < (int)(numberOfBullets/2); n++)
-            {
-                // negative angle delta
-                GameObject instance1 = GameObject.Instantiate(player.bullet, playerObject.transform.position, playerObject.transform.rotation);
-                instance1.GetComponent<Rigidbody2D>().velocity = RotateVector(player.GetAim(), -n * angleDelta) * projectileSpeed;
-                instance1.GetComponent<Timeout>().ttlMillis = projectileTtlMs;
-                // positive angle delta
-                GameObject instance2 = GameObject.Instantiate(player.bullet, playerObject.transform.position, playerObject.transform.rotation);
-                instance2.GetComponent<Rigidbody2D>().velocity = RotateVector(player.GetAim(), n * angleDelta) * projectileSpeed;
-                instance2.GetComponent<Timeout>().ttlMillis = projectileTtlMs;
-            }
-            if (numberOfBullets % 2 == 1)
-            {
-                // front
-                GameObject instance = GameObject.Instantiate(player.bullet, playerObject.transform.position, playerObject.transform.rotation);
-                instance.GetComponent<Rigidbody2D>().velocity = player.GetAim() * projectileSpeed;
-                instance.GetComponent<Timeout>().ttlMillis = projectileTtlMs;
-            }
+        Vector2 position = playerObject.transform.position;
+        Vector2 direction = player.GetAim();
+        if (numberOfBullets % 2 == 1)
+            createSingleBullet(player.bullet, position + direction * distanceToPLayer, direction);
+        for (int n = 0; n < (int)(numberOfBullets/2); n++)
+        {
+            Vector2 direction1 = this.RotateVector(direction,  n * angleDelta);
+            createSingleBullet(player.bullet, position + direction1 * distanceToPLayer, direction1);
+            Vector2 direction2 = this.RotateVector(direction, -n * angleDelta);
+            createSingleBullet(player.bullet, position + direction2 * distanceToPLayer, direction2);
         }
     }
 }

@@ -55,5 +55,5 @@ MonoBehaviour:
   damages: 5
   projectileSpeed: 10
   projectileTtlMs: 100
-  numberOfBullets: 20
-  angleDelta: 0.0872665
+  numberOfBullets: 5
+  angleDelta: 0.25
