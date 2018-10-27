@@ -24,6 +24,7 @@ GameObject:
   - component: {fileID: 114112321355307320}
   - component: {fileID: 58855427388417508}
   - component: {fileID: 58914769821443052}
+  - component: {fileID: 95865919227020292}
   m_Layer: 0
   m_Name: Player_1
   m_TagString: Player
@@ -94,6 +95,24 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.09
+--- !u!95 &95865919227020292
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1451696187111880}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d0287b1bb30044d4caa1a5ce089c9435, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &114112321355307320
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -106,7 +125,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerPrefix: P1
-  movementSpeed: 7.5
+  movementSpeed: 4
   swapCooldownMs: 50
   lifePoints: 10
   defaultWeapon: {fileID: 1266226895746288, guid: 9ca7e5329a59b7a4399832db84e134de,
@@ -120,6 +139,8 @@ MonoBehaviour:
   bonusWeapon: {fileID: 0}
   bullet: {fileID: 1310789113905822, guid: e35e4209832309d4aab8b6d47a7061dd, type: 2}
   otherPlayer: {fileID: 0}
+  lastShotTimingMs: 0
+  isSpirit: 1
 --- !u!212 &212117169420002618
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -155,12 +176,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
-  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 31213f56625da7f41bb041d9bdabd4e1, type: 3}
+  m_Color: {r: 0.80753773, g: 0.7287736, b: 0.9716981, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.16, y: 0.16}
+  m_Size: {x: 0.25, y: 0.25}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1

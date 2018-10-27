@@ -23,6 +23,8 @@ GameObject:
   - component: {fileID: 212001359218511188}
   - component: {fileID: 114340712144716390}
   - component: {fileID: 58106004272666178}
+  - component: {fileID: 58836050287225948}
+  - component: {fileID: 95735571795439506}
   m_Layer: 0
   m_Name: Player_2
   m_TagString: Player
@@ -37,7 +39,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1275359152046470}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.26, y: 0, z: 0}
+  m_LocalPosition: {x: -5, y: 5, z: 0}
   m_LocalScale: {x: 5, y: 5, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -78,6 +80,39 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.08
+--- !u!58 &58836050287225948
+CircleCollider2D:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1275359152046470}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.09
+--- !u!95 &95735571795439506
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1275359152046470}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d0287b1bb30044d4caa1a5ce089c9435, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &114340712144716390
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -95,6 +130,7 @@ MonoBehaviour:
   lifePoints: 10
   defaultWeapon: {fileID: 1266226895746288, guid: 9ca7e5329a59b7a4399832db84e134de,
     type: 2}
+  armor: 0
   damageMultiplicator: 1
   attackSpeedMultiplicator: 1
   movementSpeedMultiplicator: 1
@@ -103,6 +139,8 @@ MonoBehaviour:
   bonusWeapon: {fileID: 0}
   bullet: {fileID: 1032951220512420, guid: c87a6921def0a9845bfd4147f422bc6d, type: 2}
   otherPlayer: {fileID: 0}
+  lastShotTimingMs: 0
+  isSpirit: 0
 --- !u!212 &212001359218511188
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -138,8 +176,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
-  m_Color: {r: 0.92993367, g: 1, b: 0, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 31213f56625da7f41bb041d9bdabd4e1, type: 3}
+  m_Color: {r: 0.7671288, g: 0.9056604, b: 0.508366, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

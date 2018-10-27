@@ -77,10 +77,16 @@ public class PlayerControls : MonoBehaviour {
 
 	private Vector2 aim = new Vector2(0,0);
     private Vector2 movement = new Vector2(0,0);
+
+    // =================================================
+    private Animator animator;
     
     // since we use axis (needed for key mapping), we have to
     // detect button press by ourselves...
     private bool previousFrameSwapUp = true;
+
+    [SerializeField]
+    private bool isSpirit;
 
 	void Start () {
 		gameObject.GetComponent<Rigidbody2D>().freezeRotation = true;
@@ -90,6 +96,7 @@ public class PlayerControls : MonoBehaviour {
         aimVerticalInputLabel   = string.Concat(playerPrefix, "_aim_vertical");
         // playerActionLabel       = string.Concat(playerPrefix, "_action");
         playerSwapLabel         = string.Concat(playerPrefix, "_swap");
+        animator = GetComponent<Animator>();
 	}
 
     public void TakeDamages(int n)
@@ -108,6 +115,25 @@ public class PlayerControls : MonoBehaviour {
         movement = new Vector2(Input.GetAxisRaw(horizontalInputLabel), Input.GetAxisRaw(VerticalInputLabel));
 		movement.Normalize();
 		movement = movement * movementSpeed * movementSpeedMultiplicator;
+        
+        if (movement.Equals(Vector2.zero)) {
+            animator.SetBool("Running", false);
+        } else {
+            animator.SetBool("Running", true);
+        }
+
+        if(movement.x > 0) {
+            transform.localScale = new Vector3(-5, transform.localScale.y, transform.localScale.z);
+        } else if (movement.x < 0) {
+            transform.localScale = new Vector3(5, transform.localScale.y, transform.localScale.z);
+        }
+
+        if (isSpirit) {
+            animator.SetBool("Spirit", true);
+        } else {
+            animator.SetBool("Spirit", false);            
+        }
+
         // ------ attacks ------
         if (aim.magnitude >= 0.1f)
         {
@@ -130,12 +156,14 @@ public class PlayerControls : MonoBehaviour {
         long now = System.DateTime.Now.Ticks / System.TimeSpan.TicksPerMillisecond;
         if(previousFrameSwapUp && swapButtonPressed && (now >= lastSwapTimingMs + (long)(swapCooldownMultiplicator * swapCooldownMs))) {
             lastSwapTimingMs = now;
+            isSpirit = !isSpirit;
             if (otherPlayer)
             {
                 PlayerControls P2 = otherPlayer.GetComponent<PlayerControls>();
                 GameObject tmp = bullet;
                 bullet = P2.bullet;
                 P2.bullet = tmp;
+                P2.isSpirit = !P2.isSpirit;
             }
             else
             {
