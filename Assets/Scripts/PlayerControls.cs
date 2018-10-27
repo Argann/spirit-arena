@@ -29,6 +29,8 @@ public class PlayerControls : MonoBehaviour {
     public GameObject otherPlayer = null;
     private long lastSwapTimingMs = 0;
 	// ================================================
+    public long lastShotTiming = 0;
+	// ================================================
 
 	private string horizontalInputLabel;
 	private string VerticalInputLabel;

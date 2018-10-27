@@ -94,23 +94,23 @@ public class UpgradeManager : MonoBehaviour {
 
 				timerUI.value = Mathf.InverseLerp(0, 7, currentTimer);
 
-				if (Input.GetAxisRaw("P1_action") > 0 && firstFrameP1) {
+				if (Input.GetAxisRaw("P1_interact") > 0 && firstFrameP1) {
 					scoreP1++;
 					scoreP1UI.text = ""+scoreP1;
 					firstFrameP1 = false;
 				}
 
-				if (Input.GetAxisRaw("P1_action") == 0) {
+				if (Input.GetAxisRaw("P1_interact") == 0) {
 					firstFrameP1 = true;
 				}
 
-				if (Input.GetAxisRaw("P2_action") > 0 && firstFrameP2) {
+				if (Input.GetAxisRaw("P2_interact") > 0 && firstFrameP2) {
 					scoreP2++;
 					scoreP2UI.text = ""+scoreP2;
 					firstFrameP2 = false;
 				}
 
-				if (Input.GetAxisRaw("P2_action") == 0) {
+				if (Input.GetAxisRaw("P2_interact") == 0) {
 					firstFrameP2 = true;
 				}
 			} else {
