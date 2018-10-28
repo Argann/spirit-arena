@@ -78,7 +78,11 @@ public class UpgradeManager : MonoBehaviour {
 		} else if (currentBuff.type == Buff.BuffType.BonusTime) {
 
 			pc.BonusDurationMultiplicator += currentBuff.mult;
-			
+
+		} else if (currentBuff.type == Buff.BuffType.Armor) {
+
+			pc.Armor +=  (int) currentBuff.mult;
+
 		}
 
 		// We reset life of dead heroes

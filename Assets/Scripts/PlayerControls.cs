@@ -26,7 +26,14 @@ public class PlayerControls : MonoBehaviour {
     public GameObject scoreUI = null;
 	// ================================================
 	[Header("Buffs")]
-    public int armor = 0;
+
+    private int armor = 0;
+    public int Armor
+    {
+        get { return armor;}
+        set { armor = value;}
+    }
+    
 
     [SerializeField]
     private float damageMultiplicator = 1f;
