@@ -33,7 +33,7 @@ public class PlayerControls : MonoBehaviour {
     public float AttackSpeedMultiplicator
     {
         get { return attackSpeedMultiplicator;}
-        set { attackSpeedMultiplicator = value; SetStatUI("damage_text", (int)(damageMultiplicator * 100), "%"); }
+        set { attackSpeedMultiplicator = value; SetStatUI("attack-speed_text", (int)(damageMultiplicator * 100), "%"); }
     }
     
     [SerializeField]    
@@ -41,7 +41,7 @@ public class PlayerControls : MonoBehaviour {
     public float MovementSpeedMultiplicator
     {
         get { return movementSpeedMultiplicator;}
-        set { movementSpeedMultiplicator = value; SetStatUI("damage_text", (int)(damageMultiplicator * 100), "%"); }
+        set { movementSpeedMultiplicator = value; SetStatUI("move_text", (int)(damageMultiplicator * 100), "%"); }
     }
     
     [SerializeField]
@@ -49,7 +49,7 @@ public class PlayerControls : MonoBehaviour {
     public float BonusDurationMultiplicator
     {
         get { return bonusDurationMultiplicator;}
-        set { bonusDurationMultiplicator = value; SetStatUI("damage_text", (int)(damageMultiplicator * 100), "%"); }
+        set { bonusDurationMultiplicator = value; SetStatUI("time_text", (int)(damageMultiplicator * 100), "%"); }
     }
 
     [SerializeField]
@@ -57,7 +57,7 @@ public class PlayerControls : MonoBehaviour {
     public float SwapCooldownMultiplicator
     {
         get { return swapCooldownMultiplicator;}
-        set { swapCooldownMultiplicator = value; SetStatUI("damage_text", (int)(damageMultiplicator * 100), "%"); }
+        set { swapCooldownMultiplicator = value; /* SetStatUI("damage_text", (int)(damageMultiplicator * 100), "%"); */ }
     }
 
     private void SetStatUI(string label, int value, string suffix)
@@ -113,6 +113,7 @@ public class PlayerControls : MonoBehaviour {
         // playerActionLabel       = string.Concat(playerPrefix, "_action");
         playerSwapLabel         = string.Concat(playerPrefix, "_swap");
         animator = GetComponent<Animator>();
+        BonusDurationMultiplicator = 2f;
 	}
 
     public void TakeDamages(int n)
