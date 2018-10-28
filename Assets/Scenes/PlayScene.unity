@@ -1472,7 +1472,7 @@ MonoBehaviour:
   currentHP: 10
   maxHP: 10
   baseHP: 10
-  positionHPBar: {x: 7.185, y: -3.6175, z: 0}
+  positionHPBar: {x: 7.185, y: -3.575, z: 0}
 --- !u!114 &963222349 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 114340712144716390, guid: 24716d29f97eee145aae01e9405d8c1d,
@@ -2126,106 +2126,6 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1402318081}
   m_CullTransparentMesh: 0
---- !u!1001 &1432822629
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 224206636539351542, guid: 113ca51a5e760b64bbca5cef6394a684,
-        type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 224206636539351542, guid: 113ca51a5e760b64bbca5cef6394a684,
-        type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 224206636539351542, guid: 113ca51a5e760b64bbca5cef6394a684,
-        type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 224206636539351542, guid: 113ca51a5e760b64bbca5cef6394a684,
-        type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 224206636539351542, guid: 113ca51a5e760b64bbca5cef6394a684,
-        type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 224206636539351542, guid: 113ca51a5e760b64bbca5cef6394a684,
-        type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 224206636539351542, guid: 113ca51a5e760b64bbca5cef6394a684,
-        type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 224206636539351542, guid: 113ca51a5e760b64bbca5cef6394a684,
-        type: 2}
-      propertyPath: m_RootOrder
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 224206636539351542, guid: 113ca51a5e760b64bbca5cef6394a684,
-        type: 2}
-      propertyPath: m_AnchoredPosition.x
-      value: 42
-      objectReference: {fileID: 0}
-    - target: {fileID: 224206636539351542, guid: 113ca51a5e760b64bbca5cef6394a684,
-        type: 2}
-      propertyPath: m_AnchoredPosition.y
-      value: 237
-      objectReference: {fileID: 0}
-    - target: {fileID: 224206636539351542, guid: 113ca51a5e760b64bbca5cef6394a684,
-        type: 2}
-      propertyPath: m_SizeDelta.x
-      value: 64
-      objectReference: {fileID: 0}
-    - target: {fileID: 224206636539351542, guid: 113ca51a5e760b64bbca5cef6394a684,
-        type: 2}
-      propertyPath: m_SizeDelta.y
-      value: 454
-      objectReference: {fileID: 0}
-    - target: {fileID: 224206636539351542, guid: 113ca51a5e760b64bbca5cef6394a684,
-        type: 2}
-      propertyPath: m_AnchorMin.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 224206636539351542, guid: 113ca51a5e760b64bbca5cef6394a684,
-        type: 2}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 224206636539351542, guid: 113ca51a5e760b64bbca5cef6394a684,
-        type: 2}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 224206636539351542, guid: 113ca51a5e760b64bbca5cef6394a684,
-        type: 2}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 224206636539351542, guid: 113ca51a5e760b64bbca5cef6394a684,
-        type: 2}
-      propertyPath: m_Pivot.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 224206636539351542, guid: 113ca51a5e760b64bbca5cef6394a684,
-        type: 2}
-      propertyPath: m_Pivot.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 113ca51a5e760b64bbca5cef6394a684, type: 2}
-  m_IsPrefabAsset: 0
 --- !u!1 &1440783012
 GameObject:
   m_ObjectHideFlags: 0
@@ -3419,7 +3319,7 @@ MonoBehaviour:
   currentHP: 10
   maxHP: 10
   baseHP: 10
-  positionHPBar: {x: -7.185, y: -3.6175, z: 0}
+  positionHPBar: {x: -7.185, y: -3.575, z: 0}
 --- !u!114 &1988900675 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 114112321355307320, guid: b75ffdfbc7ed4854eb0d62421a54b905,
