@@ -12,6 +12,7 @@ public class PlayerControls : MonoBehaviour {
 	public float movementSpeed = 7.5f;
 	public long swapCooldownMs = 50;
     public int lifePoints = 10;
+    public int maxLifePoints = 10;
     public GameObject defaultWeapon = null;
     [SerializeField]
     private int points = 0;
@@ -125,7 +126,8 @@ public class PlayerControls : MonoBehaviour {
     private bool firstFrameDead = true;
 
     public void IncreaseMaxHealth(int inc) {
-        hpbar.maxHP += inc;
+        maxLifePoints += inc;
+        lifePoints = maxLifePoints;
     }
 
 	void Start () {
