@@ -14,8 +14,6 @@ public class MobCollider : MonoBehaviour {
 			bullet.StopMe();
 			float dealtDamages = Mathf.Min(lifePoints, bullet.damages);
 			bullet.player.Points = bullet.player.Points + (int)(dealtDamages * 100);
-			Debug.Log(dealtDamages);
-			Debug.Log(bullet.player.Points);
 			lifePoints -= dealtDamages;
 			if (lifePoints <= 0)
 			{

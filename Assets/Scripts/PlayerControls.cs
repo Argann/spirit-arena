@@ -18,11 +18,12 @@ public class PlayerControls : MonoBehaviour {
     public int Points
     {
         get { return points;}
-        set { points = value; }
+        set { points = value; if (scoreUI) scoreUI.GetComponent<Text>().text = points.ToString(); }
     }
 	// ================================================
 	[Header("UI")]
     public GameObject statsUI = null;
+    public GameObject scoreUI = null;
 	// ================================================
 	[Header("Buffs")]
     public int armor = 0;
