@@ -80,6 +80,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24b2258cf12c9674b8814bd37d430c99, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  waveNumberUI: {fileID: 0}
   upgradeManager: {fileID: 0}
   spawners:
   - {fileID: 0}
@@ -97,3 +98,4 @@ MonoBehaviour:
   - {fileID: 1631536832355956, guid: e6ff25ac9e11abd41972b103d91ac65d, type: 2}
   - {fileID: 1285256623527926, guid: eacd8ea4bca77ba4287572b2556f5e4c, type: 2}
   - {fileID: 1565918588881444, guid: e8b5ff88859b96546b668e0636bc79ee, type: 2}
+  upgradeComplete: 0

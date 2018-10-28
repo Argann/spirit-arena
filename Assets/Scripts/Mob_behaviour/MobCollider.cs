@@ -8,16 +8,14 @@ public class MobCollider : MonoBehaviour {
 
 	void OnTriggerEnter2D(Collider2D coll) {
 		if (coll.GetComponent<Collider2D>().tag == gameObject.GetComponent<Collider2D>().tag) {
-			Destroy(coll.gameObject, 0f);
-			Debug.Log("life = " + lifePoints);
+			coll.gameObject.GetComponent<Animator>().SetBool("Exploded", true);
 			Bullet bullet = coll.gameObject.GetComponent<Bullet>();
+			bullet.StopMe();
 			lifePoints -= bullet.damages;
 			if (lifePoints <= 0)
 			{
-				Debug.Log("life = " + lifePoints);
-				Debug.Log("MOOOOOOOOOOOOOOOOOOOOOOOOOOOORT");
 				WaveManager.DeleteEnemy(gameObject);
-				Destroy(gameObject, 0f);
+				GetComponent<Animator>().SetBool("Dead", true);
 			}
 		}
 		else if (coll.GetComponent<Collider2D>().tag == "Player")
@@ -25,7 +23,12 @@ public class MobCollider : MonoBehaviour {
 			PlayerControls player = coll.GetComponent<PlayerControls>();
 			player.TakeDamages(damage);
 			WaveManager.DeleteEnemy(gameObject);
-			Destroy(gameObject, 0f);
+			GetComponent<Animator>().SetBool("Dead", true);
+			damage = 0;
 		}
+	}
+
+	public void DestroyMe() {
+		Destroy(gameObject, 0f);
 	}
 }

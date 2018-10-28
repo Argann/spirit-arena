@@ -1,8 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class WaveManager : MonoBehaviour {
+
+	[SerializeField]
+	private Text waveNumberUI;
 
 	[SerializeField]
 	private UpgradeManager upgradeManager;
@@ -17,13 +21,24 @@ public class WaveManager : MonoBehaviour {
 	private static List<GameObject> currentEnemies = new List<GameObject>();
 
 	private int waveNumber = 0;
+	
 
 	private static bool gameLaunched = false;
 
 	public bool upgradeComplete = false;
 
+	void SetWaveNumber(int nbr) {
+		waveNumber = nbr;
+		waveNumberUI.text = "" + waveNumber;
+	}
+
 	public static void DeleteEnemy(GameObject enemy) {
 		currentEnemies.Remove(enemy);
+		if (enemy.tag == "Physical") {
+			SoundManager.PlaySoundBodyMonster();
+		} else if (enemy.tag == "Spirit") {
+			SoundManager.PlaySoundSpiritMonster();
+		}
 	}
 
 	public static void StartGame() {
@@ -51,7 +66,7 @@ public class WaveManager : MonoBehaviour {
 	void Update() {
 		
 		if (gameLaunched && currentEnemies.Count == 0 && !upgradeComplete && !upgradeManager.currentlyUpgrading) {
-			waveNumber++;
+			SetWaveNumber(waveNumber + 1);
 			if (waveNumber > 1) {
 				upgradeManager.StartUpgrade();
 			} else {

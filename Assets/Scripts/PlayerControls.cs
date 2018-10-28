@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerControls : MonoBehaviour {
 	// ================================================
@@ -13,6 +14,9 @@ public class PlayerControls : MonoBehaviour {
     public int lifePoints = 10;
     public GameObject defaultWeapon = null;
 	// ================================================
+	[Header("UI")]
+    public GameObject statsUI = null;
+	// ================================================
 	[Header("Buffs")]
     public int armor = 0;
 
@@ -21,7 +25,7 @@ public class PlayerControls : MonoBehaviour {
     public float DamageMultiplicator
     {
         get { return damageMultiplicator;}
-        set { damageMultiplicator = value;}
+        set { damageMultiplicator = value; SetStatUI("damage_text", (int)(damageMultiplicator * 100), "%"); }
     }
 
     [SerializeField]
@@ -29,7 +33,7 @@ public class PlayerControls : MonoBehaviour {
     public float AttackSpeedMultiplicator
     {
         get { return attackSpeedMultiplicator;}
-        set { attackSpeedMultiplicator = value;}
+        set { attackSpeedMultiplicator = value; SetStatUI("attack-speed_text", (int)(damageMultiplicator * 100), "%"); }
     }
     
     [SerializeField]    
@@ -37,7 +41,7 @@ public class PlayerControls : MonoBehaviour {
     public float MovementSpeedMultiplicator
     {
         get { return movementSpeedMultiplicator;}
-        set { movementSpeedMultiplicator = value;}
+        set { movementSpeedMultiplicator = value; SetStatUI("move_text", (int)(damageMultiplicator * 100), "%"); }
     }
     
     [SerializeField]
@@ -45,7 +49,7 @@ public class PlayerControls : MonoBehaviour {
     public float BonusDurationMultiplicator
     {
         get { return bonusDurationMultiplicator;}
-        set { bonusDurationMultiplicator = value;}
+        set { bonusDurationMultiplicator = value; SetStatUI("time_text", (int)(damageMultiplicator * 100), "%"); }
     }
 
     [SerializeField]
@@ -53,7 +57,19 @@ public class PlayerControls : MonoBehaviour {
     public float SwapCooldownMultiplicator
     {
         get { return swapCooldownMultiplicator;}
-        set { swapCooldownMultiplicator = value;}
+        set { swapCooldownMultiplicator = value; /* SetStatUI("damage_text", (int)(damageMultiplicator * 100), "%"); */ }
+    }
+
+    private void SetStatUI(string label, int value, string suffix)
+    {
+        if (statsUI)
+        {
+            statsUI.transform.Find(label).GetComponent<Text>().text = value + suffix;
+        }
+        else
+        {
+            Debug.LogError("no stat UI set");
+        }
     }
     
 	// ================================================
@@ -65,7 +81,7 @@ public class PlayerControls : MonoBehaviour {
     public GameObject otherPlayer = null;
     private long lastSwapTimingMs = 0;
 	// ================================================
-    public long lastShotTiming = 0;
+    public long lastShotTimingMs = 0;
 	// ================================================
 
 	private string horizontalInputLabel;
@@ -77,10 +93,16 @@ public class PlayerControls : MonoBehaviour {
 
 	private Vector2 aim = new Vector2(0,0);
     private Vector2 movement = new Vector2(0,0);
+
+    // =================================================
+    private Animator animator;
     
     // since we use axis (needed for key mapping), we have to
     // detect button press by ourselves...
     private bool previousFrameSwapUp = true;
+
+    [SerializeField]
+    private bool isSpirit;
 
 	void Start () {
 		gameObject.GetComponent<Rigidbody2D>().freezeRotation = true;
@@ -90,15 +112,13 @@ public class PlayerControls : MonoBehaviour {
         aimVerticalInputLabel   = string.Concat(playerPrefix, "_aim_vertical");
         // playerActionLabel       = string.Concat(playerPrefix, "_action");
         playerSwapLabel         = string.Concat(playerPrefix, "_swap");
+        animator = GetComponent<Animator>();
+        BonusDurationMultiplicator = 2f;
 	}
 
     public void TakeDamages(int n)
     {
         lifePoints -= n - armor;
-        if (n <= 0)
-        {
-            Debug.Log("YOU ARE DEAD");
-        }
     }
 
 	void Update () {
@@ -108,41 +128,72 @@ public class PlayerControls : MonoBehaviour {
         movement = new Vector2(Input.GetAxisRaw(horizontalInputLabel), Input.GetAxisRaw(VerticalInputLabel));
 		movement.Normalize();
 		movement = movement * movementSpeed * movementSpeedMultiplicator;
-        // ------ attacks ------
-        if (aim.magnitude >= 0.1f)
-        {
-		    aim.Normalize();
-            if (bonusWeapon)
-            {
-                bonusWeapon.GetComponent<Weapon>().fire(gameObject);
+
+        if (lifePoints == 0) {
+            animator.SetBool("Dead", true);
+            animator.SetBool("Running", false);
+            movement = Vector2.zero;
+        } else if (lifePoints < 0) {
+            lifePoints = 0;
+        } else {
+            animator.SetBool("Dead", false);
+
+            if (movement.Equals(Vector2.zero)) {
+                animator.SetBool("Running", false);
+            } else {
+                animator.SetBool("Running", true);
             }
-            else if (defaultWeapon)
-            {
-                defaultWeapon.GetComponent<Weapon>().fire(gameObject);
+
+            if(movement.x > 0) {
+                transform.localScale = new Vector3(-5, transform.localScale.y, transform.localScale.z);
+            } else if (movement.x < 0) {
+                transform.localScale = new Vector3(5, transform.localScale.y, transform.localScale.z);
             }
-            else
-            {
-                Debug.LogError("no weapon equiped");
+
+            if (isSpirit) {
+                animator.SetBool("Spirit", true);
+            } else {
+                animator.SetBool("Spirit", false);            
             }
+
+            // ------ attacks ------
+            if (aim.magnitude >= 0.1f)
+            {
+                aim.Normalize();
+                if (bonusWeapon)
+                {
+                    bonusWeapon.GetComponent<Weapon>().fire(gameObject);
+                }
+                else if (defaultWeapon)
+                {
+                    defaultWeapon.GetComponent<Weapon>().fire(gameObject);
+                }
+                else
+                {
+                    Debug.LogError("no weapon equiped");
+                }
+            }
+            // ------ swaps ------
+            bool swapButtonPressed = (Input.GetAxisRaw(playerSwapLabel) != 0);
+            long now = System.DateTime.Now.Ticks / System.TimeSpan.TicksPerMillisecond;
+            if(previousFrameSwapUp && swapButtonPressed && (now >= lastSwapTimingMs + (long)(swapCooldownMultiplicator * swapCooldownMs))) {
+                lastSwapTimingMs = now;
+                isSpirit = !isSpirit;
+                if (otherPlayer)
+                {
+                    PlayerControls P2 = otherPlayer.GetComponent<PlayerControls>();
+                    GameObject tmp = bullet;
+                    bullet = P2.bullet;
+                    P2.bullet = tmp;
+                    P2.isSpirit = !P2.isSpirit;
+                }
+                else
+                {
+                    Debug.LogError("other player not set");
+                }
+            }
+            previousFrameSwapUp = !swapButtonPressed;
         }
-        // ------ swaps ------
-        bool swapButtonPressed = (Input.GetAxisRaw(playerSwapLabel) != 0);
-        long now = System.DateTime.Now.Ticks / System.TimeSpan.TicksPerMillisecond;
-        if(previousFrameSwapUp && swapButtonPressed && (now >= lastSwapTimingMs + (long)(swapCooldownMultiplicator * swapCooldownMs))) {
-            lastSwapTimingMs = now;
-            if (otherPlayer)
-            {
-                PlayerControls P2 = otherPlayer.GetComponent<PlayerControls>();
-                GameObject tmp = bullet;
-                bullet = P2.bullet;
-                P2.bullet = tmp;
-            }
-            else
-            {
-                Debug.LogError("other player not set");
-            }
-        }
-        previousFrameSwapUp = !swapButtonPressed;
 	}
 
 	void FixedUpdate() {

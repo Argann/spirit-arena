@@ -17,29 +17,32 @@ public class MenuManager : MonoBehaviour {
 	[SerializeField]
 	private GameObject mainMenuGameObject;
 
+	[SerializeField]
+	private GameObject ingameHUD;
+
 	public void ButtonQuit() {
-		Debug.Log("Goodbye !");
 		Application.Quit();
 	}
 
 	public void ButtonCredits() {
-		Debug.Log("Go To Credits ["+ this.creditsSceneName +"] !");
 		SceneManager.LoadScene(this.creditsSceneName);
 	}
 
 	public void ButtonPlay() {
-		Debug.Log("Go To Play ["+ this.playSceneName +"] !");
 		SceneManager.LoadScene(this.playSceneName);
 	}
 
 	public void ButtonStart() {
-		Debug.Log("Let's start the game !");
 		WaveManager.StartGame();
 		mainMenuGameObject.SetActive(false);
+		ingameHUD.SetActive(true);
+		GameObject[] tmp = GameObject.FindGameObjectsWithTag("life");
+		foreach (GameObject o in tmp) {
+			o.GetComponent<SpriteRenderer>().enabled = true;
+		}
 	}
 
 	public void ButtonMainMenu() {
-		Debug.Log("Go To Main Menu ["+ this.mainMenuSceneName +"] !");
 		SceneManager.LoadScene(this.mainMenuSceneName);
 	}
 }
