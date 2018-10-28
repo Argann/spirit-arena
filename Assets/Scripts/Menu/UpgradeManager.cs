@@ -69,7 +69,7 @@ public class UpgradeManager : MonoBehaviour {
 
 		} else if (currentBuff.type == Buff.BuffType.AttackSpeed) {
 
-			pc.AttackSpeedMultiplicator += currentBuff.mult;
+			pc.AttackSpeedMultiplicator *= currentBuff.mult;
 
 		} else if (currentBuff.type == Buff.BuffType.MovementSpeed) {
 
@@ -131,7 +131,6 @@ public class UpgradeManager : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-
 		// Minigame State
 		if (state == 0) {
 

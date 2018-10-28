@@ -2809,6 +2809,11 @@ Prefab:
       propertyPath: upgradeDescription
       value: 
       objectReference: {fileID: 1184061125}
+    - target: {fileID: 114980079049442184, guid: b6b405c71342d5f45ad2130c3108b38c,
+        type: 2}
+      propertyPath: buffs.Array.data[0].mult
+      value: 0.9
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b6b405c71342d5f45ad2130c3108b38c, type: 2}
   m_IsPrefabAsset: 0
@@ -2954,7 +2959,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1958851656
 RectTransform:
   m_ObjectHideFlags: 0

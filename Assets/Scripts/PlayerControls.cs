@@ -33,7 +33,7 @@ public class PlayerControls : MonoBehaviour {
     public float AttackSpeedMultiplicator
     {
         get { return attackSpeedMultiplicator;}
-        set { attackSpeedMultiplicator = value; SetStatUI("attack-speed_text", (int)(damageMultiplicator * 100), "%"); }
+        set { attackSpeedMultiplicator = value; SetStatUI("attack-speed_text", (int)(AttackSpeedMultiplicator * 100), "%"); }
     }
     
     [SerializeField]    
@@ -41,7 +41,7 @@ public class PlayerControls : MonoBehaviour {
     public float MovementSpeedMultiplicator
     {
         get { return movementSpeedMultiplicator;}
-        set { movementSpeedMultiplicator = value; SetStatUI("move_text", (int)(damageMultiplicator * 100), "%"); }
+        set { movementSpeedMultiplicator = value; SetStatUI("move_text", (int)(MovementSpeedMultiplicator * 100), "%"); }
     }
     
     [SerializeField]
@@ -49,7 +49,7 @@ public class PlayerControls : MonoBehaviour {
     public float BonusDurationMultiplicator
     {
         get { return bonusDurationMultiplicator;}
-        set { bonusDurationMultiplicator = value; SetStatUI("time_text", (int)(damageMultiplicator * 100), "%"); }
+        set { bonusDurationMultiplicator = value; SetStatUI("time_text", (int)(BonusDurationMultiplicator * 100), "%"); }
     }
 
     [SerializeField]
