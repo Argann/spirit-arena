@@ -130,6 +130,7 @@ MonoBehaviour:
   lifePoints: 10
   defaultWeapon: {fileID: 1266226895746288, guid: 9ca7e5329a59b7a4399832db84e134de,
     type: 2}
+  statsUI: {fileID: 0}
   armor: 0
   damageMultiplicator: 1
   attackSpeedMultiplicator: 1
