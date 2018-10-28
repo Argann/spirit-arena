@@ -29,7 +29,8 @@ public abstract class Weapon : MonoBehaviour
 
 	public void Attach(GameObject playerObject)
 	{
-		gameObject.GetComponent<SpriteRenderer>().enabled = false;
+		gameObject.transform.Find("icon").gameObject.SetActive(false);
+		gameObject.transform.Find("particle").gameObject.SetActive(false);
 		gameObject.GetComponent<Collider2D>().enabled = false;
 		PlayerControls player = playerObject.GetComponent<PlayerControls>();
 		player.lastShotTimingMs = 0;
