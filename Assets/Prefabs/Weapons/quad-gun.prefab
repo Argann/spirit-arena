@@ -69,7 +69,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cooldownMs: 100
-  damages: 1
+  damages: 2
   projectileSpeed: 10
   projectileTtlMs: 250
   distanceToPLayer: 0.25
