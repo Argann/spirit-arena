@@ -32,7 +32,7 @@ public class PlayerControls : MonoBehaviour {
     public int Armor
     {
         get { return armor;}
-        set { armor = value;}
+        set { armor = value; SetStatUI("armor_text", armor, ""); }
     }
     
 
@@ -73,7 +73,7 @@ public class PlayerControls : MonoBehaviour {
     public float SwapCooldownMultiplicator
     {
         get { return swapCooldownMultiplicator;}
-        set { swapCooldownMultiplicator = value; /* SetStatUI("damage_text", (int)(damageMultiplicator * 100), "%"); */ }
+        set { swapCooldownMultiplicator = value; }
     }
 
     private float begin = -1f;
