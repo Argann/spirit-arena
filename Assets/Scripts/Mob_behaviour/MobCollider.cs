@@ -5,20 +5,26 @@ using UnityEngine;
 public class MobCollider : MonoBehaviour {
 	public float lifePoints = 10;
 	public int damage = 1;
+	public bool isDead = false;
 
 	void OnTriggerEnter2D(Collider2D coll) {
 		if (coll.GetComponent<Collider2D>().tag == gameObject.GetComponent<Collider2D>().tag) {
 			coll.gameObject.GetComponent<Animator>().SetBool("Exploded", true);
 			Bullet bullet = coll.gameObject.GetComponent<Bullet>();
 			bullet.StopMe();
-			lifePoints -= bullet.damages;
+			float dealtDamages = Mathf.Min(lifePoints, bullet.damages);
+			bullet.player.Points = bullet.player.Points + (int)(dealtDamages * 100);
+			Debug.Log(dealtDamages);
+			Debug.Log(bullet.player.Points);
+			lifePoints -= dealtDamages;
 			if (lifePoints <= 0)
 			{
 				WaveManager.DeleteEnemy(gameObject);
 				GetComponent<Animator>().SetBool("Dead", true);
+				isDead = true;
 			}
 		}
-		else if (coll.GetComponent<Collider2D>().tag == "Player")
+		else if (coll.GetComponent<Collider2D>().tag == "Player" && !isDead)
 		{
 			PlayerControls player = coll.GetComponent<PlayerControls>();
 			player.TakeDamages(damage);

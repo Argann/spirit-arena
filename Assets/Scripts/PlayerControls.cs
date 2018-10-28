@@ -13,6 +13,13 @@ public class PlayerControls : MonoBehaviour {
 	public long swapCooldownMs = 50;
     public int lifePoints = 10;
     public GameObject defaultWeapon = null;
+    [SerializeField]
+    private int points = 0;
+    public int Points
+    {
+        get { return points;}
+        set { points = value; }
+    }
 	// ================================================
 	[Header("UI")]
     public GameObject statsUI = null;
@@ -113,7 +120,6 @@ public class PlayerControls : MonoBehaviour {
         // playerActionLabel       = string.Concat(playerPrefix, "_action");
         playerSwapLabel         = string.Concat(playerPrefix, "_swap");
         animator = GetComponent<Animator>();
-        BonusDurationMultiplicator = 2f;
 	}
 
     public void TakeDamages(int n)
