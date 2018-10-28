@@ -18,6 +18,9 @@ public class Running_IA : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		if(player.GetComponent<PlayerControls>().lifePoints <= 0) {
+			player = player.GetComponent<PlayerControls>().otherPlayer;
+		}
 		if (frameCpt == frameMax) {
 			frameCpt = 0;
 			decision = Random.Range(0,2);

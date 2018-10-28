@@ -18,9 +18,15 @@ public class WaveManager : MonoBehaviour {
 	private List<GameObject> enemies;
 
 	[SerializeField]
+	private List<GameObject> bossBody;
+
+	[SerializeField]
+	private List<GameObject> bossSpirit;
+
+	[SerializeField]
 	private static List<GameObject> currentEnemies = new List<GameObject>();
 
-	private int waveNumber = 0;
+	private int waveNumber = 19;
 	
 
 	private static bool gameLaunched = false;
@@ -47,18 +53,58 @@ public class WaveManager : MonoBehaviour {
 
 
 	private void SpawnEnemies() {
-		int enemyNumber = waveNumber * spawners.Count;
+		if (waveNumber % 5 != 0) {
+			// Vagues classiques
+			int enemyNumber = waveNumber * spawners.Count / 2;
 
-		for (int i = 0; i < enemyNumber; i++)
-		{
-			int spawnIndex = i % spawners.Count;
+			for (int i = 0; i < enemyNumber; i++)
+			{
+				int spawnIndex = i % spawners.Count;
 
-			GameObject enemy = Instantiate(enemies[Random.Range(0, enemies.Count)], transform.position, transform.rotation);
-			enemy.SetActive(false);
-			
-			spawners[spawnIndex].AddToQueue(enemy);
+				GameObject enemy = Instantiate(enemies[Random.Range(0, enemies.Count)], transform.position, transform.rotation);
+				enemy.SetActive(false);
+				
+				spawners[spawnIndex].AddToQueue(enemy);
 
-			currentEnemies.Add(enemy);
+				currentEnemies.Add(enemy);
+			}
+		}
+		else {
+			// Vagues de boss
+			// SOLO DE GUITARE
+
+			if (waveNumber == 5 ) {
+				//Boss physique
+				GameObject enemy = Instantiate(bossBody[Random.Range(0, 2)], transform.position, transform.rotation);
+				enemy.SetActive(false);
+				spawners[Random.Range(0, spawners.Count)].AddToQueue(enemy);
+				currentEnemies.Add(enemy);
+			}
+			else if (waveNumber == 10) {
+				//Boss spirituel
+				GameObject enemy = Instantiate(bossSpirit[Random.Range(0, bossSpirit.Count)], transform.position, transform.rotation);
+				enemy.SetActive(false);
+				spawners[Random.Range(0, spawners.Count)].AddToQueue(enemy);
+				currentEnemies.Add(enemy);
+			}
+			else if (waveNumber == 15) {
+				//Boss spirituel
+				GameObject enemy = Instantiate(bossBody[2], transform.position, transform.rotation);
+				enemy.SetActive(false);
+				spawners[Random.Range(0, spawners.Count)].AddToQueue(enemy);
+				currentEnemies.Add(enemy);
+			}
+			else {
+				//Boss multiple
+				for (int i=0; i<waveNumber/10; i++) {
+					GameObject enemy;
+					if (i%2 == 0) enemy = Instantiate(bossBody[Random.Range(0, bossBody.Count)], transform.position, transform.rotation);
+					else enemy = Instantiate(bossSpirit[Random.Range(0, bossSpirit.Count)], transform.position, transform.rotation);
+					enemy.SetActive(false);
+					spawners[Random.Range(0, spawners.Count)].AddToQueue(enemy);
+					currentEnemies.Add(enemy);
+				}
+			}
 		}
 	}
 	

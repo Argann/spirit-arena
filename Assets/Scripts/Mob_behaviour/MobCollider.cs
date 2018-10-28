@@ -5,6 +5,7 @@ using UnityEngine;
 public class MobCollider : MonoBehaviour {
 	public float lifePoints = 10;
 	public int damage = 1;
+	public bool isBoss = false;
 	public bool isDead = false;
 
 	void OnTriggerEnter2D(Collider2D coll) {
@@ -19,6 +20,7 @@ public class MobCollider : MonoBehaviour {
 			{
 				WaveManager.DeleteEnemy(gameObject);
 				GetComponent<Animator>().SetBool("Dead", true);
+				damage = 0;
 				isDead = true;
 			}
 		}
@@ -26,9 +28,14 @@ public class MobCollider : MonoBehaviour {
 		{
 			PlayerControls player = coll.GetComponent<PlayerControls>();
 			player.TakeDamages(damage);
-			WaveManager.DeleteEnemy(gameObject);
-			GetComponent<Animator>().SetBool("Dead", true);
-			damage = 0;
+			if (isBoss) {
+				player.Recoil(5*new Vector3(player.transform.position.x - transform.position.x, player.transform.position.y - transform.position.y, 0f));
+			}
+			else {
+				WaveManager.DeleteEnemy(gameObject);
+				GetComponent<Animator>().SetBool("Dead", true);
+				damage = 0;
+			}
 		}
 	}
 

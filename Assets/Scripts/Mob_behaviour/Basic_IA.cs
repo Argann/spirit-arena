@@ -14,6 +14,9 @@ public class Basic_IA : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		if(player.GetComponent<PlayerControls>().lifePoints <= 0) {
+			player = player.GetComponent<PlayerControls>().otherPlayer;
+		}
 		transform.position = Vector2.MoveTowards(transform.position, player.transform.position, step);
 	}
 }
