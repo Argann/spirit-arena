@@ -114,7 +114,6 @@ public class PlayerControls : MonoBehaviour {
         // playerActionLabel       = string.Concat(playerPrefix, "_action");
         playerSwapLabel         = string.Concat(playerPrefix, "_swap");
         animator = GetComponent<Animator>();
-        DamageMultiplicator = 2;
 	}
 
     public void TakeDamages(int n)

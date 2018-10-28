@@ -38,9 +38,9 @@ public abstract class Weapon : MonoBehaviour
 		weaponTtlMs = (long)(weaponTtlMs * player.BonusDurationMultiplicator);
 	}
 
-	public int GetTimer()
+	public float GetTimerProgress()
 	{
-		return (weaponTtlMs > 0) ? (int)(attachementTimeMs + weaponTtlMs - System.DateTime.Now.Ticks / System.TimeSpan.TicksPerMillisecond) / 1000 + 1 : 0;
+		return (weaponTtlMs <= 0) ? 0f : 1f - (float)(System.DateTime.Now.Ticks / System.TimeSpan.TicksPerMillisecond - attachementTimeMs) / weaponTtlMs;
 	}
 
 	void Start()
