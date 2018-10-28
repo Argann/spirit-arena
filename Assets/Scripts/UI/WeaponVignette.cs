@@ -7,6 +7,7 @@ public class WeaponVignette : MonoBehaviour {
 	public GameObject playerObject = null;
 	private Weapon previous = null;
 	private PlayerControls player = null;
+	private bool init = true;
 	private bool previousSpriritual = false;
 	private GameObject instance = null;
 
@@ -45,8 +46,9 @@ public class WeaponVignette : MonoBehaviour {
 		{
 			Debug.LogError("no weapon found");
 		}
-		if (instance && previousSpriritual != player.IsSpirit)
+		if (init || (instance && previousSpriritual != player.IsSpirit))
 		{
+			init = false;
 			instance.GetComponent<Image>().color = player.IsSpirit ? new Color(0, 156, 226) : new Color(255, 45, 0);
 			previousSpriritual = player.IsSpirit;
 		}
