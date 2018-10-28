@@ -18,6 +18,9 @@ public class Berserk_IA : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		if(player.GetComponent<PlayerControls>().lifePoints <= 0) {
+			player = player.GetComponent<PlayerControls>().otherPlayer;
+		}
 		if (Time.time - start > cooldown && step == 0f) {
 			cooldown = Random.Range(1,3);
 			fixedPosition = player.transform.position;

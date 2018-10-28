@@ -60,6 +60,8 @@ public class PlayerControls : MonoBehaviour {
         set { swapCooldownMultiplicator = value; /* SetStatUI("damage_text", (int)(damageMultiplicator * 100), "%"); */ }
     }
 
+    private float begin = -1f;
+
     private void SetStatUI(string label, int value, string suffix)
     {
         if (statsUI)
@@ -125,9 +127,11 @@ public class PlayerControls : MonoBehaviour {
         // ------ update aim ------
         aim = new Vector2(Input.GetAxis(aimHorizontalInputLabel), Input.GetAxis(aimVerticalInputLabel));
         // ------ update movement ------
-        movement = new Vector2(Input.GetAxisRaw(horizontalInputLabel), Input.GetAxisRaw(VerticalInputLabel));
-		movement.Normalize();
-		movement = movement * movementSpeed * movementSpeedMultiplicator;
+        if (Time.time - begin > 0.5f) {
+            movement = new Vector2(Input.GetAxisRaw(horizontalInputLabel), Input.GetAxisRaw(VerticalInputLabel));
+            movement.Normalize();
+            movement = movement * movementSpeed * movementSpeedMultiplicator;
+        }
 
         if (lifePoints == 0) {
             animator.SetBool("Dead", true);
@@ -204,4 +208,9 @@ public class PlayerControls : MonoBehaviour {
 	{
 		return aim;
 	}
+
+    public void Recoil(Vector3 recoilDirection) {
+        begin = Time.time;
+        movement = recoilDirection;
+    }
 }

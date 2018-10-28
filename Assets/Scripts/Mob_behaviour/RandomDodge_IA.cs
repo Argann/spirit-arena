@@ -17,6 +17,9 @@ public class RandomDodge_IA : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		if(player.GetComponent<PlayerControls>().lifePoints <= 0) {
+			player = player.GetComponent<PlayerControls>().otherPlayer;
+		}
 		if (frameCpt == maxFrame) {
 			width = 2 * Random.Range(-1, 2);
 			maxFrame = Random.Range(10, 100);

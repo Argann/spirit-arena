@@ -1759,6 +1759,16 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 1536329728}
     m_Modifications:
+    - target: {fileID: 114338455825338790, guid: bae30e5b1ee1cb84ba6d593785ebd500,
+        type: 2}
+      propertyPath: bossBody.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 114338455825338790, guid: bae30e5b1ee1cb84ba6d593785ebd500,
+        type: 2}
+      propertyPath: bossSpirit.Array.size
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 4331818421697138, guid: bae30e5b1ee1cb84ba6d593785ebd500, type: 2}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -1841,6 +1851,42 @@ Prefab:
       propertyPath: spawners.Array.data[7]
       value: 
       objectReference: {fileID: 1019074906}
+    - target: {fileID: 114338455825338790, guid: bae30e5b1ee1cb84ba6d593785ebd500,
+        type: 2}
+      propertyPath: bossBody.Array.data[0]
+      value: 
+      objectReference: {fileID: 1950353400166594, guid: dabd67dec4161ef46805b5fadb80aa9c,
+        type: 2}
+    - target: {fileID: 114338455825338790, guid: bae30e5b1ee1cb84ba6d593785ebd500,
+        type: 2}
+      propertyPath: bossBody.Array.data[1]
+      value: 
+      objectReference: {fileID: 1121180358943494, guid: a645d1ae4342be14aaa2dbe9d383be36,
+        type: 2}
+    - target: {fileID: 114338455825338790, guid: bae30e5b1ee1cb84ba6d593785ebd500,
+        type: 2}
+      propertyPath: bossBody.Array.data[2]
+      value: 
+      objectReference: {fileID: 1466650340289376, guid: 02b4b9bc707d6d84f9a6fa0289e272a9,
+        type: 2}
+    - target: {fileID: 114338455825338790, guid: bae30e5b1ee1cb84ba6d593785ebd500,
+        type: 2}
+      propertyPath: bossSpirit.Array.data[0]
+      value: 
+      objectReference: {fileID: 1854937392655278, guid: a68e5bfe4c6b0f9428f5e31c7fc93730,
+        type: 2}
+    - target: {fileID: 114338455825338790, guid: bae30e5b1ee1cb84ba6d593785ebd500,
+        type: 2}
+      propertyPath: bossSpirit.Array.data[1]
+      value: 
+      objectReference: {fileID: 1335247057922446, guid: d2f5b3b5c7a57384b9aa749eaed396fb,
+        type: 2}
+    - target: {fileID: 114338455825338790, guid: bae30e5b1ee1cb84ba6d593785ebd500,
+        type: 2}
+      propertyPath: bossSpirit.Array.data[2]
+      value: 
+      objectReference: {fileID: 1801501567057810, guid: 49036fd9de980604088a72000fd5249f,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bae30e5b1ee1cb84ba6d593785ebd500, type: 2}
   m_IsPrefabAsset: 0
