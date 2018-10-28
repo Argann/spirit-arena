@@ -132,7 +132,7 @@ public class PlayerControls : MonoBehaviour {
 
     public void TakeDamages(int n)
     {
-        lifePoints -= n - armor;
+        lifePoints -= (n - armor < 1) ? 1 : n - armor;
     }
 
 	void Update () {
