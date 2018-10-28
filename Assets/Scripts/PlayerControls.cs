@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerControls : MonoBehaviour {
 	// ================================================
@@ -14,6 +15,7 @@ public class PlayerControls : MonoBehaviour {
     public GameObject defaultWeapon = null;
 	// ================================================
 	[Header("Buffs")]
+    public GameObject statsUI = null;
     public int armor = 0;
 
     [SerializeField]
@@ -21,7 +23,7 @@ public class PlayerControls : MonoBehaviour {
     public float DamageMultiplicator
     {
         get { return damageMultiplicator;}
-        set { damageMultiplicator = value;}
+        set { damageMultiplicator = value; SetStatUI("damage_text", (int)(damageMultiplicator * 100), "%"); }
     }
 
     [SerializeField]
@@ -29,7 +31,7 @@ public class PlayerControls : MonoBehaviour {
     public float AttackSpeedMultiplicator
     {
         get { return attackSpeedMultiplicator;}
-        set { attackSpeedMultiplicator = value;}
+        set { attackSpeedMultiplicator = value; SetStatUI("damage_text", (int)(damageMultiplicator * 100), "%"); }
     }
     
     [SerializeField]    
@@ -37,7 +39,7 @@ public class PlayerControls : MonoBehaviour {
     public float MovementSpeedMultiplicator
     {
         get { return movementSpeedMultiplicator;}
-        set { movementSpeedMultiplicator = value;}
+        set { movementSpeedMultiplicator = value; SetStatUI("damage_text", (int)(damageMultiplicator * 100), "%"); }
     }
     
     [SerializeField]
@@ -45,7 +47,7 @@ public class PlayerControls : MonoBehaviour {
     public float BonusDurationMultiplicator
     {
         get { return bonusDurationMultiplicator;}
-        set { bonusDurationMultiplicator = value;}
+        set { bonusDurationMultiplicator = value; SetStatUI("damage_text", (int)(damageMultiplicator * 100), "%"); }
     }
 
     [SerializeField]
@@ -53,7 +55,20 @@ public class PlayerControls : MonoBehaviour {
     public float SwapCooldownMultiplicator
     {
         get { return swapCooldownMultiplicator;}
-        set { swapCooldownMultiplicator = value;}
+        set { swapCooldownMultiplicator = value; SetStatUI("damage_text", (int)(damageMultiplicator * 100), "%"); }
+    }
+
+    private void SetStatUI(string label, int value, string suffix)
+    {
+        if (statsUI)
+        {
+            Debug.Log("Setting UI STAT");
+            statsUI.transform.Find(label).GetComponent<Text>().text = value + suffix;
+        }
+        else
+        {
+            Debug.LogError("no stat UI set");
+        }
     }
     
 	// ================================================
@@ -97,6 +112,7 @@ public class PlayerControls : MonoBehaviour {
         // playerActionLabel       = string.Concat(playerPrefix, "_action");
         playerSwapLabel         = string.Concat(playerPrefix, "_swap");
         animator = GetComponent<Animator>();
+        DamageMultiplicator = 2;
 	}
 
     public void TakeDamages(int n)
