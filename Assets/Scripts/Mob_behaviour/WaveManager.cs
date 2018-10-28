@@ -23,6 +23,13 @@ public class WaveManager : MonoBehaviour {
 	[SerializeField]
 	private List<GameObject> bossSpirit;
 
+
+
+	[SerializeField]
+	private GameObject blurp;
+
+	private static GameObject sblurp;
+
 	[SerializeField]
 	private static List<GameObject> currentEnemies = new List<GameObject>();
 
@@ -40,6 +47,8 @@ public class WaveManager : MonoBehaviour {
 
 	public static void DeleteEnemy(GameObject enemy) {
 		currentEnemies.Remove(enemy);
+		Instantiate(sblurp, enemy.transform.position, Quaternion.identity);
+		Destroy(enemy, 0f);
 		if (enemy.tag == "Physical") {
 			SoundManager.PlaySoundBodyMonster();
 		} else if (enemy.tag == "Spirit") {
@@ -108,6 +117,9 @@ public class WaveManager : MonoBehaviour {
 		}
 	}
 	
+	void Start() {
+		sblurp = blurp;
+	}
 
 	void Update() {
 		

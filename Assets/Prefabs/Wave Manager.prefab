@@ -98,4 +98,13 @@ MonoBehaviour:
   - {fileID: 1631536832355956, guid: e6ff25ac9e11abd41972b103d91ac65d, type: 2}
   - {fileID: 1285256623527926, guid: eacd8ea4bca77ba4287572b2556f5e4c, type: 2}
   - {fileID: 1565918588881444, guid: e8b5ff88859b96546b668e0636bc79ee, type: 2}
+  bossBody:
+  - {fileID: 1950353400166594, guid: dabd67dec4161ef46805b5fadb80aa9c, type: 2}
+  - {fileID: 1121180358943494, guid: a645d1ae4342be14aaa2dbe9d383be36, type: 2}
+  - {fileID: 1466650340289376, guid: 02b4b9bc707d6d84f9a6fa0289e272a9, type: 2}
+  bossSpirit:
+  - {fileID: 1854937392655278, guid: a68e5bfe4c6b0f9428f5e31c7fc93730, type: 2}
+  - {fileID: 1335247057922446, guid: d2f5b3b5c7a57384b9aa749eaed396fb, type: 2}
+  - {fileID: 1801501567057810, guid: 49036fd9de980604088a72000fd5249f, type: 2}
+  blurp: {fileID: 0}
   upgradeComplete: 0
