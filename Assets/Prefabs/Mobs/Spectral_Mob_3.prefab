@@ -23,6 +23,7 @@ GameObject:
   - component: {fileID: 114600112178861384}
   - component: {fileID: 61551326251432438}
   - component: {fileID: 114918150054295010}
+  - component: {fileID: 114517791627017422}
   m_Layer: 0
   m_Name: Spectral_Mob_3
   m_TagString: Spirit
@@ -68,6 +69,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.16, y: 0.16}
   m_EdgeRadius: 0
+--- !u!114 &114517791627017422
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1565918588881444}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f30c881210dd92c42955a8459461cb69, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  step: 0.02
 --- !u!114 &114600112178861384
 MonoBehaviour:
   m_ObjectHideFlags: 1

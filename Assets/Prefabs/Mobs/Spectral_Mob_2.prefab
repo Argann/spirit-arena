@@ -20,9 +20,9 @@ GameObject:
   m_Component:
   - component: {fileID: 4088270636853148}
   - component: {fileID: 212701625572548650}
-  - component: {fileID: 114362035965670038}
   - component: {fileID: 61276787404851124}
   - component: {fileID: 114542965600842604}
+  - component: {fileID: 114784551829862146}
   m_Layer: 0
   m_Name: Spectral_Mob_2
   m_TagString: Spirit
@@ -68,18 +68,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.16, y: 0.16}
   m_EdgeRadius: 0
---- !u!114 &114362035965670038
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1285256623527926}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 92b11fd395171a140b40c9a95262344e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  step: 0.02
 --- !u!114 &114542965600842604
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -91,8 +79,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd6f87223075cd944b84c2a287009404, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114784551829862146
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1285256623527926}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad66a265b2cb7e0498bee7fc48e5e5b1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   lifePoints: 10
   damage: 1
+  step: 0.02
+  range: 100
 --- !u!212 &212701625572548650
 SpriteRenderer:
   m_ObjectHideFlags: 1
