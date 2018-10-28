@@ -33,8 +33,8 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1037686827420634}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -10.355055, y: 4.217191, z: -0.028132636}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.3550546, y: -0.7828087, z: -0.028132636}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -53,6 +53,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weapons:
   - {fileID: 1866093702822964, guid: b5ef26e8311427041bda3ab7833039b8, type: 2}
+  - {fileID: 1248775777450254, guid: 2cc4f0665905b5842b1bec5b7f9c1f6e, type: 2}
+  - {fileID: 1973382037876434, guid: a067a57b9192d1a48ba11545827da6dc, type: 2}
+  - {fileID: 1077436701060412, guid: d5c5d4f67e6a9ac44a9140d771ebc2c6, type: 2}
   spawnTimerMs: 10000
   spawnTimerDeltaMs: 2000
   nextSpawnMs: 0
