@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class WeaponVignette : MonoBehaviour {
 	public GameObject playerObject = null;
@@ -13,11 +14,13 @@ public class WeaponVignette : MonoBehaviour {
 	
 	void Update () {
 		Weapon current = player.bonusWeapon ? player.bonusWeapon.GetComponent<Weapon>() : player.defaultWeapon.GetComponent<Weapon>();
+		Text cooldown = transform.Find("cooldown").GetComponent<Text>();
+		if (cooldown) cooldown.text = (current.GetTimer() > 0) ? current.GetTimer().ToString() : "";
 		if (current != previous)
 		{
 			previous = current;
 			foreach (Transform child in transform) {
-				GameObject.Destroy(child.gameObject);
+				if (child.name != "cooldown") GameObject.Destroy(child.gameObject);
 			}
 			Instantiate(current.weaponVignette, transform);
 		}
