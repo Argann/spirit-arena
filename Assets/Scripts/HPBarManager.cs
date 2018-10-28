@@ -54,9 +54,11 @@ public class HPBarManager : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		currentHP = gameObject.GetComponent<PlayerControls>().lifePoints;
+		maxHP = gameObject.GetComponent<PlayerControls>().maxLifePoints;
 
 		if (maxHP < baseHP) maxHP = baseHP;
 		if(previousMaxHP < maxHP) {
+			currentHP = maxHP;
 			float fbaseHP = (float)baseHP;
 			float fmaxHP = (float)maxHP;
 			ratio = 2f * fbaseHP / fmaxHP;
@@ -71,14 +73,17 @@ public class HPBarManager : MonoBehaviour {
 				tmpInstances[i].transform.Rotate(new Vector3(0f,0f,currentAngle - i*angle));
 				Vector3 scale = tmpInstances[i].transform.localScale;
 				scale.x = ratio;
+				scale.y = 1.5f;
 				tmpInstances[i].transform.localScale = scale;
 			}
 
 			for (int i=previousMaxHP; i<maxHP; i++) {
 				tmpInstances[i] = Instantiate(emptyHP, positionHPBar, Quaternion.identity);
 				tmpInstances[i].transform.Rotate(new Vector3(0f,0f,currentAngle - i*angle));
+				tmpInstances[i].GetComponent<SpriteRenderer>().enabled = true;
 				Vector3 scale = tmpInstances[i].transform.localScale;
 				scale.x = ratio;
+				scale.y = 1.5f;
 				tmpInstances[i].transform.localScale = scale;
 			}
 			instances = tmpInstances;
@@ -101,6 +106,7 @@ public class HPBarManager : MonoBehaviour {
 				tmpInstances[i].transform.Rotate(new Vector3(0f,0f,currentAngle - i*angle));
 				Vector3 scale = tmpInstances[i].transform.localScale;
 				scale.x = ratio;
+				scale.y = 1.5f;
 				tmpInstances[i].transform.localScale = scale;
 			}
 

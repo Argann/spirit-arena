@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class MenuManager : MonoBehaviour {
@@ -20,12 +21,31 @@ public class MenuManager : MonoBehaviour {
 	[SerializeField]
 	private GameObject ingameHUD;
 
+	[SerializeField]
+	private GameObject creditsHUD;
+
+	[SerializeField]
+	private Button PlayButton;
+	
+	[SerializeField]
+	private Button BackButton;
+
+	public GameObject controllerImg;
+
 	public void ButtonQuit() {
 		Application.Quit();
 	}
 
 	public void ButtonCredits() {
-		SceneManager.LoadScene(this.creditsSceneName);
+		mainMenuGameObject.SetActive(false);
+		creditsHUD.SetActive(true);
+		BackButton.Select();
+	}
+
+	public void ButtonBack() {
+		mainMenuGameObject.SetActive(true);
+		creditsHUD.SetActive(false);
+		PlayButton.Select();
 	}
 
 	public void ButtonPlay() {
@@ -40,6 +60,7 @@ public class MenuManager : MonoBehaviour {
 		foreach (GameObject o in tmp) {
 			o.GetComponent<SpriteRenderer>().enabled = true;
 		}
+		controllerImg.SetActive(false);
 	}
 
 	public void ButtonMainMenu() {

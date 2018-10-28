@@ -12,6 +12,7 @@ public class PlayerControls : MonoBehaviour {
 	public float movementSpeed = 7.5f;
 	public long swapCooldownMs = 50;
     public int lifePoints = 10;
+    public int maxLifePoints = 10;
     public GameObject defaultWeapon = null;
     [SerializeField]
     private int points = 0;
@@ -32,7 +33,7 @@ public class PlayerControls : MonoBehaviour {
     public int Armor
     {
         get { return armor;}
-        set { armor = value;}
+        set { armor = value; SetStatUI("armor_text", armor, ""); }
     }
     
 
@@ -73,7 +74,15 @@ public class PlayerControls : MonoBehaviour {
     public float SwapCooldownMultiplicator
     {
         get { return swapCooldownMultiplicator;}
-        set { swapCooldownMultiplicator = value; /* SetStatUI("damage_text", (int)(damageMultiplicator * 100), "%"); */ }
+        set { swapCooldownMultiplicator = value; }
+    }
+
+    [SerializeField]    
+    private int upgradeCount = 0;
+    public int UpgradeCount
+    {
+        get { return upgradeCount; }
+        set { upgradeCount = value; }
     }
 
     private float begin = -1f;
@@ -122,10 +131,16 @@ public class PlayerControls : MonoBehaviour {
     [SerializeField]
     private bool isSpirit;
 
+    public bool IsSpirit
+    {
+        get { return isSpirit; }
+    }
+
     private bool firstFrameDead = true;
 
     public void IncreaseMaxHealth(int inc) {
-        hpbar.maxHP += inc;
+        maxLifePoints += inc;
+        lifePoints = maxLifePoints;
     }
 
 	void Start () {
@@ -181,6 +196,7 @@ public class PlayerControls : MonoBehaviour {
         if (lifePoints == 0) {
             if (firstFrameDead) {
                 firstFrameDead = false;
+                points /= 2;
                 SoundManager.PlaySoundDeath();
             }
             animator.SetBool("Dead", true);

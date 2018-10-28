@@ -7,12 +7,16 @@ public class WeaponVignette : MonoBehaviour {
 	public GameObject playerObject = null;
 	private Weapon previous = null;
 	private PlayerControls player = null;
+	private bool init = true;
+	private bool previousSpriritual = false;
+	private GameObject instance = null;
 
 	void Start() {
 		if (playerObject) player = playerObject.GetComponent<PlayerControls>();
 	}
 	
 	void Update () {
+		bool needToUpdateColor = init || (instance && previousSpriritual != player.IsSpirit);
 		Weapon current = player.bonusWeapon ? player.bonusWeapon.GetComponent<Weapon>() : player.defaultWeapon.GetComponent<Weapon>();
 		if (current)
 		{
@@ -31,16 +35,24 @@ public class WeaponVignette : MonoBehaviour {
 			}
 			if (current != previous)
 			{
+				needToUpdateColor = true;
 				previous = current;
 				foreach (Transform child in transform) {
 					if (child.name != "Timer") GameObject.Destroy(child.gameObject);
 				}
-				Instantiate(current.weaponVignette, transform).transform.SetAsFirstSibling();
+				instance = Instantiate(current.weaponVignette, transform);
+				instance.transform.SetAsFirstSibling();
 			}
 		}
 		else
 		{
 			Debug.LogError("no weapon found");
+		}
+		if (needToUpdateColor)
+		{
+			init = false;
+			instance.GetComponent<Image>().color = player.IsSpirit ? new Color(0, 156, 226) : new Color(255, 45, 0);
+			previousSpriritual = player.IsSpirit;
 		}
 	}
 }

@@ -48,12 +48,9 @@ public class SoundManager : MonoBehaviour {
 	}
 
 	public static void PlaySoundHit() {
-		Debug.Log("SoundHit");
 		source.PlayOneShot(soundHit);
 	}
 	public static void PlaySoundMinigameHit() {
-		Debug.Log("Minigame Hit");
-
 		source.PlayOneShot(soundMinigame_hit);
 	}
 	public static void PlaySoundPowerup() {

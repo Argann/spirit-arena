@@ -62,6 +62,7 @@ public class UpgradeManager : MonoBehaviour {
 		// You must apply the upgrade here
 		// You can use the `winnerPlayer` var
 		PlayerControls pc = winnerPlayer == 1 ? player1 : player2;
+		pc.UpgradeCount += 1;
 
 		if (currentBuff.type == Buff.BuffType.AttackDmg) {
 
@@ -117,11 +118,13 @@ public class UpgradeManager : MonoBehaviour {
 
 		state = 0;
 
-		scoreP1 = 0;
-		scoreP2 = 0;
+		int diff = (player1.UpgradeCount - player2.UpgradeCount) * 5;
 
-		scoreP1UI.text = "0";
-		scoreP2UI.text = "0";
+		scoreP1 = 0 - ((diff > 0) ? diff : 0);
+		scoreP2 = 0 + ((diff < 0) ? diff : 0);
+
+		scoreP1UI.text = "" + scoreP1;
+		scoreP2UI.text = "" + scoreP2;
 
 		currentBuff = buffs[Random.Range(0, buffs.Count)];
 
