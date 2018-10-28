@@ -23,15 +23,10 @@ public class HPBarManager : MonoBehaviour {
 	private float currentAngle;
 	private GameObject[] instances;
 
-	private Vector3 positionHPBar;
+	public Vector3 positionHPBar;
 
 	// Use this for initialization
 	void Start () {
-		if (prefix == "P1")
-			positionHPBar = new Vector3(-7.5f,-4f,0f);
-		if (prefix == "P2")
-			positionHPBar = new Vector3(7.5f,-4f,0f);
-
 		float fbaseHP = (float)baseHP;
 		float fmaxHP = (float)maxHP;
 		ratio = 2f * fbaseHP / fmaxHP;
@@ -44,6 +39,7 @@ public class HPBarManager : MonoBehaviour {
 			instances[i].transform.Rotate(new Vector3(0f,0f,currentAngle - i*angle));
 			Vector3 scale = instances[i].transform.localScale;
 			scale.x = ratio;
+			scale.y = 1.5f;
 			instances[i].transform.localScale = scale;
 		}
 		
