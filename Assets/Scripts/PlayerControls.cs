@@ -131,6 +131,11 @@ public class PlayerControls : MonoBehaviour {
     [SerializeField]
     private bool isSpirit;
 
+    public bool IsSpirit
+    {
+        get { return isSpirit; }
+    }
+
     private bool firstFrameDead = true;
 
     public void IncreaseMaxHealth(int inc) {
