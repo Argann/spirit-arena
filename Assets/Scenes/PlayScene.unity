@@ -2789,7 +2789,7 @@ Prefab:
     - target: {fileID: 114980079049442184, guid: b6b405c71342d5f45ad2130c3108b38c,
         type: 2}
       propertyPath: buffs.Array.size
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 4953456096893106, guid: b6b405c71342d5f45ad2130c3108b38c, type: 2}
       propertyPath: m_LocalPosition.x
@@ -2893,6 +2893,27 @@ Prefab:
       propertyPath: buffs.Array.data[4].image
       value: 
       objectReference: {fileID: 21300000, guid: 710d5a32bc354244d95dfb204450e65b,
+        type: 3}
+    - target: {fileID: 114980079049442184, guid: b6b405c71342d5f45ad2130c3108b38c,
+        type: 2}
+      propertyPath: buffs.Array.data[5].description
+      value: +1 Max Health
+      objectReference: {fileID: 0}
+    - target: {fileID: 114980079049442184, guid: b6b405c71342d5f45ad2130c3108b38c,
+        type: 2}
+      propertyPath: buffs.Array.data[5].type
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114980079049442184, guid: b6b405c71342d5f45ad2130c3108b38c,
+        type: 2}
+      propertyPath: buffs.Array.data[5].mult
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114980079049442184, guid: b6b405c71342d5f45ad2130c3108b38c,
+        type: 2}
+      propertyPath: buffs.Array.data[5].image
+      value: 
+      objectReference: {fileID: 21300000, guid: c0ec4ffc17921ee41a65dad26e6de507,
         type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b6b405c71342d5f45ad2130c3108b38c, type: 2}

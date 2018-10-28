@@ -24,6 +24,7 @@ public class PlayerControls : MonoBehaviour {
 	[Header("UI")]
     public GameObject statsUI = null;
     public GameObject scoreUI = null;
+    public HPBarManager hpbar;
 	// ================================================
 	[Header("Buffs")]
 
@@ -119,6 +120,10 @@ public class PlayerControls : MonoBehaviour {
     [SerializeField]
     private bool isSpirit;
 
+    public void IncreaseMaxHealth(int inc) {
+        hpbar.maxHP += inc;
+    }
+
 	void Start () {
 		gameObject.GetComponent<Rigidbody2D>().freezeRotation = true;
         horizontalInputLabel    = string.Concat(playerPrefix, "_Horizontal");
@@ -128,6 +133,8 @@ public class PlayerControls : MonoBehaviour {
         // playerActionLabel       = string.Concat(playerPrefix, "_action");
         playerSwapLabel         = string.Concat(playerPrefix, "_swap");
         animator = GetComponent<Animator>();
+
+        hpbar = GetComponent<HPBarManager>();
 	}
 
     public void TakeDamages(int n)

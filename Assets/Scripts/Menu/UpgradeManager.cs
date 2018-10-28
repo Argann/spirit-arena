@@ -83,6 +83,10 @@ public class UpgradeManager : MonoBehaviour {
 
 			pc.Armor +=  (int) currentBuff.mult;
 
+		} else if (currentBuff.type == Buff.BuffType.MaxHealth) {
+
+			pc.IncreaseMaxHealth((int) currentBuff.mult);
+		
 		}
 
 		// We reset life of dead heroes
