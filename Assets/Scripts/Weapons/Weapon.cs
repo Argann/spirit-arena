@@ -22,11 +22,12 @@ public abstract class Weapon : MonoBehaviour
 
 	public abstract void fireImplementation(GameObject playerObject);
 
-	public void createSingleBullet(GameObject bullet, Vector2 position, Vector2 direction)
+	public void createSingleBullet(GameObject bullet, Vector2 position, Vector2 direction, float damageMultiplicator)
 	{
 		GameObject instance = GameObject.Instantiate(bullet, new Vector3(position.x, position.y, 0), Quaternion.identity);
 		instance.GetComponent<Rigidbody2D>().velocity = direction * projectileSpeed;
 		instance.GetComponent<Timeout>().ttlMillis = projectileTtlMs;
+		instance.GetComponent<Bullet>().damages = damages * damageMultiplicator;
 	}
 
 	protected Vector2 RotateVector(Vector2 vector, float angle)
