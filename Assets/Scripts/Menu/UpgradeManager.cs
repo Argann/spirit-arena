@@ -94,7 +94,6 @@ public class UpgradeManager : MonoBehaviour {
 
 
 		// And then we go back to the game
-		Debug.Log("END OF UPGRADE");
 		upgradeScreenCanvas.SetActive(false);
 		waveManager.upgradeComplete = true;
 		currentlyUpgrading = false;
@@ -105,7 +104,6 @@ public class UpgradeManager : MonoBehaviour {
 
 		currentlyUpgrading = true;
 
-		Debug.Log("Start Upgrade");
 
 		currentTimer = minigameTimer;
 
@@ -162,7 +160,6 @@ public class UpgradeManager : MonoBehaviour {
 					firstFrameP2 = true;
 				}
 			} else {
-				Debug.Log("Passage au state 1");
 				state = 1;
 			}
 
@@ -186,7 +183,6 @@ public class UpgradeManager : MonoBehaviour {
 				scoreP2UI.color = Color.green;
 			}
 
-			Debug.Log("Passage au state 2");
 			state = 2;
 
 		} else if (state == 2) {
@@ -194,12 +190,10 @@ public class UpgradeManager : MonoBehaviour {
 			if (currentTimer > 0) {
 				currentTimer -= Time.deltaTime;
 			} else {
-				Debug.Log("Passage au state 3");
 				state = 3;
 			}
 
 		} else if (state == 3) {
-			Debug.Log("Current State : "+state);
 			ApplyUpgrade();
 		}
 	}

@@ -28,7 +28,6 @@ public class GameOverChecker : MonoBehaviour {
 
 			if (Input.GetAxisRaw("P1_swap") > 0) {
 				Application.Quit();
-				Debug.Log("Goodbye !");
 			}
 		}
 	}

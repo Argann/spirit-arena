@@ -64,7 +64,6 @@ public class PlayerControls : MonoBehaviour {
     {
         if (statsUI)
         {
-            Debug.Log("Setting UI STAT");
             statsUI.transform.Find(label).GetComponent<Text>().text = value + suffix;
         }
         else
@@ -119,10 +118,6 @@ public class PlayerControls : MonoBehaviour {
     public void TakeDamages(int n)
     {
         lifePoints -= n - armor;
-        if (n <= 0)
-        {
-            Debug.Log("YOU ARE DEAD");
-        }
     }
 
 	void Update () {
