@@ -2046,6 +2046,12 @@ Prefab:
       value: 
       objectReference: {fileID: 1801501567057810, guid: 49036fd9de980604088a72000fd5249f,
         type: 2}
+    - target: {fileID: 114338455825338790, guid: bae30e5b1ee1cb84ba6d593785ebd500,
+        type: 2}
+      propertyPath: blurp
+      value: 
+      objectReference: {fileID: 1556303526622036, guid: 4f97773bb8f22f947b8af589fe1ca6e1,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bae30e5b1ee1cb84ba6d593785ebd500, type: 2}
   m_IsPrefabAsset: 0
