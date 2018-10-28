@@ -33,7 +33,7 @@ public class WaveManager : MonoBehaviour {
 	[SerializeField]
 	private static List<GameObject> currentEnemies = new List<GameObject>();
 
-	private int waveNumber = 19;
+	private int waveNumber = 0;
 	
 
 	private static bool gameLaunched = false;
