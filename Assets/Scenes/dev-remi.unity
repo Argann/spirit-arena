@@ -822,6 +822,12 @@ Prefab:
       propertyPath: vignetteWeapon
       value: 
       objectReference: {fileID: 1520587643}
+    - target: {fileID: 114112321355307320, guid: b75ffdfbc7ed4854eb0d62421a54b905,
+        type: 2}
+      propertyPath: bonusWeapon
+      value: 
+      objectReference: {fileID: 1077436701060412, guid: d5c5d4f67e6a9ac44a9140d771ebc2c6,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b75ffdfbc7ed4854eb0d62421a54b905, type: 2}
   m_IsPrefabAsset: 0
