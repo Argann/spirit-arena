@@ -130,16 +130,29 @@ public class PlayerControls : MonoBehaviour {
         VerticalInputLabel      = string.Concat(playerPrefix, "_Vertical");
         aimHorizontalInputLabel = string.Concat(playerPrefix, "_aim_horizontal");
         aimVerticalInputLabel   = string.Concat(playerPrefix, "_aim_vertical");
-        // playerActionLabel       = string.Concat(playerPrefix, "_action");
+        // playerActionLabel    = string.Concat(playerPrefix, "_action");
         playerSwapLabel         = string.Concat(playerPrefix, "_swap");
         animator = GetComponent<Animator>();
-
         hpbar = GetComponent<HPBarManager>();
+        sprite                  = GetComponent<SpriteRenderer>();
 	}
+
+	[Header("Damages")]
+    public int takingDamageColorFrames = 10;
+    private int takingDamagesFrameCount = 0;
+
+    private SpriteRenderer sprite;
+    private Color previousColor = Color.black;
 
     public void TakeDamages(int n)
     {
-        lifePoints -= (n - armor < 1) ? 1 : n - armor;
+        if (takingDamagesFrameCount == 0)
+        {
+            lifePoints -= (n - armor < 1) ? 1 : n - armor;
+            takingDamagesFrameCount = takingDamageColorFrames;
+            previousColor = sprite.color;
+            sprite.color = Color.red;
+        }
     }
 
 	void Update () {
@@ -149,6 +162,15 @@ public class PlayerControls : MonoBehaviour {
         movement = new Vector2(Input.GetAxisRaw(horizontalInputLabel), Input.GetAxisRaw(VerticalInputLabel));
 		movement.Normalize();
 		movement = movement * movementSpeed * movementSpeedMultiplicator;
+
+        if (takingDamagesFrameCount > 0)
+        {
+            takingDamagesFrameCount--;
+            if (takingDamagesFrameCount == 0)
+            {
+                sprite.color = previousColor;
+            }
+        }
 
         if (lifePoints == 0) {
             animator.SetBool("Dead", true);
