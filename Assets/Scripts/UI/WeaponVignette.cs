@@ -16,6 +16,7 @@ public class WeaponVignette : MonoBehaviour {
 	}
 	
 	void Update () {
+		bool needToUpdateColor = init || (instance && previousSpriritual != player.IsSpirit);
 		Weapon current = player.bonusWeapon ? player.bonusWeapon.GetComponent<Weapon>() : player.defaultWeapon.GetComponent<Weapon>();
 		if (current)
 		{
@@ -34,6 +35,7 @@ public class WeaponVignette : MonoBehaviour {
 			}
 			if (current != previous)
 			{
+				needToUpdateColor = true;
 				previous = current;
 				foreach (Transform child in transform) {
 					if (child.name != "Timer") GameObject.Destroy(child.gameObject);
@@ -46,7 +48,7 @@ public class WeaponVignette : MonoBehaviour {
 		{
 			Debug.LogError("no weapon found");
 		}
-		if (init || (instance && previousSpriritual != player.IsSpirit))
+		if (needToUpdateColor)
 		{
 			init = false;
 			instance.GetComponent<Image>().color = player.IsSpirit ? new Color(0, 156, 226) : new Color(255, 45, 0);
