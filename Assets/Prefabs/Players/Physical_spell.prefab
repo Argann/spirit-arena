@@ -23,6 +23,7 @@ GameObject:
   - component: {fileID: 50893446669917940}
   - component: {fileID: 58737049242319742}
   - component: {fileID: 114513915612936556}
+  - component: {fileID: 58677794588815016}
   m_Layer: 0
   m_Name: Physical_spell
   m_TagString: Physical
@@ -63,7 +64,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!58 &58737049242319742
+--- !u!58 &58677794588815016
 CircleCollider2D:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -73,6 +74,21 @@ CircleCollider2D:
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.11
+--- !u!58 &58737049242319742
+CircleCollider2D:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1032951220512420}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}

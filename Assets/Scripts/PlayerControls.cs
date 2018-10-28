@@ -10,9 +10,11 @@ public class PlayerControls : MonoBehaviour {
 	[Header("Characteristics")]
 	public float movementSpeed = 7.5f;
 	public long swapCooldownMs = 50;
+    public int lifePoints = 10;
     public GameObject defaultWeapon = null;
 	// ================================================
 	[Header("Buffs")]
+    public int armor = 0;
 	public float damageMultiplicator = 1f;
 	public float attackSpeedMultiplicator = 1f;
     public float movementSpeedMultiplicator = 1f;
@@ -51,6 +53,15 @@ public class PlayerControls : MonoBehaviour {
         // playerActionLabel       = string.Concat(playerPrefix, "_action");
         playerSwapLabel         = string.Concat(playerPrefix, "_swap");
 	}
+
+    public void TakeDamages(int n)
+    {
+        lifePoints -= n - armor;
+        if (n <= 0)
+        {
+            Debug.Log("YOU ARE DEAD");
+        }
+    }
 
 	void Update () {
         // ------ update aim ------

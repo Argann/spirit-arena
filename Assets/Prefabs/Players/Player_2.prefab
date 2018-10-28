@@ -25,7 +25,7 @@ GameObject:
   - component: {fileID: 58106004272666178}
   m_Layer: 0
   m_Name: Player_2
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -90,7 +90,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerPrefix: P2
-  playerSpeed: 7.5
+  movementSpeed: 7.5
+  swapCooldownMs: 50
+  lifePoints: 10
+  defaultWeapon: {fileID: 1266226895746288, guid: 9ca7e5329a59b7a4399832db84e134de,
+    type: 2}
+  damageMultiplicator: 1
+  attackSpeedMultiplicator: 1
+  movementSpeedMultiplicator: 1
+  bonusDurationMultiplicator: 1
+  swapCooldownMultiplicator: 1
+  bonusWeapon: {fileID: 0}
+  bullet: {fileID: 1032951220512420, guid: c87a6921def0a9845bfd4147f422bc6d, type: 2}
+  otherPlayer: {fileID: 0}
 --- !u!212 &212001359218511188
 SpriteRenderer:
   m_ObjectHideFlags: 1

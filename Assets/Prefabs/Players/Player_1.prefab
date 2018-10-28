@@ -23,9 +23,10 @@ GameObject:
   - component: {fileID: 212117169420002618}
   - component: {fileID: 114112321355307320}
   - component: {fileID: 58855427388417508}
+  - component: {fileID: 58914769821443052}
   m_Layer: 0
   m_Name: Player_1
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -37,7 +38,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1451696187111880}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -13, y: 5, z: 0}
   m_LocalScale: {x: 5, y: 5, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -78,6 +79,21 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.08
+--- !u!58 &58914769821443052
+CircleCollider2D:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1451696187111880}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.09
 --- !u!114 &114112321355307320
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -90,7 +106,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerPrefix: P1
-  playerSpeed: 7.5
+  movementSpeed: 7.5
+  swapCooldownMs: 50
+  lifePoints: 10
+  defaultWeapon: {fileID: 1266226895746288, guid: 9ca7e5329a59b7a4399832db84e134de,
+    type: 2}
+  armor: 0
+  damageMultiplicator: 1
+  attackSpeedMultiplicator: 1
+  movementSpeedMultiplicator: 1
+  bonusDurationMultiplicator: 1
+  swapCooldownMultiplicator: 1
+  bonusWeapon: {fileID: 0}
+  bullet: {fileID: 1310789113905822, guid: e35e4209832309d4aab8b6d47a7061dd, type: 2}
+  otherPlayer: {fileID: 0}
 --- !u!212 &212117169420002618
 SpriteRenderer:
   m_ObjectHideFlags: 1
