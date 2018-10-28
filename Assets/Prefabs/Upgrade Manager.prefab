@@ -57,19 +57,19 @@ MonoBehaviour:
   - description: +10% Attack Speed
     type: 0
     mult: 0.9
-    image: {fileID: 21300000, guid: c55d6bfa453c8824fa394739c92e9947, type: 3}
+    image: {fileID: 21300000, guid: cd60e4ec76b464d44b27911f605d2b7c, type: 3}
   - description: +10% Attack Damage
     type: 1
     mult: 0.1
-    image: {fileID: 21300000, guid: 632ff4afd4ad6f342b361f63e845be10, type: 3}
+    image: {fileID: 21300000, guid: 297348c615260574e92cc79c2b2e3eb8, type: 3}
   - description: +10% Movement Speed
     type: 2
     mult: 0.1
-    image: {fileID: 21300000, guid: ff9fcff068594554094c78521cccd608, type: 3}
+    image: {fileID: 21300000, guid: ba3dc2a33c7d56b4d85111104eb41826, type: 3}
   - description: +10% Bonus Time
     type: 4
     mult: 0.1
-    image: {fileID: 21300000, guid: d24898a2b83da3d458922a48795f112c, type: 3}
+    image: {fileID: 21300000, guid: fd968607e01f8bb43bb974e4231dafa9, type: 3}
   - description: +1 Armor
     type: 3
     mult: 1
