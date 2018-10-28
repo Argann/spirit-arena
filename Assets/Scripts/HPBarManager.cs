@@ -37,7 +37,6 @@ public class HPBarManager : MonoBehaviour {
 		for (int i=0; i<maxHP; i++) {
 			instances[i] = Instantiate(emptyHP, positionHPBar, Quaternion.identity);
 			instances[i].transform.Rotate(new Vector3(0f,0f,currentAngle - i*angle));
-			instances[i].GetComponent<SpriteRenderer>().enabled = true;
 			Vector3 scale = instances[i].transform.localScale;
 			scale.x = ratio;
 			scale.y = 1.5f;

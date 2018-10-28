@@ -77,6 +77,14 @@ public class PlayerControls : MonoBehaviour {
         set { swapCooldownMultiplicator = value; }
     }
 
+    [SerializeField]    
+    private int upgradeCount = 0;
+    public int UpgradeCount
+    {
+        get { return upgradeCount; }
+        set { upgradeCount = value; }
+    }
+
     private float begin = -1f;
 
     private void SetStatUI(string label, int value, string suffix)
@@ -183,6 +191,7 @@ public class PlayerControls : MonoBehaviour {
         if (lifePoints == 0) {
             if (firstFrameDead) {
                 firstFrameDead = false;
+                points /= 2;
                 SoundManager.PlaySoundDeath();
             }
             animator.SetBool("Dead", true);
