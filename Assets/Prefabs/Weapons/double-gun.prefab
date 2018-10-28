@@ -75,7 +75,7 @@ MonoBehaviour:
   distanceToPLayer: 0.25
   bonusTtlMs: 5000
   weaponTtlMs: 10000
-  weaponVignette: {fileID: 1621373995838542, guid: aacd965039a61084280daf4e7ed89a59,
+  weaponVignette: {fileID: 1219087376767432, guid: 730928d855c3c704098e095e619eeff7,
     type: 2}
   numberOfBullets: 2
   angleDelta: 0.1

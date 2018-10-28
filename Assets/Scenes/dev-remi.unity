@@ -157,6 +157,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 114586721770414946, guid: 9e02ed8cd1bf99b41bd5c969cda4834b,
+        type: 2}
+      propertyPath: spawnTimerMs
+      value: 3000
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9e02ed8cd1bf99b41bd5c969cda4834b, type: 2}
   m_IsPrefabAsset: 0
@@ -510,11 +515,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 1275359152046470, guid: 24716d29f97eee145aae01e9405d8c1d,
     type: 2}
   m_PrefabInternal: {fileID: 2084221834}
---- !u!1 &1520587643 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1100012253073916, guid: 6bbb3c2c8019e5b44be40bcfbbba5ab3,
-    type: 2}
-  m_PrefabInternal: {fileID: 1984051409}
 --- !u!224 &1520587644 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 224946058132094522, guid: 6bbb3c2c8019e5b44be40bcfbbba5ab3,
@@ -809,25 +809,14 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 114112321355307320, guid: b75ffdfbc7ed4854eb0d62421a54b905,
         type: 2}
-      propertyPath: otherPlayer
-      value: 
-      objectReference: {fileID: 1038972803}
-    - target: {fileID: 114112321355307320, guid: b75ffdfbc7ed4854eb0d62421a54b905,
-        type: 2}
       propertyPath: statsUI
       value: 
       objectReference: {fileID: 1010570837}
     - target: {fileID: 114112321355307320, guid: b75ffdfbc7ed4854eb0d62421a54b905,
         type: 2}
-      propertyPath: vignetteWeapon
+      propertyPath: otherPlayer
       value: 
-      objectReference: {fileID: 1520587643}
-    - target: {fileID: 114112321355307320, guid: b75ffdfbc7ed4854eb0d62421a54b905,
-        type: 2}
-      propertyPath: bonusWeapon
-      value: 
-      objectReference: {fileID: 1077436701060412, guid: d5c5d4f67e6a9ac44a9140d771ebc2c6,
-        type: 2}
+      objectReference: {fileID: 1038972803}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b75ffdfbc7ed4854eb0d62421a54b905, type: 2}
   m_IsPrefabAsset: 0

@@ -39,7 +39,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1451696187111880}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -13, y: 5, z: 0}
+  m_LocalPosition: {x: -1.58, y: 0, z: 0}
   m_LocalScale: {x: 5, y: 5, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -130,8 +130,10 @@ MonoBehaviour:
   lifePoints: 10
   defaultWeapon: {fileID: 1266226895746288, guid: 9ca7e5329a59b7a4399832db84e134de,
     type: 2}
+  points: 0
   statsUI: {fileID: 0}
-  armor: 0
+  scoreUI: {fileID: 0}
+  hpbar: {fileID: 0}
   damageMultiplicator: 1
   attackSpeedMultiplicator: 1
   movementSpeedMultiplicator: 1
@@ -142,6 +144,7 @@ MonoBehaviour:
   otherPlayer: {fileID: 0}
   lastShotTimingMs: 0
   isSpirit: 1
+  takingDamageColorFrames: 5
 --- !u!212 &212117169420002618
 SpriteRenderer:
   m_ObjectHideFlags: 1
