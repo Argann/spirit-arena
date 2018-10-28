@@ -150,6 +150,7 @@ public class UpgradeManager : MonoBehaviour {
 				if (Input.GetAxisRaw("P1_interact") > 0 && firstFrameP1) {
 					scoreP1++;
 					scoreP1UI.text = ""+scoreP1;
+					SoundManager.PlaySoundMinigameHit();
 					firstFrameP1 = false;
 				}
 
@@ -160,6 +161,7 @@ public class UpgradeManager : MonoBehaviour {
 				if (Input.GetAxisRaw("P2_interact") > 0 && firstFrameP2) {
 					scoreP2++;
 					scoreP2UI.text = ""+scoreP2;
+					SoundManager.PlaySoundMinigameHit();
 					firstFrameP2 = false;
 				}
 

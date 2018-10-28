@@ -122,6 +122,8 @@ public class PlayerControls : MonoBehaviour {
     [SerializeField]
     private bool isSpirit;
 
+    private bool firstFrameDead = true;
+
     public void IncreaseMaxHealth(int inc) {
         hpbar.maxHP += inc;
     }
@@ -177,12 +179,17 @@ public class PlayerControls : MonoBehaviour {
         }
 
         if (lifePoints == 0) {
+            if (firstFrameDead) {
+                firstFrameDead = false;
+                SoundManager.PlaySoundDeath();
+            }
             animator.SetBool("Dead", true);
             animator.SetBool("Running", false);
             movement = Vector2.zero;
         } else if (lifePoints < 0) {
             lifePoints = 0;
         } else {
+            firstFrameDead = true;
             animator.SetBool("Dead", false);
 
             if (movement.Equals(Vector2.zero)) {

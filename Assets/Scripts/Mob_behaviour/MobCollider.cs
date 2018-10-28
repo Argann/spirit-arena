@@ -16,6 +16,7 @@ public class MobCollider : MonoBehaviour {
 			float dealtDamages = Mathf.Min(lifePoints, bullet.damages);
 			bullet.player.Points = bullet.player.Points + (int)(dealtDamages * 100);
 			lifePoints -= dealtDamages;
+			SoundManager.PlaySoundHit();
 			if (lifePoints <= 0)
 			{
 				WaveManager.DeleteEnemy(gameObject);
