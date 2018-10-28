@@ -31,7 +31,7 @@ public class WaveManager : MonoBehaviour {
 	private static GameObject sblurp;
 
 	[SerializeField]
-	private static List<GameObject> currentEnemies = new List<GameObject>();
+	private static List<GameObject> currentEnemies = null;
 
 	private int waveNumber = 0;
 	
@@ -58,6 +58,7 @@ public class WaveManager : MonoBehaviour {
 
 	public static void StartGame() {
 		gameLaunched = true;
+		currentEnemies = new List<GameObject>();
 	}
 
 
