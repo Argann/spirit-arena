@@ -11,6 +11,7 @@ public abstract class Weapon : MonoBehaviour
 	public float distanceToPLayer = 2f;
 	public long bonusTtlMs = 2000;
 	public long weaponTtlMs = 0;
+	public GameObject weaponVignette = null;
 	protected long lastShotTimingMs = 0;
 	protected long appearanceTimingMs = 0;
 	protected long attachementTimeMs = 0;

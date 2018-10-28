@@ -14,8 +14,10 @@ public class PlayerControls : MonoBehaviour {
     public int lifePoints = 10;
     public GameObject defaultWeapon = null;
 	// ================================================
-	[Header("Buffs")]
+	[Header("UI")]
     public GameObject statsUI = null;
+	// ================================================
+	[Header("Buffs")]
     public int armor = 0;
 
     [SerializeField]
@@ -197,8 +199,6 @@ public class PlayerControls : MonoBehaviour {
             }
             previousFrameSwapUp = !swapButtonPressed;
         }
-        
-        
 	}
 
 	void FixedUpdate() {
