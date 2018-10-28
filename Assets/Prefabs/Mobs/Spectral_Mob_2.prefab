@@ -98,8 +98,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd6f87223075cd944b84c2a287009404, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lifePoints: 1
+  lifePoints: 10
   damage: 1
+  isBoss: 0
 --- !u!114 &114784551829862146
 MonoBehaviour:
   m_ObjectHideFlags: 1

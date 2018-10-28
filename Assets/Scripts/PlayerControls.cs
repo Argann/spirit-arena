@@ -13,12 +13,28 @@ public class PlayerControls : MonoBehaviour {
 	public long swapCooldownMs = 50;
     public int lifePoints = 10;
     public GameObject defaultWeapon = null;
+    [SerializeField]
+    private int points = 0;
+    public int Points
+    {
+        get { return points;}
+        set { points = value; if (scoreUI) scoreUI.GetComponent<Text>().text = points.ToString(); }
+    }
 	// ================================================
 	[Header("UI")]
     public GameObject statsUI = null;
+    public GameObject scoreUI = null;
+    public HPBarManager hpbar;
 	// ================================================
 	[Header("Buffs")]
-    public int armor = 0;
+
+    private int armor = 0;
+    public int Armor
+    {
+        get { return armor;}
+        set { armor = value;}
+    }
+    
 
     [SerializeField]
     private float damageMultiplicator = 1f;
@@ -33,7 +49,7 @@ public class PlayerControls : MonoBehaviour {
     public float AttackSpeedMultiplicator
     {
         get { return attackSpeedMultiplicator;}
-        set { attackSpeedMultiplicator = value; SetStatUI("attack-speed_text", (int)(damageMultiplicator * 100), "%"); }
+        set { attackSpeedMultiplicator = value; SetStatUI("attack-speed_text", (int)(AttackSpeedMultiplicator * 100), "%"); }
     }
     
     [SerializeField]    
@@ -41,7 +57,7 @@ public class PlayerControls : MonoBehaviour {
     public float MovementSpeedMultiplicator
     {
         get { return movementSpeedMultiplicator;}
-        set { movementSpeedMultiplicator = value; SetStatUI("move_text", (int)(damageMultiplicator * 100), "%"); }
+        set { movementSpeedMultiplicator = value; SetStatUI("move_text", (int)(MovementSpeedMultiplicator * 100), "%"); }
     }
     
     [SerializeField]
@@ -49,7 +65,7 @@ public class PlayerControls : MonoBehaviour {
     public float BonusDurationMultiplicator
     {
         get { return bonusDurationMultiplicator;}
-        set { bonusDurationMultiplicator = value; SetStatUI("time_text", (int)(damageMultiplicator * 100), "%"); }
+        set { bonusDurationMultiplicator = value; SetStatUI("time_text", (int)(BonusDurationMultiplicator * 100), "%"); }
     }
 
     [SerializeField]
@@ -59,6 +75,8 @@ public class PlayerControls : MonoBehaviour {
         get { return swapCooldownMultiplicator;}
         set { swapCooldownMultiplicator = value; /* SetStatUI("damage_text", (int)(damageMultiplicator * 100), "%"); */ }
     }
+
+    private float begin = -1f;
 
     private void SetStatUI(string label, int value, string suffix)
     {
@@ -104,38 +122,74 @@ public class PlayerControls : MonoBehaviour {
     [SerializeField]
     private bool isSpirit;
 
+    private bool firstFrameDead = true;
+
+    public void IncreaseMaxHealth(int inc) {
+        hpbar.maxHP += inc;
+    }
+
 	void Start () {
 		gameObject.GetComponent<Rigidbody2D>().freezeRotation = true;
         horizontalInputLabel    = string.Concat(playerPrefix, "_Horizontal");
         VerticalInputLabel      = string.Concat(playerPrefix, "_Vertical");
         aimHorizontalInputLabel = string.Concat(playerPrefix, "_aim_horizontal");
         aimVerticalInputLabel   = string.Concat(playerPrefix, "_aim_vertical");
-        // playerActionLabel       = string.Concat(playerPrefix, "_action");
+        // playerActionLabel    = string.Concat(playerPrefix, "_action");
         playerSwapLabel         = string.Concat(playerPrefix, "_swap");
         animator = GetComponent<Animator>();
-        BonusDurationMultiplicator = 2f;
+        hpbar = GetComponent<HPBarManager>();
+        sprite                  = GetComponent<SpriteRenderer>();
 	}
+
+	[Header("Damages")]
+    public int takingDamageColorFrames = 10;
+    private int takingDamagesFrameCount = 0;
+
+    private SpriteRenderer sprite;
+    private Color previousColor = Color.black;
 
     public void TakeDamages(int n)
     {
-        lifePoints -= n - armor;
+        if (takingDamagesFrameCount == 0)
+        {
+            lifePoints -= (n - armor < 1) ? 1 : n - armor;
+            takingDamagesFrameCount = takingDamageColorFrames;
+            previousColor = sprite.color;
+            sprite.color = Color.red;
+        }
     }
 
 	void Update () {
         // ------ update aim ------
         aim = new Vector2(Input.GetAxis(aimHorizontalInputLabel), Input.GetAxis(aimVerticalInputLabel));
         // ------ update movement ------
-        movement = new Vector2(Input.GetAxisRaw(horizontalInputLabel), Input.GetAxisRaw(VerticalInputLabel));
-		movement.Normalize();
-		movement = movement * movementSpeed * movementSpeedMultiplicator;
+        if (Time.time - begin > 0.5f) {
+            movement = new Vector2(Input.GetAxisRaw(horizontalInputLabel), Input.GetAxisRaw(VerticalInputLabel));
+            movement.Normalize();
+            movement = movement * movementSpeed * movementSpeedMultiplicator;
+        }
+
+        if (takingDamagesFrameCount > 0)
+        {
+            takingDamagesFrameCount--;
+            if (takingDamagesFrameCount == 0)
+            {
+                sprite.color = previousColor;
+            }
+        }
 
         if (lifePoints == 0) {
+            if (firstFrameDead) {
+                firstFrameDead = false;
+                SoundManager.PlaySoundDeath();
+            }
             animator.SetBool("Dead", true);
             animator.SetBool("Running", false);
             movement = Vector2.zero;
         } else if (lifePoints < 0) {
             lifePoints = 0;
         } else {
+            firstFrameDead = true;
             animator.SetBool("Dead", false);
 
             if (movement.Equals(Vector2.zero)) {
@@ -204,4 +258,9 @@ public class PlayerControls : MonoBehaviour {
 	{
 		return aim;
 	}
+
+    public void Recoil(Vector3 recoilDirection) {
+        begin = Time.time;
+        movement = recoilDirection;
+    }
 }

@@ -69,7 +69,7 @@ public class UpgradeManager : MonoBehaviour {
 
 		} else if (currentBuff.type == Buff.BuffType.AttackSpeed) {
 
-			pc.AttackSpeedMultiplicator += currentBuff.mult;
+			pc.AttackSpeedMultiplicator *= currentBuff.mult;
 
 		} else if (currentBuff.type == Buff.BuffType.MovementSpeed) {
 
@@ -78,7 +78,15 @@ public class UpgradeManager : MonoBehaviour {
 		} else if (currentBuff.type == Buff.BuffType.BonusTime) {
 
 			pc.BonusDurationMultiplicator += currentBuff.mult;
-			
+
+		} else if (currentBuff.type == Buff.BuffType.Armor) {
+
+			pc.Armor +=  (int) currentBuff.mult;
+
+		} else if (currentBuff.type == Buff.BuffType.MaxHealth) {
+
+			pc.IncreaseMaxHealth((int) currentBuff.mult);
+		
 		}
 
 		// We reset life of dead heroes
@@ -131,7 +139,6 @@ public class UpgradeManager : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-
 		// Minigame State
 		if (state == 0) {
 
@@ -143,6 +150,7 @@ public class UpgradeManager : MonoBehaviour {
 				if (Input.GetAxisRaw("P1_interact") > 0 && firstFrameP1) {
 					scoreP1++;
 					scoreP1UI.text = ""+scoreP1;
+					SoundManager.PlaySoundMinigameHit();
 					firstFrameP1 = false;
 				}
 
@@ -153,6 +161,7 @@ public class UpgradeManager : MonoBehaviour {
 				if (Input.GetAxisRaw("P2_interact") > 0 && firstFrameP2) {
 					scoreP2++;
 					scoreP2UI.text = ""+scoreP2;
+					SoundManager.PlaySoundMinigameHit();
 					firstFrameP2 = false;
 				}
 

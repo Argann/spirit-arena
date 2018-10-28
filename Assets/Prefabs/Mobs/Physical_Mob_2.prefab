@@ -112,6 +112,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lifePoints: 10
   damage: 1
+  isBoss: 0
 --- !u!212 &212106142000190562
 SpriteRenderer:
   m_ObjectHideFlags: 1

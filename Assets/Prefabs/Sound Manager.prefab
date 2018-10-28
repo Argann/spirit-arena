@@ -65,3 +65,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 74aeffdc33d868b468a616e28436a483, type: 3}
   - {fileID: 8300000, guid: 261b4970333616048a2c781eb8b609c1, type: 3}
   - {fileID: 8300000, guid: deba08bf426956d49a61105d5cb10c12, type: 3}
+  death: {fileID: 8300000, guid: 2a2387c4fec9da44f96b856481da07e9, type: 3}
+  hit: {fileID: 8300000, guid: a128aec49c1bab64e89cb4e304f286de, type: 3}
+  minigame_hit: {fileID: 8300000, guid: 73eff6ae9e556b44bac207bb0436a586, type: 3}
+  powerup: {fileID: 8300000, guid: d566654662cc0334aa87559d788c6a77, type: 3}
