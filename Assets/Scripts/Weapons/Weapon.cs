@@ -64,14 +64,15 @@ public abstract class Weapon : MonoBehaviour
 		}
 	}
 
-	public void createSingleBullet(GameObject bullet, Vector2 position, Vector2 direction, float damageMultiplicator)
+	public void createSingleBullet(GameObject bullet, Vector2 position, Vector2 direction, PlayerControls player)
 	{
 		float angle = Mathf.Atan2(direction.y, direction.x);
 		GameObject instance = GameObject.Instantiate(bullet, new Vector3(position.x, position.y, 0), Quaternion.identity);
 		instance.transform.Rotate(0, 0, (angle / Mathf.PI) * 180f - 180f);
 		instance.GetComponent<Rigidbody2D>().velocity = direction * projectileSpeed;
 		instance.GetComponent<Timeout>().ttlMillis = projectileTtlMs;
-		instance.GetComponent<Bullet>().damages = damages * damageMultiplicator;
+		instance.GetComponent<Bullet>().damages = damages * player.DamageMultiplicator;
+		instance.GetComponent<Bullet>().player = player;
 	}
 
 	protected Vector2 RotateVector(Vector2 vector, float angle)

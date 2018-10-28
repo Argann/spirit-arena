@@ -5,6 +5,7 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
     public float damages;
+    public PlayerControls player;
 
     public void DestroyMe() {
         Destroy(gameObject);

@@ -8,7 +8,8 @@ public class Buff {
 		AttackDmg,
 		MovementSpeed,
 		Armor,
-		BonusTime
+		BonusTime,
+		MaxHealth
 	}
 
 
