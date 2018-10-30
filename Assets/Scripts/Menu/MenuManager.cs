@@ -31,6 +31,7 @@ public class MenuManager : MonoBehaviour {
 	private Button BackButton;
 
 	public GameObject controllerImg;
+	public GameObject BImg;
 
 	public void ButtonQuit() {
 		Debug.Log("bye");
@@ -62,6 +63,7 @@ public class MenuManager : MonoBehaviour {
 			o.GetComponent<SpriteRenderer>().enabled = true;
 		}
 		controllerImg.SetActive(false);
+		BImg.SetActive(false);
 	}
 
 	public void ButtonMainMenu() {
