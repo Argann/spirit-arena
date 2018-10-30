@@ -4756,6 +4756,11 @@ Prefab:
       propertyPath: IntroSceneName
       value: Intro
       objectReference: {fileID: 0}
+    - target: {fileID: 114082703024097312, guid: 7a31239aff693b5439c5edb611d4bbe3,
+        type: 2}
+      propertyPath: BImg
+      value: 
+      objectReference: {fileID: 24737460}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7a31239aff693b5439c5edb611d4bbe3, type: 2}
   m_IsPrefabAsset: 0
