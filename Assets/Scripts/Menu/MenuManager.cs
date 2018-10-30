@@ -10,7 +10,7 @@ public class MenuManager : MonoBehaviour {
 	private string creditsSceneName;
 
 	[SerializeField]
-	private string playSceneName;
+	private string IntroSceneName;
 
 	[SerializeField]
 	private string mainMenuSceneName;
@@ -33,6 +33,7 @@ public class MenuManager : MonoBehaviour {
 	public GameObject controllerImg;
 
 	public void ButtonQuit() {
+		Debug.Log("bye");
 		Application.Quit();
 	}
 
@@ -48,8 +49,8 @@ public class MenuManager : MonoBehaviour {
 		PlayButton.Select();
 	}
 
-	public void ButtonPlay() {
-		SceneManager.LoadScene(this.playSceneName);
+	public void ButtonIntro() {
+		SceneManager.LoadScene(this.IntroSceneName);
 	}
 
 	public void ButtonStart() {
