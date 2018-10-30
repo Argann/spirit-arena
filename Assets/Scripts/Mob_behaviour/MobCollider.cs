@@ -7,6 +7,7 @@ public class MobCollider : MonoBehaviour {
 	public int damage = 1;
 	public bool isBoss = false;
 	public bool isDead = false;
+	public bool isIntro = false;
 
 	void OnTriggerEnter2D(Collider2D coll) {
 		if (coll.GetComponent<Collider2D>().tag == gameObject.GetComponent<Collider2D>().tag) {
@@ -15,11 +16,12 @@ public class MobCollider : MonoBehaviour {
 			bullet.StopMe();
 			float dealtDamages = Mathf.Min(lifePoints, bullet.damages);
 			bullet.player.Points = bullet.player.Points + (int)(dealtDamages * 100);
+			if (isIntro) dealtDamages = 1f;
 			lifePoints -= dealtDamages;
-			SoundManager.PlaySoundHit();
+			if (!isIntro) SoundManager.PlaySoundHit();
 			if (lifePoints <= 0)
 			{
-				WaveManager.DeleteEnemy(gameObject);
+				if (!isIntro) WaveManager.DeleteEnemy(gameObject);
 				GetComponent<Animator>().SetBool("Dead", true);
 				damage = 0;
 				isDead = true;
@@ -33,7 +35,7 @@ public class MobCollider : MonoBehaviour {
 				player.Recoil(5*new Vector3(player.transform.position.x - transform.position.x, player.transform.position.y - transform.position.y, 0f));
 			}
 			else {
-				WaveManager.DeleteEnemy(gameObject);
+				if (!isIntro) WaveManager.DeleteEnemy(gameObject);
 				GetComponent<Animator>().SetBool("Dead", true);
 				damage = 0;
 			}
