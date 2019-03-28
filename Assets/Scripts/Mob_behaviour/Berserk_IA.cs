@@ -24,10 +24,10 @@ public class Berserk_IA : MonoBehaviour {
 		if (Time.time - start > cooldown && step == 0f) {
 			cooldown = Random.Range(1,3);
 			fixedPosition = player.transform.position;
-			step = 0.08f;
+			step = 5f;
 		}
 		
-		transform.position = Vector2.MoveTowards(transform.position, fixedPosition, step);
+		transform.position = Vector2.MoveTowards(transform.position, fixedPosition, step * Time.deltaTime);
 
 		if (Vector3.Distance(transform.position, fixedPosition) < 0.05f && step > 0f) {
 			start = Time.time;

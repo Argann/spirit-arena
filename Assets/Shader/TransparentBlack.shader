@@ -49,7 +49,8 @@
 			float4 frag(v2f i) : SV_Target
 			{
 				float4 color = tex2D(_MainTex, i.uv);
-                if (color.x + color.y + color.z < .5) color.w = .5;
+				float dist = sqrt(pow(.5-i.uv.r, 2) + pow(.5-i.uv.g, 2));
+                if (color.x + color.y + color.z < .5) color.w = cos(dist*3.1415);
 				return color;
 			}
 			ENDCG

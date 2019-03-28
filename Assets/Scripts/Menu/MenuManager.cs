@@ -30,9 +30,6 @@ public class MenuManager : MonoBehaviour {
 	[SerializeField]
 	private Button BackButton;
 
-	public GameObject controllerImg;
-	public GameObject BImg;
-
 	public void ButtonQuit() {
 		Debug.Log("bye");
 		Application.Quit();
@@ -62,8 +59,6 @@ public class MenuManager : MonoBehaviour {
 		foreach (GameObject o in tmp) {
 			o.GetComponent<SpriteRenderer>().enabled = true;
 		}
-		controllerImg.SetActive(false);
-		BImg.SetActive(false);
 	}
 
 	public void ButtonMainMenu() {

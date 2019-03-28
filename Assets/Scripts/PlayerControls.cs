@@ -85,6 +85,8 @@ public class PlayerControls : MonoBehaviour {
         set { upgradeCount = value; }
     }
 
+    public static List<PlayerControls> instances = new List<PlayerControls>();
+
     private float begin = -1f;
 
     private void SetStatUI(string label, int value, string suffix)
@@ -154,6 +156,7 @@ public class PlayerControls : MonoBehaviour {
         animator = GetComponent<Animator>();
         hpbar = GetComponent<HPBarManager>();
         sprite                  = GetComponent<SpriteRenderer>();
+        instances.Add(this);
 	}
 
 	[Header("Damages")]
@@ -278,5 +281,13 @@ public class PlayerControls : MonoBehaviour {
     public void Recoil(Vector3 recoilDirection) {
         begin = Time.time;
         movement = recoilDirection;
+    }
+
+    public static bool areDead() {
+        bool result = false;
+        foreach (PlayerControls control in instances) {
+            result = result || control.lifePoints > 0;
+        }
+        return !result;
     }
 }

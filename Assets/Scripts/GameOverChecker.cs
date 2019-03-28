@@ -25,10 +25,6 @@ public class GameOverChecker : MonoBehaviour {
 			if (Input.GetAxisRaw("P1_interact") > 0) {
 				SceneManager.LoadScene("PlayScene");
 			}
-
-			if (Input.GetAxisRaw("P1_swap") > 0) {
-				Application.Quit();
-			}
 		}
 	}
 }

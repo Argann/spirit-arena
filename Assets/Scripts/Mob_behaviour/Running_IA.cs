@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Running_IA : MonoBehaviour {
-	public float step = 0.02f;
+	public float step = 2f;
 	private GameObject player;
 	private int frameMax = 200;
 	private int frameCpt = 200;
@@ -34,8 +34,8 @@ public class Running_IA : MonoBehaviour {
 		frameCpt++;
 
 		if (decision == 0)
-			transform.position = Vector2.MoveTowards(transform.position, player.transform.position, step);
+			transform.position = Vector2.MoveTowards(transform.position, player.transform.position, step * Time.deltaTime);
 		else
-			transform.position = Vector2.MoveTowards(transform.position, place, step);
+			transform.position = Vector2.MoveTowards(transform.position, place, step * Time.deltaTime);
 	}
 }

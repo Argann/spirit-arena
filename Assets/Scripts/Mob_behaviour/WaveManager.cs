@@ -128,7 +128,8 @@ public class WaveManager : MonoBehaviour {
 			if (gameLaunched
 				&& currentEnemies.Count == 0
 				&& !upgradeComplete
-				&& !upgradeManager.currentlyUpgrading) {
+				&& !upgradeManager.currentlyUpgrading
+				&& !PlayerControls.areDead()) {
 				SetWaveNumber(waveNumber + 1);
 				if (waveNumber > 1) {
 					upgradeManager.StartUpgrade();
@@ -137,7 +138,7 @@ public class WaveManager : MonoBehaviour {
 				}
 			}
 
-			if (gameLaunched && currentEnemies.Count == 0 && upgradeComplete) {
+			if (gameLaunched && currentEnemies.Count == 0 && upgradeComplete && !PlayerControls.areDead()) {
 				SpawnEnemies();
 				upgradeComplete = false;
 			}
