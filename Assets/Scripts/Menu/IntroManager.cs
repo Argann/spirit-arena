@@ -14,6 +14,7 @@ public class IntroManager : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		PlayButton.Select();
+		Cursor.visible = false;
 	}
 
 	public void ButtonMainMenu() {

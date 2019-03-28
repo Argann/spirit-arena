@@ -58,6 +58,8 @@ public class UpgradeManager : MonoBehaviour {
 
 	public bool currentlyUpgrading = false;
 
+	public bool endgame = false;
+
 	void ApplyUpgrade() {
 		// You must apply the upgrade here
 		// You can use the `winnerPlayer` var
@@ -111,31 +113,34 @@ public class UpgradeManager : MonoBehaviour {
 
 	public void StartUpgrade() {
 
-		currentlyUpgrading = true;
+		if(player1.lifePoints > 0 || player2.lifePoints > 0) {
+			currentlyUpgrading = true;
 
+			currentTimer = minigameTimer;
 
-		currentTimer = minigameTimer;
+			state = 0;
 
-		state = 0;
+			int diff = (player1.UpgradeCount - player2.UpgradeCount) * 5;
 
-		int diff = (player1.UpgradeCount - player2.UpgradeCount) * 5;
+			scoreP1 = 0 - ((diff > 0) ? diff : 0);
+			scoreP2 = 0 + ((diff < 0) ? diff : 0);
 
-		scoreP1 = 0 - ((diff > 0) ? diff : 0);
-		scoreP2 = 0 + ((diff < 0) ? diff : 0);
+			scoreP1UI.text = "" + scoreP1;
+			scoreP2UI.text = "" + scoreP2;
 
-		scoreP1UI.text = "" + scoreP1;
-		scoreP2UI.text = "" + scoreP2;
+			currentBuff = buffs[Random.Range(0, buffs.Count)];
 
-		currentBuff = buffs[Random.Range(0, buffs.Count)];
+			upgradeImage.sprite = currentBuff.image;
 
-		upgradeImage.sprite = currentBuff.image;
+			upgradeDescription.text = currentBuff.description;
 
-		upgradeDescription.text = currentBuff.description;
+			scoreP1UI.color = new Color(144, 144, 144);
+			scoreP2UI.color = new Color(144, 144, 144);
 
-		scoreP1UI.color = new Color(144, 144, 144);
-		scoreP2UI.color = new Color(144, 144, 144);
-
-		upgradeScreenCanvas.SetActive(true);
+			upgradeScreenCanvas.SetActive(true);
+		} else {
+			endgame = true;
+		}
 	}
 
 

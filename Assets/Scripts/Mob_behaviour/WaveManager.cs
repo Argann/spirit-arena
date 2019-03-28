@@ -120,24 +120,29 @@ public class WaveManager : MonoBehaviour {
 	
 	void Start() {
 		sblurp = blurp;
+		Cursor.visible = false;
 	}
 
 	void Update() {
-		
-		if (gameLaunched && currentEnemies.Count == 0 && !upgradeComplete && !upgradeManager.currentlyUpgrading) {
-			SetWaveNumber(waveNumber + 1);
-			if (waveNumber > 1) {
-				upgradeManager.StartUpgrade();
-			} else {
-				upgradeComplete = true;
+		if (!upgradeManager.endgame) {
+			if (gameLaunched
+				&& currentEnemies.Count == 0
+				&& !upgradeComplete
+				&& !upgradeManager.currentlyUpgrading) {
+				SetWaveNumber(waveNumber + 1);
+				if (waveNumber > 1) {
+					upgradeManager.StartUpgrade();
+				} else {
+					upgradeComplete = true;
+				}
 			}
-		}
 
-		if (gameLaunched && currentEnemies.Count == 0 && upgradeComplete) {
-			SpawnEnemies();
-			upgradeComplete = false;
-		}
+			if (gameLaunched && currentEnemies.Count == 0 && upgradeComplete) {
+				SpawnEnemies();
+				upgradeComplete = false;
+			}
 
+		}
 	}
 
 }
