@@ -2,11 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Experimental.Input;
 
 public class PlayerControls : MonoBehaviour {
 	// ================================================
 	[Header("Game Settings")]
 	public string playerPrefix = "P1";
+    public InputActionAsset iaa = default;
 	// ================================================
 	[Header("Characteristics")]
 	public float movementSpeed = 7.5f;
@@ -14,6 +16,10 @@ public class PlayerControls : MonoBehaviour {
     public int lifePoints = 10;
     public int maxLifePoints = 10;
     public GameObject defaultWeapon = null;
+
+    [Header("UI elements")]
+    public Slider hpSlider;
+
     [SerializeField]
     private int points = 0;
     public int Points
@@ -108,17 +114,10 @@ public class PlayerControls : MonoBehaviour {
 	[Header("Swap settings")]
     public GameObject bullet = null;
     public GameObject otherPlayer = null;
-    private long lastSwapTimingMs = 0;
+    private static long lastSwapTimingMs = 0;
 	// ================================================
     public long lastShotTimingMs = 0;
 	// ================================================
-
-	private string horizontalInputLabel;
-	private string VerticalInputLabel;
-	private string aimHorizontalInputLabel;
-	private string aimVerticalInputLabel;
-	// private string playerActionLabel;
-	private string playerSwapLabel;
 
 	private Vector2 aim = new Vector2(0,0);
     private Vector2 movement = new Vector2(0,0);
@@ -129,6 +128,7 @@ public class PlayerControls : MonoBehaviour {
     // since we use axis (needed for key mapping), we have to
     // detect button press by ourselves...
     private bool previousFrameSwapUp = true;
+    private bool swapButtonPressed = false;
 
     [SerializeField]
     private bool isSpirit;
@@ -138,24 +138,55 @@ public class PlayerControls : MonoBehaviour {
         get { return isSpirit; }
     }
 
+    [HideInInspector]
+    public int minigameScore = 0;
+    public Text minigameScoreUI;
+
     private bool firstFrameDead = true;
 
+    /*
+     * Gere l'augmentation des PV max
+     */
     public void IncreaseMaxHealth(int inc) {
         maxLifePoints += inc;
         lifePoints = maxLifePoints;
+        hpSlider.maxValue = maxLifePoints;
+        hpSlider.value = lifePoints;
     }
 
+    public void Awake() {
+        var actionControl = iaa.GetActionMap("gameplay");
+        InputAction movementAction = actionControl.GetAction("movement");
+        movementAction.performed += Move;
+        movementAction.cancelled += StopMoving;
+
+        InputAction aimAction = actionControl.GetAction("aim");
+        aimAction.performed += Shoot;
+        aimAction.cancelled += StopShooting;
+
+        InputAction swapAction = actionControl.GetAction("swap");
+        swapAction.performed += Swap;
+    }
+
+    public void OnEnable() {
+        iaa.Enable();
+    }
+
+    public void OnDisable() {
+        iaa.Disable();
+    }
+
+    /*
+     * Appelé à l'instanciation de la classe
+     * Associe les controles au joueur correspondant
+     */
 	void Start () {
+        hpSlider.maxValue = maxLifePoints;
+        hpSlider.value = lifePoints;
 		gameObject.GetComponent<Rigidbody2D>().freezeRotation = true;
-        horizontalInputLabel    = string.Concat(playerPrefix, "_Horizontal");
-        VerticalInputLabel      = string.Concat(playerPrefix, "_Vertical");
-        aimHorizontalInputLabel = string.Concat(playerPrefix, "_aim_horizontal");
-        aimVerticalInputLabel   = string.Concat(playerPrefix, "_aim_vertical");
-        // playerActionLabel    = string.Concat(playerPrefix, "_action");
-        playerSwapLabel         = string.Concat(playerPrefix, "_swap");
         animator = GetComponent<Animator>();
         hpbar = GetComponent<HPBarManager>();
-        sprite                  = GetComponent<SpriteRenderer>();
+        sprite = GetComponent<SpriteRenderer>();
         instances.Add(this);
 	}
 
@@ -166,26 +197,34 @@ public class PlayerControls : MonoBehaviour {
     private SpriteRenderer sprite;
     private Color previousColor = Color.black;
 
+    /*
+     * Methode de gestion des degats pris
+     */
     public void TakeDamages(int n)
     {
         if (takingDamagesFrameCount == 0)
         {
             lifePoints -= (n - armor < 1) ? 1 : n - armor;
+            hpSlider.value = lifePoints;
             takingDamagesFrameCount = takingDamageColorFrames;
             previousColor = sprite.color;
             sprite.color = Color.red;
         }
     }
 
+    /*
+     * Update est appelé à chaque frame
+     * Ici :
+      * Calcule l'angle de tir du personnage
+      * Calcule la direction de deplacement du personnage
+      * Fait apparaitre le personnage rouge / normal lorsqu'il prend des coups
+      * Gere la mort des personnages
+      * Gere les animations de personnage
+      * Gere le tir des personnages
+      * Gere le swap des personnages
+     */
 	void Update () {
-        // ------ update aim ------
-        aim = new Vector2(Input.GetAxis(aimHorizontalInputLabel), Input.GetAxis(aimVerticalInputLabel));
         // ------ update movement ------
-        if (Time.time - begin > 0.5f) {
-            movement = new Vector2(Input.GetAxisRaw(horizontalInputLabel), Input.GetAxisRaw(VerticalInputLabel));
-            movement.Normalize();
-            movement = movement * movementSpeed * movementSpeedMultiplicator;
-        }
 
         if (takingDamagesFrameCount > 0)
         {
@@ -196,7 +235,8 @@ public class PlayerControls : MonoBehaviour {
             }
         }
 
-        if (lifePoints == 0) {
+        if (lifePoints <= 0) {
+            lifePoints = 0;
             if (firstFrameDead) {
                 firstFrameDead = false;
                 points /= 2;
@@ -205,8 +245,6 @@ public class PlayerControls : MonoBehaviour {
             animator.SetBool("Dead", true);
             animator.SetBool("Running", false);
             movement = Vector2.zero;
-        } else if (lifePoints < 0) {
-            lifePoints = 0;
         } else {
             firstFrameDead = true;
             animator.SetBool("Dead", false);
@@ -247,7 +285,6 @@ public class PlayerControls : MonoBehaviour {
                 }
             }
             // ------ swaps ------
-            bool swapButtonPressed = (Input.GetAxisRaw(playerSwapLabel) != 0);
             long now = System.DateTime.Now.Ticks / System.TimeSpan.TicksPerMillisecond;
             if(previousFrameSwapUp && swapButtonPressed && (now >= lastSwapTimingMs + (long)(swapCooldownMultiplicator * swapCooldownMs))) {
                 lastSwapTimingMs = now;
@@ -266,23 +303,39 @@ public class PlayerControls : MonoBehaviour {
                 }
             }
             previousFrameSwapUp = !swapButtonPressed;
+            swapButtonPressed = false;
         }
 	}
 
+    /*
+     * FixedUpdate est appelé à chaque intervale constant (0.02s par defaut)
+     * Ici, applique le mouvement au joueur
+     */
 	void FixedUpdate() {
 		gameObject.GetComponent<Rigidbody2D>().velocity = movement;
 	}
 
+    /*
+     * Retourne la direction de tir du joueur
+     */
 	public Vector2 GetAim()
 	{
 		return aim;
 	}
 
+    /*
+     * Applique un recul sur un personnage joueur touché
+     */
     public void Recoil(Vector3 recoilDirection) {
         begin = Time.time;
         movement = recoilDirection;
     }
 
+    /*
+     * Verifie si tous les joueurs sont morts
+      * false si au moins un joueur est vivant
+      * true sinon
+     */
     public static bool areDead() {
         bool result = false;
         foreach (PlayerControls control in instances) {
@@ -290,4 +343,34 @@ public class PlayerControls : MonoBehaviour {
         }
         return !result;
     }
+
+    public void Move(InputAction.CallbackContext context) {
+        if (Time.time - begin > 0.5f && lifePoints > 0) {
+            movement = context.ReadValue<Vector2>();
+            movement.Normalize();
+            movement = movement * movementSpeed * movementSpeedMultiplicator;
+        }
+    }
+
+    public void StopMoving(InputAction.CallbackContext context) {
+        movement = Vector2.zero;
+    }
+
+    public void Shoot(InputAction.CallbackContext context) {
+        aim = context.ReadValue<Vector2>();
+    }
+
+    public void StopShooting(InputAction.CallbackContext context) {
+        aim = Vector2.zero;
+    }
+
+    public void Swap(InputAction.CallbackContext context) {
+        swapButtonPressed = true;
+    }
+
+    public void IncreasePlayerCpt(InputAction.CallbackContext context) {
+		minigameScore++;
+		minigameScoreUI.text = "" + minigameScore;
+		SoundManager.PlaySoundMinigameHit();
+	}
 }

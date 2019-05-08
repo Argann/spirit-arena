@@ -7,13 +7,11 @@ public class Timeout : MonoBehaviour {
 	private long startTime;
 
 	void Start () {
-		startTime = System.DateTime.Now.Ticks / System.TimeSpan.TicksPerMillisecond;
-	}
+		ttlMillis = 0;
 	
 	void Update () {
-		if (System.DateTime.Now.Ticks / System.TimeSpan.TicksPerMillisecond >= startTime + ttlMillis)
-		{
-			Object.Destroy(this.gameObject);
+		if (ttlMillis > 0)
+			Object.Destroy(this.gameObject, ttlMillis);
 		}
 	}
 }

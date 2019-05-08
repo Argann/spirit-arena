@@ -121,6 +121,10 @@ public class WaveManager : MonoBehaviour {
 	void Start() {
 		sblurp = blurp;
 		Cursor.visible = false;
+		gameLaunched = false;
+		upgradeComplete = false;
+		waveNumber = 0;
+		currentEnemies = null;
 	}
 
 	void Update() {

@@ -71,9 +71,9 @@ public abstract class Weapon : MonoBehaviour
 		GameObject instance = GameObject.Instantiate(bullet, new Vector3(position.x, position.y, 0), Quaternion.identity);
 		instance.transform.Rotate(0, 0, (angle / Mathf.PI) * 180f - 180f);
 		instance.GetComponent<Rigidbody2D>().velocity = direction * projectileSpeed;
-		instance.GetComponent<Timeout>().ttlMillis = projectileTtlMs;
 		instance.GetComponent<Bullet>().damages = damages * player.DamageMultiplicator;
 		instance.GetComponent<Bullet>().player = player;
+		Destroy(instance, projectileTtlMs);
 	}
 
 	protected Vector2 RotateVector(Vector2 vector, float angle)

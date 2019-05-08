@@ -1,15 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Experimental.Input;
 using UnityEngine.UI;
 
 public class UpgradeManager : MonoBehaviour {
 
 	[SerializeField]
-	private PlayerControls player1;
-
-	[SerializeField]
-	private PlayerControls player2;
+	private PlayerControls[] players;
 
 	[SerializeField]
 	private List<Buff> buffs;
@@ -26,19 +24,10 @@ public class UpgradeManager : MonoBehaviour {
 	private Slider timerUI;
 
 	[SerializeField]
-	private Text scoreP1UI;
-
-	[SerializeField]
-	private Text scoreP2UI;
-
-	[SerializeField]
 	private Image upgradeImage;
 
 	[SerializeField]
 	private Text upgradeDescription;
-
-	private int scoreP1;
-	private int scoreP2;
 
 	[SerializeField]
 	private float minigameTimer;
@@ -48,22 +37,34 @@ public class UpgradeManager : MonoBehaviour {
 
 	private float currentTimer;
 
-	private bool firstFrameP1 = true;
-
-	private bool firstFrameP2 = true;
-
 	private int state = -1;
 
-	private int winnerPlayer = 0;
+	private PlayerControls winnerPlayer = default;
 
 	public bool currentlyUpgrading = false;
 
 	public bool endgame = false;
 
+	private bool inputEnabled = false;
+
+	public void Awake() {
+		inputEnabled = false;
+		for (int i = 0; i<players.Length; i++) {
+			PlayerControls pc = players[i];
+			
+			var minigameControl = pc.iaa.GetActionMap("gameplay");
+			InputAction iaAction = minigameControl.GetAction("action");
+			iaAction.performed += ctx=> {
+				if (inputEnabled)
+					pc.IncreasePlayerCpt(ctx);
+			};
+		}
+	}
+
 	void ApplyUpgrade() {
 		// You must apply the upgrade here
 		// You can use the `winnerPlayer` var
-		PlayerControls pc = winnerPlayer == 1 ? player1 : player2;
+		PlayerControls pc = winnerPlayer;
 		pc.UpgradeCount += 1;
 
 		if (currentBuff.type == Buff.BuffType.AttackDmg) {
@@ -93,16 +94,13 @@ public class UpgradeManager : MonoBehaviour {
 		}
 
 		// We reset life of dead heroes
-		if (player1.lifePoints <= 0) {
-			player1.lifePoints = 10;
-			player1.gameObject.transform.rotation = new Quaternion(0, 0, 0, player1.gameObject.transform.rotation.w);
+		foreach(PlayerControls player in players) {
+			if (player.lifePoints <= 0) {
+				player.lifePoints = player.maxLifePoints / 2;
+				player.hpSlider.value = player.lifePoints;
+				player.gameObject.transform.rotation = new Quaternion(0, 0, 0, player.gameObject.transform.rotation.w);
+			}
 		}
-
-		if (player2.lifePoints <= 0) {
-			player2.lifePoints = 10;
-			player2.gameObject.transform.rotation = new Quaternion(0, 0, 0, player2.gameObject.transform.rotation.w);
-		}
-
 
 		// And then we go back to the game
 		upgradeScreenCanvas.SetActive(false);
@@ -112,38 +110,39 @@ public class UpgradeManager : MonoBehaviour {
 	}
 
 	public void StartUpgrade() {
+		int totalLife = 0;
 
-		if(player1.lifePoints > 0 || player2.lifePoints > 0) {
+		foreach (PlayerControls player in players)
+			totalLife += player.lifePoints;
+
+		if(totalLife > 0) {
 			currentlyUpgrading = true;
-
 			currentTimer = minigameTimer;
-
 			state = 0;
 
-			int diff = (player1.UpgradeCount - player2.UpgradeCount) * 5;
-
-			scoreP1 = 0 - ((diff > 0) ? diff : 0);
-			scoreP2 = 0 + ((diff < 0) ? diff : 0);
-
-			scoreP1UI.text = "" + scoreP1;
-			scoreP2UI.text = "" + scoreP2;
+			ApplyMinigameMalus();
 
 			currentBuff = buffs[Random.Range(0, buffs.Count)];
-
 			upgradeImage.sprite = currentBuff.image;
-
 			upgradeDescription.text = currentBuff.description;
-
-			scoreP1UI.color = new Color(144, 144, 144);
-			scoreP2UI.color = new Color(144, 144, 144);
-
 			upgradeScreenCanvas.SetActive(true);
 		} else {
 			endgame = true;
 		}
 	}
 
-
+	public void ApplyMinigameMalus() {
+		int minUpgradeCount = 10_000;
+		foreach (PlayerControls player in players) {
+			if (player.UpgradeCount < minUpgradeCount)
+				minUpgradeCount = player.UpgradeCount;
+		}
+		foreach (PlayerControls pc in players) {
+			pc.minigameScore = (minUpgradeCount - pc.UpgradeCount) * 5;
+			pc.minigameScoreUI.text = "" + pc.minigameScore;
+			pc.minigameScoreUI.color = new Color(144, 144, 144);
+		}
+	}
 	
 	// Update is called once per frame
 	void Update () {
@@ -152,32 +151,11 @@ public class UpgradeManager : MonoBehaviour {
 
 			if (currentTimer > 0) {
 				currentTimer -= Time.deltaTime;
-
 				timerUI.value = Mathf.InverseLerp(0, 7, currentTimer);
-
-				if (Input.GetAxisRaw("P1_interact") > 0 && firstFrameP1) {
-					scoreP1++;
-					scoreP1UI.text = ""+scoreP1;
-					SoundManager.PlaySoundMinigameHit();
-					firstFrameP1 = false;
-				}
-
-				if (Input.GetAxisRaw("P1_interact") == 0) {
-					firstFrameP1 = true;
-				}
-
-				if (Input.GetAxisRaw("P2_interact") > 0 && firstFrameP2) {
-					scoreP2++;
-					scoreP2UI.text = ""+scoreP2;
-					SoundManager.PlaySoundMinigameHit();
-					firstFrameP2 = false;
-				}
-
-				if (Input.GetAxisRaw("P2_interact") == 0) {
-					firstFrameP2 = true;
-				}
+				inputEnabled = true;
 			} else {
 				state = 1;
+				inputEnabled = false;
 			}
 
 
@@ -185,21 +163,16 @@ public class UpgradeManager : MonoBehaviour {
 			// Waiting time after minigame
 
 			currentTimer = afterMinigameTimer;
+			
+			winnerPlayer = players[Random.Range(0, players.Length)];
 
-			if (scoreP1 > scoreP2) {
-				winnerPlayer = 1;
-			} else if (scoreP1 < scoreP2) {
-				winnerPlayer = 2;
-			} else {
-				winnerPlayer = Random.Range(1, 3);
+			foreach (PlayerControls pc in players) {
+				if(pc.minigameScore > winnerPlayer.minigameScore) {
+					winnerPlayer = pc;
+				}
 			}
 
-			if (winnerPlayer == 1) {
-				scoreP1UI.color = Color.green;
-			} else {
-				scoreP2UI.color = Color.green;
-			}
-
+			winnerPlayer.minigameScoreUI.color = Color.green;
 			state = 2;
 
 		} else if (state == 2) {

@@ -30,8 +30,11 @@ public class MenuManager : MonoBehaviour {
 	[SerializeField]
 	private Button BackButton;
 
+	public void Start() {
+		PlayButton.Select();
+	}
+
 	public void ButtonQuit() {
-		Debug.Log("bye");
 		Application.Quit();
 	}
 
