@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class RandomDodge_IA : MonoBehaviour {
-	public float step = 0.02f;
+	public float step = 2f;
 	private GameObject player;
 	private int frameCpt = 0;
 	private int maxFrame = 0;
@@ -30,7 +30,7 @@ public class RandomDodge_IA : MonoBehaviour {
 		float x0 = transform.position.x;
 		float y0 = transform.position.y;
 
-		transform.position = Vector2.MoveTowards(transform.position, player.transform.position, step);
+		transform.position = Vector2.MoveTowards(transform.position, player.transform.position, step * Time.deltaTime);
 
 		float x1 = transform.position.x;
 		float y1 = transform.position.y;

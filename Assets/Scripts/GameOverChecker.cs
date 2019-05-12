@@ -1,34 +1,67 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Experimental.Input;
 using UnityEngine.SceneManagement;
 
+/*
+ * Active l'ecran de game over et permet de relancer la partie
+ */
 public class GameOverChecker : MonoBehaviour {
 
 	[SerializeField]
-	private PlayerControls pc1;
-
-	[SerializeField]
-	private PlayerControls pc2;
+	private PlayerControls[] players;
 
 	[SerializeField]
 	private Canvas gameOverCanvas;
 
+	private bool inputEnabled = false;
+
+
+	/*
+ 	 *  Bloc dedie a la gestion d'input avec le New Input System (2019) 
+	 *  A conserver pour version future
+	 */
+
+	/*
+	public void Awake() {
+		foreach (PlayerControls pc in players) {
+			var minigameControl = pc.iaa.GetActionMap("gameplay");
+			InputAction iaAction = minigameControl.GetAction("replay");
+			iaAction.started += Replay;
+		}
+	}
+
+	private void Replay(InputAction.CallbackContext context) {
+		if(inputEnabled) {
+			inputEnabled = false;
+			SceneManager.LoadScene("PlayScene");
+		}
+	}
+	*/
+
 	void Start() {
 		gameOverCanvas.gameObject.SetActive(false);
+		inputEnabled = false;
 	}
 	
 	void Update () {
-		if (pc1.lifePoints <= 0 && pc2.lifePoints <= 0) {
-			gameOverCanvas.gameObject.SetActive(true);
-
-			if (Input.GetAxisRaw("P1_interact") > 0) {
+		int lifePoints = 0;
+		for(int i=0; i<players.Length; i++) {
+			string label = string.Concat(Constants.INTERACT, players[i].playerPrefix);
+			if (Input.GetAxisRaw(label) > 0 && inputEnabled) {
+				inputEnabled = false;
+				players[0].ClearInstances();
 				SceneManager.LoadScene("PlayScene");
 			}
+		}
+		
+		foreach (PlayerControls player in players) 
+			lifePoints += player.lifePoints < 0 ? 0 : player.lifePoints;
 
-			if (Input.GetAxisRaw("P1_swap") > 0) {
-				Application.Quit();
-			}
+		if (players.Length > 0 && lifePoints <= 0) {
+			gameOverCanvas.gameObject.SetActive(true);
+			inputEnabled = true;
 		}
 	}
 }

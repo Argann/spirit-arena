@@ -35,7 +35,7 @@ public class PlayerBehaviourIntro : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void FixedUpdate () {
 		if (Time.timeSinceLevelLoad > firstMoveTime && Time.timeSinceLevelLoad < firstStopTime) {
 			transform.Translate(new Vector2(-moveSpeed, 0f));
 		}

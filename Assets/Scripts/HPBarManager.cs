@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/*
+ * Gestion de l'apparence de la barre de vie
+ */
 public class HPBarManager : MonoBehaviour {
 	public string prefix;
 

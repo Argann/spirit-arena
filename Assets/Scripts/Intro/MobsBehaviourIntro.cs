@@ -24,7 +24,7 @@ public class MobsBehaviourIntro : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void FixedUpdate () {
 		if (!gameObject.GetComponent<MobCollider>().isDead) {
 			Color col = gameObject.GetComponent<SpriteRenderer>().color;
 			if (Time.timeSinceLevelLoad > apparitionTime &&  col.a < 1f) {

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Basic_IA : MonoBehaviour {
-	public float step = 0.02f;
+	public float step = 2f;
 	private GameObject player;
 
 	// Use this for initialization
@@ -17,6 +17,6 @@ public class Basic_IA : MonoBehaviour {
 		if(player.GetComponent<PlayerControls>().lifePoints <= 0) {
 			player = player.GetComponent<PlayerControls>().otherPlayer;
 		}
-		transform.position = Vector2.MoveTowards(transform.position, player.transform.position, step);
+		transform.position = Vector2.MoveTowards(transform.position, player.transform.position, step * Time.deltaTime);
 	}
 }

@@ -1,0 +1,944 @@
+fileFormatVersion: 2
+guid: cc7ddd9331a24d84188fa897ac7237da
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: 11500000, guid: b2a9591990af98743ba3ff7cf1000886, type: 3}
+  textureImporterSettings:
+    alphaSource: 1
+    mipMapMode: 0
+    enableMipMap: 1
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+    convertToNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    isReadable: 0
+    streamingMipmaps: 1
+    streamingMipmapsPriority: 0
+    nPOTScale: 1
+    sRGBTexture: 1
+    spriteMode: 2
+    spriteExtrude: 1
+    spriteMeshType: 1
+    alignment: 0
+    spritePivot: {x: 0.5, y: 0.5}
+    spritePixelsToUnits: 100
+    spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+    spriteGenerateFallbackPhysicsShape: 0
+    generateCubemap: 6
+    cubemapConvolution: 0
+    seamlessCubemap: 0
+    alphaIsTransparency: 1
+    spriteTessellationDetail: -1
+    textureType: 8
+    textureShape: 1
+    singleChannelComponent: 0
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 0
+    wrapV: 0
+    wrapW: 0
+    normalMap: 0
+    textureFormat: 0
+    maxTextureSize: 0
+    lightmap: 0
+    compressionQuality: 0
+    linearTexture: 0
+    grayScaleToAlpha: 0
+    rGBM: 0
+    cubemapConvolutionSteps: 0
+    cubemapConvolutionExponent: 0
+    maxTextureSizeSet: 0
+    compressionQualitySet: 0
+    textureFormatSet: 0
+  spriteImportData:
+  - name: 
+    originalName: 
+    pivot: {x: 0, y: 0}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 0
+      height: 0
+    spriteID: 
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 0, y: 0}
+  mosaicSpriteImportData: []
+  rigSpriteImportData:
+  - name: Teinte/Saturation 1 copie
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 325
+      y: 979
+      width: 0
+      height: 0
+    spriteID: ac132bb515c49324195fb0d25e840678
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 41, y: 565}
+  - name: Calque 36
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 4
+      width: 132
+      height: 259
+    spriteID: 6580f0aa57e158948954f15f9a5dd3f0
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: -72, y: -81}
+  - name: Teinte/Saturation 1 copie 2
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 325
+      y: 987
+      width: 0
+      height: 0
+    spriteID: 3229c3ef4e94dbb47be0e4b34fb16cea
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 41, y: 573}
+  - name: Calque 7
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 325
+      y: 920
+      width: 15
+      height: 51
+    spriteID: 340f35137d61e9a4c86fffc2d6b739d1
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 203, y: 754}
+  - name: Calque 6
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 257
+      y: 920
+      width: 60
+      height: 64
+    spriteID: ac738f47eb58b3a4eaedd70a1339c780
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 151, y: 694}
+  - name: Calque 14 copie 9
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 465
+      y: 775
+      width: 105
+      height: 97
+    spriteID: a622b8d5e2143154187841d5449c63fd
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 375, y: 674}
+  - name: Calque 14 copie 8
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 465
+      y: 4
+      width: 111
+      height: 105
+    spriteID: 91e4708646c7b8448bdd6fbcadf14917
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 380, y: -98}
+  - name: Calque 14 copie 5
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 465
+      y: 339
+      width: 105
+      height: 99
+    spriteID: 2706312a5cdd4c54f83c11c473ed3ebe
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 376, y: 238}
+  - name: Calque 14 copie 7
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 465
+      y: 553
+      width: 100
+      height: 103
+    spriteID: eecd6a7bf8776084c968158a7b077a2c
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 373, y: 452}
+  - name: Calque 14 copie 6
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 465
+      y: 880
+      width: 105
+      height: 97
+    spriteID: 0c6698263d4b18f4b9f8c228ec1321a4
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 375, y: 779}
+  - name: Calque 14 copie 4
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 465
+      y: 230
+      width: 107
+      height: 101
+    spriteID: 22f1280dcf5f2014ea3fabb97dac26fc
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 377, y: 128}
+  - name: Calque 14 copie 3
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 584
+      y: 4
+      width: 105
+      height: 97
+    spriteID: 662f2dff1c9b3384982f1b502a506288
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 493, y: -97}
+  - name: Calque 14 copie
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 465
+      y: 664
+      width: 100
+      height: 103
+    spriteID: 942d2d02613eb414aae185f3432e80be
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 373, y: 563}
+  - name: Calque 14 copie 2
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 465
+      y: 446
+      width: 105
+      height: 99
+    spriteID: bd56c1795d12fe64998f57b49a746149
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 376, y: 345}
+  - name: Calque 14
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 465
+      y: 117
+      width: 111
+      height: 105
+    spriteID: 23a8b7a2dc2a8ac4f8ca2a8f60e086b3
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 380, y: 15}
+  - name: Calque 5
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 545
+      width: 107
+      height: 227
+    spriteID: 5cfe7631598eca046bf4780905591b22
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: -81, y: 442}
+  - name: "Groupe vid\xE9o 4"
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 363
+      y: 233
+      width: 70
+      height: 210
+    spriteID: d9a0bfed550b3ad4b8d48dc7727ad5ce
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 271, y: 120}
+  - name: "Groupe vid\xE9o 5"
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 271
+      width: 101
+      height: 266
+    spriteID: 6ca88d4be05ebfe47a1696a7f7c2908a
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: -100, y: 188}
+  - name: Calque 10 copie 10
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 257
+      y: 4
+      width: 98
+      height: 221
+    spriteID: 764fb75fc0e53de46a2ba90516a78375
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 164, y: -101}
+  - name: Calque 10 copie 9
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 780
+      width: 105
+      height: 225
+    spriteID: 2270b77342330b74186e261b26c0db6f
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: -84, y: 676}
+  - name: Calque 10 copie 8
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 144
+      y: 237
+      width: 99
+      height: 224
+    spriteID: b1cea59804b56cc4ca486d799614655f
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 52, y: 134}
+  - name: Calque 10 copie 7
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 257
+      y: 691
+      width: 94
+      height: 221
+    spriteID: 92f8b51b79436a244810b1e9ba33f12f
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 162, y: 586}
+  - name: Calque 10 copie 6
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 257
+      y: 233
+      width: 98
+      height: 221
+    spriteID: a0f8596a70a30d6469b72b5f545af887
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 164, y: 128}
+  - name: Calque 10 copie 5
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 144
+      y: 701
+      width: 100
+      height: 219
+    spriteID: 3e6c7b426f777ff489342531a7b70407
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 53, y: 594}
+  - name: Calque 10 copie 4
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 257
+      y: 462
+      width: 98
+      height: 221
+    spriteID: 079f3d9f610488441a89326c04a36a63
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 164, y: 357}
+  - name: Calque 10 copie 3
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 363
+      y: 4
+      width: 94
+      height: 221
+    spriteID: 72953ad1b60ba76439e1ba2c7c457d78
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 268, y: -101}
+  - name: Calque 10 copie
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 144
+      y: 469
+      width: 99
+      height: 224
+    spriteID: 4641ee94d6a3bdf4b9791e1f52baf2ac
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 52, y: 366}
+  - name: Calque 10
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 144
+      y: 4
+      width: 105
+      height: 225
+    spriteID: ed4304e4eeb2bc247b68f0d121ad96c2
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 56, y: -100}
+  platformSettings: []
+  mosaicLayers: 1
+  documentPivot: {x: 0, y: 0}
+  documentAlignment: 7
+  importHiddenLayers: 0
+  importedTextureWidth: 1024
+  importedTextureHeight: 1024
+  documentSize: {x: 284, y: 414}
+  textureActualWidth: 1024
+  textureActualHeight: 1024
+  spritePackingTag: 
+  resliceFromLayer: 0
+  characterMode: 1
+  mosaicPSDLayers: []
+  rigPSDLayers:
+  - name: Teinte/Saturation 1 copie
+    spriteName: Teinte/Saturation 1 copie
+    isGroup: 0
+    parentIndex: -1
+    spriteID: ac132bb515c49324195fb0d25e840678
+    layerID: 39
+    mosaicPosition: {x: 325, y: 979}
+  - name: Calque 36
+    spriteName: Calque 36
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 6580f0aa57e158948954f15f9a5dd3f0
+    layerID: 38
+    mosaicPosition: {x: 4, y: 4}
+  - name: Teinte/Saturation 1 copie 2
+    spriteName: Teinte/Saturation 1 copie 2
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 3229c3ef4e94dbb47be0e4b34fb16cea
+    layerID: 52
+    mosaicPosition: {x: 325, y: 987}
+  - name: Calque 7
+    spriteName: Calque 7
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 340f35137d61e9a4c86fffc2d6b739d1
+    layerID: 33
+    mosaicPosition: {x: 325, y: 920}
+  - name: Calque 6
+    spriteName: Calque 6
+    isGroup: 0
+    parentIndex: -1
+    spriteID: ac738f47eb58b3a4eaedd70a1339c780
+    layerID: 32
+    mosaicPosition: {x: 257, y: 920}
+  - name: Groupe 2
+    spriteName: 
+    isGroup: 1
+    parentIndex: -1
+    spriteID: 00000000000000000000000000000000
+    layerID: 37
+    mosaicPosition: {x: 0, y: 0}
+  - name: "Groupe vid\xE9o 1"
+    spriteName: 
+    isGroup: 1
+    parentIndex: 5
+    spriteID: 00000000000000000000000000000000
+    layerID: 51
+    mosaicPosition: {x: 0, y: 0}
+  - name: Calque 14 copie 9
+    spriteName: Calque 14 copie 9
+    isGroup: 0
+    parentIndex: 6
+    spriteID: a622b8d5e2143154187841d5449c63fd
+    layerID: 50
+    mosaicPosition: {x: 465, y: 775}
+  - name: Calque 14 copie 8
+    spriteName: Calque 14 copie 8
+    isGroup: 0
+    parentIndex: 6
+    spriteID: 91e4708646c7b8448bdd6fbcadf14917
+    layerID: 49
+    mosaicPosition: {x: 465, y: 4}
+  - name: Calque 14 copie 5
+    spriteName: Calque 14 copie 5
+    isGroup: 0
+    parentIndex: 6
+    spriteID: 2706312a5cdd4c54f83c11c473ed3ebe
+    layerID: 48
+    mosaicPosition: {x: 465, y: 339}
+  - name: Calque 14 copie 7
+    spriteName: Calque 14 copie 7
+    isGroup: 0
+    parentIndex: 6
+    spriteID: eecd6a7bf8776084c968158a7b077a2c
+    layerID: 47
+    mosaicPosition: {x: 465, y: 553}
+  - name: Calque 14 copie 6
+    spriteName: Calque 14 copie 6
+    isGroup: 0
+    parentIndex: 6
+    spriteID: 0c6698263d4b18f4b9f8c228ec1321a4
+    layerID: 46
+    mosaicPosition: {x: 465, y: 880}
+  - name: Calque 14 copie 4
+    spriteName: Calque 14 copie 4
+    isGroup: 0
+    parentIndex: 6
+    spriteID: 22f1280dcf5f2014ea3fabb97dac26fc
+    layerID: 45
+    mosaicPosition: {x: 465, y: 230}
+  - name: Calque 14 copie 3
+    spriteName: Calque 14 copie 3
+    isGroup: 0
+    parentIndex: 6
+    spriteID: 662f2dff1c9b3384982f1b502a506288
+    layerID: 44
+    mosaicPosition: {x: 584, y: 4}
+  - name: Calque 14 copie
+    spriteName: Calque 14 copie
+    isGroup: 0
+    parentIndex: 6
+    spriteID: 942d2d02613eb414aae185f3432e80be
+    layerID: 43
+    mosaicPosition: {x: 465, y: 664}
+  - name: Calque 14 copie 2
+    spriteName: Calque 14 copie 2
+    isGroup: 0
+    parentIndex: 6
+    spriteID: bd56c1795d12fe64998f57b49a746149
+    layerID: 42
+    mosaicPosition: {x: 465, y: 446}
+  - name: Calque 14
+    spriteName: Calque 14
+    isGroup: 0
+    parentIndex: 6
+    spriteID: 23a8b7a2dc2a8ac4f8ca2a8f60e086b3
+    layerID: 41
+    mosaicPosition: {x: 465, y: 117}
+  - name: Calque 5
+    spriteName: Calque 5
+    isGroup: 0
+    parentIndex: 5
+    spriteID: 5cfe7631598eca046bf4780905591b22
+    layerID: 19
+    mosaicPosition: {x: 4, y: 545}
+  - name: "Groupe vid\xE9o 4"
+    spriteName: "Groupe vid\xE9o 4"
+    isGroup: 0
+    parentIndex: 5
+    spriteID: d9a0bfed550b3ad4b8d48dc7727ad5ce
+    layerID: 18
+    mosaicPosition: {x: 363, y: 233}
+  - name: "Groupe vid\xE9o 5"
+    spriteName: "Groupe vid\xE9o 5"
+    isGroup: 0
+    parentIndex: 5
+    spriteID: 6ca88d4be05ebfe47a1696a7f7c2908a
+    layerID: 16
+    mosaicPosition: {x: 4, y: 271}
+  - name: "Groupe vid\xE9o 2"
+    spriteName: 
+    isGroup: 1
+    parentIndex: 5
+    spriteID: 00000000000000000000000000000000
+    layerID: 14
+    mosaicPosition: {x: 0, y: 0}
+  - name: Calque 10 copie 10
+    spriteName: Calque 10 copie 10
+    isGroup: 0
+    parentIndex: 20
+    spriteID: 764fb75fc0e53de46a2ba90516a78375
+    layerID: 13
+    mosaicPosition: {x: 257, y: 4}
+  - name: Calque 10 copie 9
+    spriteName: Calque 10 copie 9
+    isGroup: 0
+    parentIndex: 20
+    spriteID: 2270b77342330b74186e261b26c0db6f
+    layerID: 12
+    mosaicPosition: {x: 4, y: 780}
+  - name: Calque 10 copie 8
+    spriteName: Calque 10 copie 8
+    isGroup: 0
+    parentIndex: 20
+    spriteID: b1cea59804b56cc4ca486d799614655f
+    layerID: 11
+    mosaicPosition: {x: 144, y: 237}
+  - name: Calque 10 copie 7
+    spriteName: Calque 10 copie 7
+    isGroup: 0
+    parentIndex: 20
+    spriteID: 92f8b51b79436a244810b1e9ba33f12f
+    layerID: 10
+    mosaicPosition: {x: 257, y: 691}
+  - name: Calque 10 copie 6
+    spriteName: Calque 10 copie 6
+    isGroup: 0
+    parentIndex: 20
+    spriteID: a0f8596a70a30d6469b72b5f545af887
+    layerID: 9
+    mosaicPosition: {x: 257, y: 233}
+  - name: Calque 10 copie 5
+    spriteName: Calque 10 copie 5
+    isGroup: 0
+    parentIndex: 20
+    spriteID: 3e6c7b426f777ff489342531a7b70407
+    layerID: 8
+    mosaicPosition: {x: 144, y: 701}
+  - name: Calque 10 copie 4
+    spriteName: Calque 10 copie 4
+    isGroup: 0
+    parentIndex: 20
+    spriteID: 079f3d9f610488441a89326c04a36a63
+    layerID: 7
+    mosaicPosition: {x: 257, y: 462}
+  - name: Calque 10 copie 3
+    spriteName: Calque 10 copie 3
+    isGroup: 0
+    parentIndex: 20
+    spriteID: 72953ad1b60ba76439e1ba2c7c457d78
+    layerID: 6
+    mosaicPosition: {x: 363, y: 4}
+  - name: Calque 10 copie
+    spriteName: Calque 10 copie
+    isGroup: 0
+    parentIndex: 20
+    spriteID: 4641ee94d6a3bdf4b9791e1f52baf2ac
+    layerID: 5
+    mosaicPosition: {x: 144, y: 469}
+  - name: Calque 10
+    spriteName: Calque 10
+    isGroup: 0
+    parentIndex: 20
+    spriteID: ed4304e4eeb2bc247b68f0d121ad96c2
+    layerID: 4
+    mosaicPosition: {x: 144, y: 4}
+  characterData:
+    bones: []
+    parts: []
+    dimension: {x: 0, y: 0}
+  boneGOs: []
+  generateGOHierarchy: 0
+  textureAssetName: Ghost
+  prefabAssetName: Ghost_GO
