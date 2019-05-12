@@ -123,6 +123,18 @@
                     "modifiers": ""
                 },
                 {
+                    "name": "",
+                    "id": "26e9e48a-2f2a-4a33-b7eb-487d94f749db",
+                    "path": "<Gamepad>/leftStick",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "movement",
+                    "isComposite": false,
+                    "isPartOfComposite": false,
+                    "modifiers": ""
+                },
+                {
                     "name": "Keyboard",
                     "id": "21a8933f-18ef-4522-9526-93dfe32f83ea",
                     "path": "2DVector",
@@ -184,8 +196,32 @@
                 },
                 {
                     "name": "",
+                    "id": "d4c420ed-fb6a-49a0-a58f-81183e3ffac8",
+                    "path": "<Gamepad>/rightStick",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "aim",
+                    "isComposite": false,
+                    "isPartOfComposite": false,
+                    "modifiers": ""
+                },
+                {
+                    "name": "",
                     "id": "f837fffc-61a6-4712-b5e4-e26674a1ef23",
                     "path": "<Keyboard>/e",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "swap",
+                    "isComposite": false,
+                    "isPartOfComposite": false,
+                    "modifiers": ""
+                },
+                {
+                    "name": "",
+                    "id": "3e744dde-c87f-417f-a95e-f056cdfbb499",
+                    "path": "<Gamepad>/rightTrigger",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -208,8 +244,32 @@
                 },
                 {
                     "name": "",
+                    "id": "7e6c1477-b7e7-471c-b43c-adec5dd2c9ff",
+                    "path": "<Gamepad>/buttonSouth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "action",
+                    "isComposite": false,
+                    "isPartOfComposite": false,
+                    "modifiers": ""
+                },
+                {
+                    "name": "",
                     "id": "42a08bd4-6003-4247-96df-212f9f03da90",
                     "path": "<Keyboard>/q",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "replay",
+                    "isComposite": false,
+                    "isPartOfComposite": false,
+                    "modifiers": ""
+                },
+                {
+                    "name": "",
+                    "id": "3d5386df-07ee-44e1-bfe2-c3b5388cf645",
+                    "path": "<Gamepad>/buttonSouth",
                     "interactions": "",
                     "processors": "",
                     "groups": "",

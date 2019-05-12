@@ -17,6 +17,13 @@ public class GameOverChecker : MonoBehaviour {
 
 	private bool inputEnabled = false;
 
+
+	/*
+ 	 *  Bloc dedie a la gestion d'input avec le New Input System (2019) 
+	 *  A conserver pour version future
+	 */
+
+	/*
 	public void Awake() {
 		foreach (PlayerControls pc in players) {
 			var minigameControl = pc.iaa.GetActionMap("gameplay");
@@ -31,6 +38,7 @@ public class GameOverChecker : MonoBehaviour {
 			SceneManager.LoadScene("PlayScene");
 		}
 	}
+	*/
 
 	void Start() {
 		gameOverCanvas.gameObject.SetActive(false);
@@ -39,6 +47,15 @@ public class GameOverChecker : MonoBehaviour {
 	
 	void Update () {
 		int lifePoints = 0;
+		for(int i=0; i<players.Length; i++) {
+			string label = string.Concat(Constants.INTERACT, players[i].playerPrefix);
+			if (Input.GetAxisRaw(label) > 0 && inputEnabled) {
+				inputEnabled = false;
+				players[0].ClearInstances();
+				SceneManager.LoadScene("PlayScene");
+			}
+		}
+		
 		foreach (PlayerControls player in players) 
 			lifePoints += player.lifePoints < 0 ? 0 : player.lifePoints;
 

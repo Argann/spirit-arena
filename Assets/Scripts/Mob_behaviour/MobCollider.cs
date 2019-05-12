@@ -10,7 +10,7 @@ public class MobCollider : MonoBehaviour {
 	public bool isIntro = false;
 
 	void OnTriggerEnter2D(Collider2D coll) {
-		if (coll.GetComponent<Collider2D>().tag == gameObject.GetComponent<Collider2D>().tag) {
+		if (coll.gameObject.CompareTag(gameObject.tag)) {
 			coll.gameObject.GetComponent<Animator>().SetBool("Exploded", true);
 			Bullet bullet = coll.gameObject.GetComponent<Bullet>();
 			bullet.StopMe();

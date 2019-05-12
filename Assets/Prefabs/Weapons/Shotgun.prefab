@@ -4877,7 +4877,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a22f91bbd37905547bb99277cd2268d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cooldownMs: 500
+  cooldownMs: 1000
   damages: 5
   projectileSpeed: 15
   projectileTtlMs: 0.1

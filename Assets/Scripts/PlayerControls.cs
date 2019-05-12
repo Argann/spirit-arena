@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Experimental.Input;
+using UnityEngine.Experimental.Input.Controls;
+using UnityEngine.Experimental.Input.LowLevel;
+using UnityEngine.Experimental.Input.Plugins.Users;
 
 public class PlayerControls : MonoBehaviour {
 	// ================================================
@@ -144,6 +147,7 @@ public class PlayerControls : MonoBehaviour {
 
     private bool firstFrameDead = true;
 
+
     /*
      * Gere l'augmentation des PV max
      */
@@ -154,6 +158,12 @@ public class PlayerControls : MonoBehaviour {
         hpSlider.value = lifePoints;
     }
 
+        /*
+         *  Bloc dedie a la gestion d'input avec le New Input System (2019)
+         *  A conserver pour version future
+         */
+
+         /*
     public void Awake() {
         var actionControl = iaa.GetActionMap("gameplay");
         InputAction movementAction = actionControl.GetAction("movement");
@@ -166,6 +176,7 @@ public class PlayerControls : MonoBehaviour {
 
         InputAction swapAction = actionControl.GetAction("swap");
         swapAction.performed += Swap;
+
     }
 
     public void OnEnable() {
@@ -175,19 +186,35 @@ public class PlayerControls : MonoBehaviour {
     public void OnDisable() {
         iaa.Disable();
     }
+    */
 
     /*
      * Appelé à l'instanciation de la classe
      * Associe les controles au joueur correspondant
      */
+
+    private string horizontalInputLabel;
+	private string verticalInputLabel;
+	private string aimHorizontalInputLabel;
+	private string aimVerticalInputLabel;
+	private string playerSwapLabel;
+
 	void Start () {
+        instances.Add(this);
+
         hpSlider.maxValue = maxLifePoints;
         hpSlider.value = lifePoints;
 		gameObject.GetComponent<Rigidbody2D>().freezeRotation = true;
         animator = GetComponent<Animator>();
         hpbar = GetComponent<HPBarManager>();
         sprite = GetComponent<SpriteRenderer>();
-        instances.Add(this);
+        
+        horizontalInputLabel    = string.Concat(Constants.MOV_HORIZONTAL, playerPrefix);
+        verticalInputLabel      = string.Concat(Constants.MOV_VERTICAL, playerPrefix);
+        aimHorizontalInputLabel = string.Concat(Constants.AIM_HORIZONTAL, playerPrefix);
+        aimVerticalInputLabel   = string.Concat(Constants.AIM_VERTICAL, playerPrefix);
+        playerSwapLabel         = string.Concat(Constants.SWAP, playerPrefix);
+        
 	}
 
 	[Header("Damages")]
@@ -224,7 +251,14 @@ public class PlayerControls : MonoBehaviour {
       * Gere le swap des personnages
      */
 	void Update () {
+        aim = new Vector2(Input.GetAxis(aimHorizontalInputLabel), Input.GetAxis(aimVerticalInputLabel));
         // ------ update movement ------
+        // ------ update movement ------
+        if (Time.time - begin > 0.5f) {
+            movement = new Vector2(Input.GetAxisRaw(horizontalInputLabel), Input.GetAxisRaw(verticalInputLabel));
+            movement.Normalize();
+            movement = movement * movementSpeed * movementSpeedMultiplicator;
+        }
 
         if (takingDamagesFrameCount > 0)
         {
@@ -285,6 +319,7 @@ public class PlayerControls : MonoBehaviour {
                 }
             }
             // ------ swaps ------
+            bool swapButtonPressed = (Input.GetAxisRaw(playerSwapLabel) != 0);
             long now = System.DateTime.Now.Ticks / System.TimeSpan.TicksPerMillisecond;
             if(previousFrameSwapUp && swapButtonPressed && (now >= lastSwapTimingMs + (long)(swapCooldownMultiplicator * swapCooldownMs))) {
                 lastSwapTimingMs = now;
@@ -344,6 +379,16 @@ public class PlayerControls : MonoBehaviour {
         return !result;
     }
 
+    public void ClearInstances() {
+        instances = new List<PlayerControls>();
+    }
+
+/*
+ *  Bloc dedie a la gestion d'input avec le New Input System (2019)
+ *  A conserver pour version future
+ */
+
+/*
     public void Move(InputAction.CallbackContext context) {
         if (Time.time - begin > 0.5f && lifePoints > 0) {
             movement = context.ReadValue<Vector2>();
@@ -372,5 +417,6 @@ public class PlayerControls : MonoBehaviour {
 		minigameScore++;
 		minigameScoreUI.text = "" + minigameScore;
 		SoundManager.PlaySoundMinigameHit();
-	}
+    }
+*/
 }

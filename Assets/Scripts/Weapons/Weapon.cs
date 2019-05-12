@@ -68,7 +68,11 @@ public abstract class Weapon : MonoBehaviour
 	public void createSingleBullet(GameObject bullet, Vector2 position, Vector2 direction, PlayerControls player)
 	{
 		float angle = Mathf.Atan2(direction.y, direction.x);
-		GameObject instance = GameObject.Instantiate(bullet, new Vector3(position.x, position.y, 0), Quaternion.identity);
+		float range = .25f;
+		double rand = Random.Range(-range, range);
+		float randX = (float)rand * direction.y;
+		float randY = (float)rand * direction.x;
+		GameObject instance = GameObject.Instantiate(bullet, new Vector3(position.x + randX, position.y + randY, 0), Quaternion.identity);
 		instance.transform.Rotate(0, 0, (angle / Mathf.PI) * 180f - 180f);
 		instance.GetComponent<Rigidbody2D>().velocity = direction * projectileSpeed;
 		instance.GetComponent<Bullet>().damages = damages * player.DamageMultiplicator;

@@ -47,6 +47,14 @@ public class UpgradeManager : MonoBehaviour {
 
 	private bool inputEnabled = false;
 
+	private bool[] firstFrame;
+
+	/*
+ 	 *  Bloc dedie a la gestion d'input avec le New Input System (2019) 
+	 *  A conserver pour version future
+	 */
+
+	/*
 	public void Awake() {
 		inputEnabled = false;
 		for (int i = 0; i<players.Length; i++) {
@@ -60,6 +68,7 @@ public class UpgradeManager : MonoBehaviour {
 			};
 		}
 	}
+	*/
 
 	void ApplyUpgrade() {
 		// You must apply the upgrade here
@@ -143,6 +152,13 @@ public class UpgradeManager : MonoBehaviour {
 			pc.minigameScoreUI.color = new Color(144, 144, 144);
 		}
 	}
+
+	void Start() {
+		firstFrame = new bool[players.Length];
+		for(int i = 0; i < firstFrame.Length; i++) {
+			firstFrame[i] = false;
+		}
+	}
 	
 	// Update is called once per frame
 	void Update () {
@@ -152,7 +168,22 @@ public class UpgradeManager : MonoBehaviour {
 			if (currentTimer > 0) {
 				currentTimer -= Time.deltaTime;
 				timerUI.value = Mathf.InverseLerp(0, 7, currentTimer);
-				inputEnabled = true;
+
+				for (int i = 0; i < players.Length; i++) {
+					PlayerControls pc = players[i];
+					string label = string.Concat(Constants.INTERACT, pc.playerPrefix);
+
+					if (Input.GetAxisRaw(label) > 0 && firstFrame[i]) {
+						pc.minigameScore++;
+						pc.minigameScoreUI.text = pc.minigameScore.ToString();
+						SoundManager.PlaySoundMinigameHit();
+						firstFrame[i] = false;
+					}
+
+					if (Input.GetAxisRaw(label) == 0) {
+						firstFrame[i] = true;
+					}
+				}
 			} else {
 				state = 1;
 				inputEnabled = false;

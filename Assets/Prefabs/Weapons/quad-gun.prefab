@@ -4798,8 +4798,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a22f91bbd37905547bb99277cd2268d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cooldownMs: 100
-  damages: 2
+  cooldownMs: 90
+  damages: 1
   projectileSpeed: 10
   projectileTtlMs: 0.25
   distanceToPLayer: 0.25
