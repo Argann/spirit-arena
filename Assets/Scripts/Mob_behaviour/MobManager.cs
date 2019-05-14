@@ -7,7 +7,7 @@ public class MobManager : MonoBehaviour {
 	private static GameObject[] staticPlayers;
 
 	// Use this for initialization
-	void Start () {
+	void Awake () {
 		staticPlayers = players;
 	}
 

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(ParticleSystem))]
 public class MobCollider : MonoBehaviour {
 	public float lifePoints = 10;
 	public int damage = 1;
@@ -9,11 +10,21 @@ public class MobCollider : MonoBehaviour {
 	public bool isDead = false;
 	public bool isIntro = false;
 
+	private ParticleSystem partSys;
+
+	void Start() {
+		partSys = GetComponent<ParticleSystem>();
+	}
+
 	void OnTriggerEnter2D(Collider2D coll) {
+
 		if (coll.gameObject.CompareTag(gameObject.tag)) {
-			coll.gameObject.GetComponent<Animator>().SetBool("Exploded", true);
+			// Si le monstre est touché par une balle
 			Bullet bullet = coll.gameObject.GetComponent<Bullet>();
 			bullet.StopMe();
+
+			partSys.Play();
+
 			float dealtDamages = Mathf.Min(lifePoints, bullet.damages);
 			bullet.player.Points = bullet.player.Points + (int)(dealtDamages * 100);
 			if (isIntro) dealtDamages = 1f;
@@ -26,9 +37,10 @@ public class MobCollider : MonoBehaviour {
 				damage = 0;
 				isDead = true;
 			}
-		}
-		else if (coll.GetComponent<Collider2D>().tag == "Player" && !isDead)
-		{
+			Destroy(bullet.gameObject);
+
+		} else if (coll.GetComponent<Collider2D>().tag == "Player" && !isDead) {
+			// Si le monstre touche un joueur
 			PlayerControls player = coll.GetComponent<PlayerControls>();
 			player.TakeDamages(damage);
 			if (isBoss) {
