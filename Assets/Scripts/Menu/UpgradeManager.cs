@@ -106,7 +106,7 @@ public class UpgradeManager : MonoBehaviour {
 		foreach(PlayerControls player in players) {
 			if (player.lifePoints <= 0) {
 				player.lifePoints = player.maxLifePoints / 2;
-				player.hpSlider.value = player.lifePoints;
+				player.hpBar.fillAmount  = player.lifePoints / player.maxLifePoints;
 				player.gameObject.transform.rotation = new Quaternion(0, 0, 0, player.gameObject.transform.rotation.w);
 			}
 		}
@@ -119,7 +119,7 @@ public class UpgradeManager : MonoBehaviour {
 	}
 
 	public void StartUpgrade() {
-		int totalLife = 0;
+		float totalLife = 0;
 
 		foreach (PlayerControls player in players)
 			totalLife += player.lifePoints;

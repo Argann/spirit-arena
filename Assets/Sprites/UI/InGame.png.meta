@@ -1,7 +1,52 @@
 fileFormatVersion: 2
 guid: 56f2bfd7aea7fb249950ec2fd39d6179
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: -7389731769154398059
+    second: InGame_0
+  - first:
+      213: -8110604192274495242
+    second: InGame_1
+  - first:
+      213: 7019390443833437035
+    second: InGame_2
+  - first:
+      213: 6474765948616435434
+    second: InGame_3
+  - first:
+      213: -5452760758335965110
+    second: InGame_4
+  - first:
+      213: -2146657262215478960
+    second: InGame_5
+  - first:
+      213: 4628592062417212368
+    second: InGame_6
+  - first:
+      213: -2727471280152434079
+    second: InGame_7
+  - first:
+      213: -7268409382264587644
+    second: InGame_8
+  - first:
+      213: 8440046017175149855
+    second: InGame_9
+  - first:
+      213: -1453591893072441824
+    second: InGame_10
+  - first:
+      213: 495431411744214706
+    second: InGame_11
+  - first:
+      213: 6501748240679202930
+    second: InGame_12
+  - first:
+      213: -5793108078985503090
+    second: InGame_13
+  - first:
+      213: -899893866627607031
+    second: InGame_14
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -60,7 +105,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 2
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 2048
+    maxTextureSize: 8192
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
@@ -71,7 +116,7 @@ TextureImporter:
     androidETC2FallbackOverride: 0
   - serializedVersion: 2
     buildTarget: Standalone
-    maxTextureSize: 2048
+    maxTextureSize: 8192
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
@@ -82,7 +127,7 @@ TextureImporter:
     androidETC2FallbackOverride: 0
   - serializedVersion: 2
     buildTarget: WebGL
-    maxTextureSize: 2048
+    maxTextureSize: 8192
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
@@ -93,7 +138,322 @@ TextureImporter:
     androidETC2FallbackOverride: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: InGame_0
+      rect:
+        serializedVersion: 2
+        x: 28
+        y: 341
+        width: 102
+        height: 105
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4c02f3b45e148ff4da558eae252fc074
+      internalID: -7389731769154398059
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: InGame_1
+      rect:
+        serializedVersion: 2
+        x: 134
+        y: 424
+        width: 80
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1c657f14901e6c24bb7c71286bccd729
+      internalID: -8110604192274495242
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: InGame_2
+      rect:
+        serializedVersion: 2
+        x: 139
+        y: 396
+        width: 157
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 34b797223f9d3c3429e90e2b229a87da
+      internalID: 7019390443833437035
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: InGame_3
+      rect:
+        serializedVersion: 2
+        x: 304
+        y: 398
+        width: 150
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5ab1623aade85884cb0c3570414f1a44
+      internalID: 6474765948616435434
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: InGame_4
+      rect:
+        serializedVersion: 2
+        x: 148
+        y: 390
+        width: 134
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d492a3141126ecf48a6d04864bf2b9d3
+      internalID: -5452760758335965110
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: InGame_5
+      rect:
+        serializedVersion: 2
+        x: 296
+        y: 390
+        width: 133
+        height: 3
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 16d4aee5b997f3847b9ab9bc60e26430
+      internalID: -2146657262215478960
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: InGame_6
+      rect:
+        serializedVersion: 2
+        x: 137
+        y: 341
+        width: 9
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f345a4817997a38429c5c7b41fdf9af2
+      internalID: 4628592062417212368
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: InGame_7
+      rect:
+        serializedVersion: 2
+        x: 151
+        y: 341
+        width: 44
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9641ac4578ca0954c9466d64b6a8323c
+      internalID: -2727471280152434079
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: InGame_8
+      rect:
+        serializedVersion: 2
+        x: 202
+        y: 341
+        width: 42
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e666b3bded313764d8c53cc13291a840
+      internalID: -7268409382264587644
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: InGame_9
+      rect:
+        serializedVersion: 2
+        x: 50
+        y: 265
+        width: 57
+        height: 59
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 800d0777098152e47adf9913ad340891
+      internalID: 8440046017175149855
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: InGame_10
+      rect:
+        serializedVersion: 2
+        x: 123
+        y: 262
+        width: 63
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4cbab303da8cf9e44887fd1486ac4739
+      internalID: -1453591893072441824
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: InGame_11
+      rect:
+        serializedVersion: 2
+        x: 30
+        y: 166
+        width: 117
+        height: 67
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e0e58116d78682f40a380461ce012a90
+      internalID: 495431411744214706
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: InGame_12
+      rect:
+        serializedVersion: 2
+        x: 178
+        y: 166
+        width: 117
+        height: 67
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6d60db5ac15c44a4db517acca522ec2d
+      internalID: 6501748240679202930
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: InGame_13
+      rect:
+        serializedVersion: 2
+        x: 52
+        y: 70
+        width: 66
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 944cc2bbbd1044c4abbeb28fffde7a70
+      internalID: -5793108078985503090
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: InGame_14
+      rect:
+        serializedVersion: 2
+        x: 113
+        y: 36
+        width: 51
+        height: 99
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 765200d6fbd277b48a6535349d81b0e3
+      internalID: -899893866627607031
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []

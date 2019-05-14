@@ -46,7 +46,7 @@ public class GameOverChecker : MonoBehaviour {
 	}
 	
 	void Update () {
-		int lifePoints = 0;
+		float lifePoints = 0;
 		for(int i=0; i<players.Length; i++) {
 			string label = string.Concat(Constants.INTERACT, players[i].playerPrefix);
 			if (Input.GetAxisRaw(label) > 0 && inputEnabled) {
@@ -57,9 +57,9 @@ public class GameOverChecker : MonoBehaviour {
 		}
 		
 		foreach (PlayerControls player in players) 
-			lifePoints += player.lifePoints < 0 ? 0 : player.lifePoints;
+			lifePoints += player.lifePoints < 0f ? 0f : player.lifePoints;
 
-		if (players.Length > 0 && lifePoints <= 0) {
+		if (players.Length > 0f && lifePoints <= 0f) {
 			gameOverCanvas.gameObject.SetActive(true);
 			inputEnabled = true;
 		}

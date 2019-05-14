@@ -16,12 +16,12 @@ public class PlayerControls : MonoBehaviour {
 	[Header("Characteristics")]
 	public float movementSpeed = 7.5f;
 	public long swapCooldownMs = 50;
-    public int lifePoints = 10;
-    public int maxLifePoints = 10;
+    public float lifePoints = 10;
+    public float maxLifePoints = 10;
     public GameObject defaultWeapon = null;
 
     [Header("UI elements")]
-    public Slider hpSlider;
+    public Image hpBar;
 
     [SerializeField]
     private int points = 0;
@@ -34,7 +34,6 @@ public class PlayerControls : MonoBehaviour {
 	[Header("UI")]
     public GameObject statsUI = null;
     public GameObject scoreUI = null;
-    public HPBarManager hpbar;
 	// ================================================
 	[Header("Buffs")]
 
@@ -42,7 +41,7 @@ public class PlayerControls : MonoBehaviour {
     public int Armor
     {
         get { return armor;}
-        set { armor = value; SetStatUI("armor_text", armor, ""); }
+        set { armor = value; SetStatUI("armor", armor, 10f); }
     }
     
 
@@ -51,7 +50,7 @@ public class PlayerControls : MonoBehaviour {
     public float DamageMultiplicator
     {
         get { return damageMultiplicator;}
-        set { damageMultiplicator = value; SetStatUI("damage_text", (int)(damageMultiplicator * 100), "%"); }
+        set { damageMultiplicator = value; SetStatUI("damage", damageMultiplicator, 10f); }
     }
 
     [SerializeField]
@@ -59,7 +58,7 @@ public class PlayerControls : MonoBehaviour {
     public float AttackSpeedMultiplicator
     {
         get { return attackSpeedMultiplicator;}
-        set { attackSpeedMultiplicator = value; SetStatUI("attack-speed_text", (int)(AttackSpeedMultiplicator * 100), "%"); }
+        set { attackSpeedMultiplicator = value; SetStatUI("attack-speed", AttackSpeedMultiplicator, 10f); }
     }
     
     [SerializeField]    
@@ -67,7 +66,7 @@ public class PlayerControls : MonoBehaviour {
     public float MovementSpeedMultiplicator
     {
         get { return movementSpeedMultiplicator;}
-        set { movementSpeedMultiplicator = value; SetStatUI("move_text", (int)(MovementSpeedMultiplicator * 100), "%"); }
+        set { movementSpeedMultiplicator = value; SetStatUI("move-speed", MovementSpeedMultiplicator, 10f); }
     }
     
     [SerializeField]
@@ -75,7 +74,7 @@ public class PlayerControls : MonoBehaviour {
     public float BonusDurationMultiplicator
     {
         get { return bonusDurationMultiplicator;}
-        set { bonusDurationMultiplicator = value; SetStatUI("time_text", (int)(BonusDurationMultiplicator * 100), "%"); }
+        set { bonusDurationMultiplicator = value; SetStatUI("bonus-duration", BonusDurationMultiplicator, 10f); }
     }
 
     [SerializeField]
@@ -98,11 +97,17 @@ public class PlayerControls : MonoBehaviour {
 
     private float begin = -1f;
 
-    private void SetStatUI(string label, int value, string suffix)
+    private void SetStatUI(string label, float value, float maxValue)
     {
         if (statsUI)
         {
-            statsUI.transform.Find(label).GetComponent<Text>().text = value + suffix;
+            statsUI
+                .transform
+                .Find(label)
+                .Find("foreground")
+                .gameObject
+                .GetComponent<Image>()
+                .fillAmount = value / maxValue;
         }
         else
         {
@@ -154,8 +159,7 @@ public class PlayerControls : MonoBehaviour {
     public void IncreaseMaxHealth(int inc) {
         maxLifePoints += inc;
         lifePoints = maxLifePoints;
-        hpSlider.maxValue = maxLifePoints;
-        hpSlider.value = lifePoints;
+        hpBar.fillAmount  = 1;
     }
 
         /*
@@ -202,11 +206,9 @@ public class PlayerControls : MonoBehaviour {
 	void Start () {
         instances.Add(this);
 
-        hpSlider.maxValue = maxLifePoints;
-        hpSlider.value = lifePoints;
+        hpBar.fillAmount  = 1;
 		gameObject.GetComponent<Rigidbody2D>().freezeRotation = true;
         animator = GetComponent<Animator>();
-        hpbar = GetComponent<HPBarManager>();
         sprite = GetComponent<SpriteRenderer>();
         
         horizontalInputLabel    = string.Concat(Constants.MOV_HORIZONTAL, playerPrefix);
@@ -232,7 +234,7 @@ public class PlayerControls : MonoBehaviour {
         if (takingDamagesFrameCount == 0)
         {
             lifePoints -= (n - armor < 1) ? 1 : n - armor;
-            hpSlider.value = lifePoints;
+            hpBar.fillAmount  = lifePoints / maxLifePoints;
             takingDamagesFrameCount = takingDamageColorFrames;
             previousColor = sprite.color;
             sprite.color = Color.red;

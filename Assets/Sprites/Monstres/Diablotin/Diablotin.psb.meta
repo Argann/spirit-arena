@@ -794,14 +794,14 @@ ScriptedImporter:
     spriteName: 
     isGroup: 1
     parentIndex: -1
-    spriteID: 
+    spriteID: 00000000000000000000000000000000
     layerID: 33
     mosaicPosition: {x: 0, y: 0}
   - name: Bouche
     spriteName: 
     isGroup: 1
     parentIndex: 1
-    spriteID: 
+    spriteID: 00000000000000000000000000000000
     layerID: 35
     mosaicPosition: {x: 0, y: 0}
   - name: Calque 21
@@ -836,7 +836,7 @@ ScriptedImporter:
     spriteName: 
     isGroup: 1
     parentIndex: 1
-    spriteID: 
+    spriteID: 00000000000000000000000000000000
     layerID: 37
     mosaicPosition: {x: 0, y: 0}
   - name: Calque 30
@@ -864,7 +864,7 @@ ScriptedImporter:
     spriteName: 
     isGroup: 1
     parentIndex: 1
-    spriteID: 
+    spriteID: 00000000000000000000000000000000
     layerID: 39
     mosaicPosition: {x: 0, y: 0}
   - name: Calque 18
@@ -885,7 +885,7 @@ ScriptedImporter:
     spriteName: 
     isGroup: 1
     parentIndex: 1
-    spriteID: 
+    spriteID: 00000000000000000000000000000000
     layerID: 41
     mosaicPosition: {x: 0, y: 0}
   - name: Calque 31
@@ -913,7 +913,7 @@ ScriptedImporter:
     spriteName: 
     isGroup: 1
     parentIndex: 1
-    spriteID: 
+    spriteID: 00000000000000000000000000000000
     layerID: 43
     mosaicPosition: {x: 0, y: 0}
   - name: Calque 32
@@ -941,7 +941,7 @@ ScriptedImporter:
     spriteName: 
     isGroup: 1
     parentIndex: 1
-    spriteID: 
+    spriteID: 00000000000000000000000000000000
     layerID: 45
     mosaicPosition: {x: 0, y: 0}
   - name: Calque 34
@@ -969,7 +969,7 @@ ScriptedImporter:
     spriteName: 
     isGroup: 1
     parentIndex: 1
-    spriteID: 
+    spriteID: 00000000000000000000000000000000
     layerID: 47
     mosaicPosition: {x: 0, y: 0}
   - name: Calque 33
@@ -997,7 +997,7 @@ ScriptedImporter:
     spriteName: 
     isGroup: 1
     parentIndex: 1
-    spriteID: 
+    spriteID: 00000000000000000000000000000000
     layerID: 49
     mosaicPosition: {x: 0, y: 0}
   - name: Calque 31 copie
@@ -1025,7 +1025,7 @@ ScriptedImporter:
     spriteName: 
     isGroup: 1
     parentIndex: 1
-    spriteID: 
+    spriteID: 00000000000000000000000000000000
     layerID: 51
     mosaicPosition: {x: 0, y: 0}
   - name: Calque 32 copie
@@ -1053,7 +1053,7 @@ ScriptedImporter:
     spriteName: 
     isGroup: 1
     parentIndex: 1
-    spriteID: 
+    spriteID: 00000000000000000000000000000000
     layerID: 53
     mosaicPosition: {x: 0, y: 0}
   - name: Calque 19 copie
