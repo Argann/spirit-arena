@@ -59,17 +59,17 @@ MonoBehaviour:
   - {fileID: 3347015259395785122, guid: a2726560135c9d04c9568648d82df1c0, type: 3}
   - {fileID: 1834767089842913923, guid: 21500e391a77ade41b85a7fa9f0067c8, type: 3}
   - {fileID: 5908136698097271502, guid: 7b0ad0456c23daa4aaffb9be39fe40e6, type: 3}
-  - {fileID: 1631536832355956, guid: e6ff25ac9e11abd41972b103d91ac65d, type: 3}
-  - {fileID: 1285256623527926, guid: eacd8ea4bca77ba4287572b2556f5e4c, type: 3}
-  - {fileID: 1565918588881444, guid: e8b5ff88859b96546b668e0636bc79ee, type: 3}
+  - {fileID: 8498755878015085278, guid: 7a5cdc1c790751f4baa59c9f6f0b1feb, type: 3}
+  - {fileID: 9015155364786632242, guid: 63c1913704c20bb4ab540e3881afb89d, type: 3}
+  - {fileID: 4161327278388782321, guid: 275035bbf8c67084b8dace53964aa870, type: 3}
   bossBody:
   - {fileID: 2265965608930140981, guid: 8ee71366ed580ee45a078ecfece7b63e, type: 3}
   - {fileID: 6668713448929884613, guid: 447ca1e3a2fefe9488c8520251d67712, type: 3}
   - {fileID: 57154804032974419, guid: 9da4267da67cc624089836f9cc571499, type: 3}
   bossSpirit:
-  - {fileID: 1854937392655278, guid: a68e5bfe4c6b0f9428f5e31c7fc93730, type: 3}
-  - {fileID: 1335247057922446, guid: d2f5b3b5c7a57384b9aa749eaed396fb, type: 3}
-  - {fileID: 1801501567057810, guid: 49036fd9de980604088a72000fd5249f, type: 3}
+  - {fileID: 5588672878798757059, guid: 765fbf0fb004e5946a9737a5f4fc0e55, type: 3}
+  - {fileID: 7964042419173829575, guid: 7a4752ae7daac384d8a787cbb4ca10bf, type: 3}
+  - {fileID: 9116880650745809246, guid: 6b768b1bb3dcbb34a87db32367acabfa, type: 3}
   blurp: {fileID: 1556303526622036, guid: 4f97773bb8f22f947b8af589fe1ca6e1, type: 3}
   upgradeComplete: 0
 --- !u!1 &1640511647062732
