@@ -7,25 +7,25 @@ public class SoundManager : MonoBehaviour {
 	private static AudioSource source;
 
 	[SerializeField]
-	private AudioSource mainSource;
+	private AudioSource mainSource = default;
 
 	[SerializeField]
-	private List<AudioClip> bodyMonsters;
+	private List<AudioClip> bodyMonsters = default;
 
 	[SerializeField]
-	private List<AudioClip> spiritMonsters;
+	private List<AudioClip> spiritMonsters = default;
 
 	[SerializeField]
-	private AudioClip death;
+	private AudioClip death = default;
 
 	[SerializeField]
-	private AudioClip hit;
+	private AudioClip hit = default;
 
 	[SerializeField]
-	private AudioClip minigame_hit;
+	private AudioClip minigame_hit = default;
 
 	[SerializeField]
-	private AudioClip powerup;
+	private AudioClip powerup = default;
 
 	private static AudioClip soundDeath;
 

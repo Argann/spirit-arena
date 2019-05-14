@@ -136,7 +136,6 @@ public class PlayerControls : MonoBehaviour {
     // since we use axis (needed for key mapping), we have to
     // detect button press by ourselves...
     private bool previousFrameSwapUp = true;
-    private bool swapButtonPressed = false;
 
     [SerializeField]
     private bool isSpirit;
@@ -152,6 +151,10 @@ public class PlayerControls : MonoBehaviour {
 
     private bool firstFrameDead = true;
 
+    [SerializeField]
+    private GameObject weaponDisplay = default;
+
+    public GameObject minigameScoreFullUI = default;
 
     /*
      * Gere l'augmentation des PV max
@@ -253,6 +256,9 @@ public class PlayerControls : MonoBehaviour {
       * Gere le swap des personnages
      */
 	void Update () {
+        weaponDisplay.SetActive(bonusWeapon != null);
+
+
         aim = new Vector2(Input.GetAxis(aimHorizontalInputLabel), Input.GetAxis(aimVerticalInputLabel));
         // ------ update movement ------
         // ------ update movement ------

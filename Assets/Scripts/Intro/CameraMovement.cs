@@ -12,7 +12,7 @@ public class CameraMovement : MonoBehaviour {
 	public float endTime;
 	public GameObject mask;
 	[SerializeField]
-	private string mainMenuSceneName;
+	private string mainMenuSceneName = default;
 
 	// Use this for initialization
 	void Start () {

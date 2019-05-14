@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.Experimental.Input;
 using UnityEngine.SceneManagement;
 
@@ -10,10 +11,13 @@ using UnityEngine.SceneManagement;
 public class GameOverChecker : MonoBehaviour {
 
 	[SerializeField]
-	private PlayerControls[] players;
+	private PlayerControls[] players = default;
 
 	[SerializeField]
-	private Canvas gameOverCanvas;
+	private Canvas gameOverCanvas = default;
+
+	[SerializeField]
+	private Text[] scoresUI = default;
 
 	private bool inputEnabled = false;
 
@@ -48,6 +52,8 @@ public class GameOverChecker : MonoBehaviour {
 	void Update () {
 		float lifePoints = 0;
 		for(int i=0; i<players.Length; i++) {
+			scoresUI[i].text = (2*players[i].Points).ToString();
+
 			string label = string.Concat(Constants.INTERACT, players[i].playerPrefix);
 			if (Input.GetAxisRaw(label) > 0 && inputEnabled) {
 				inputEnabled = false;

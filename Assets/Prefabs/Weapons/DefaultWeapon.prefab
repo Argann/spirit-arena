@@ -47,8 +47,7 @@ MonoBehaviour:
   damages: 3.5
   projectileSpeed: 10
   projectileTtlMs: 2
-  distanceToPLayer: 0.6
+  distanceToPLayer: 0.25
   bonusTtlMs: 2000
   weaponTtlMs: 0
-  weaponVignette: {fileID: 1177027447046378, guid: 4063b319b88ad1b4188e154d26884f4c,
-    type: 3}
+  weaponVignette: {fileID: 0}
