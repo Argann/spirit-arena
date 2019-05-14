@@ -6,27 +6,27 @@ using UnityEngine.UI;
 public class WaveManager : MonoBehaviour {
 
 	[SerializeField]
-	private Text waveNumberUI;
+	private Text waveNumberUI = default;
 
 	[SerializeField]
-	private UpgradeManager upgradeManager;
+	private UpgradeManager upgradeManager = default;
 
 	[SerializeField]
-	private List<Spawner> spawners;
+	private List<Spawner> spawners = default;
 
 	[SerializeField]
-	private List<GameObject> enemies;
+	private List<GameObject> enemies = default;
 
 	[SerializeField]
-	private List<GameObject> bossBody;
+	private List<GameObject> bossBody = default;
 
 	[SerializeField]
-	private List<GameObject> bossSpirit;
+	private List<GameObject> bossSpirit = default;
 
 
 
 	[SerializeField]
-	private GameObject blurp;
+	private GameObject blurp = default;
 
 	private static GameObject sblurp;
 

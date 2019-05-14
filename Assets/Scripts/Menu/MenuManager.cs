@@ -7,28 +7,25 @@ using UnityEngine.SceneManagement;
 public class MenuManager : MonoBehaviour {
 
 	[SerializeField]
-	private string creditsSceneName;
+	private string IntroSceneName = default;
 
 	[SerializeField]
-	private string IntroSceneName;
+	private string mainMenuSceneName = default;
 
 	[SerializeField]
-	private string mainMenuSceneName;
+	private GameObject mainMenuGameObject = default;
 
 	[SerializeField]
-	private GameObject mainMenuGameObject;
+	private GameObject ingameHUD = default;
 
 	[SerializeField]
-	private GameObject ingameHUD;
+	private GameObject creditsHUD = default;
 
 	[SerializeField]
-	private GameObject creditsHUD;
-
-	[SerializeField]
-	private Button PlayButton;
+	private Button PlayButton = default;
 	
 	[SerializeField]
-	private Button BackButton;
+	private Button BackButton = default;
 
 	public void Start() {
 		PlayButton.Select();

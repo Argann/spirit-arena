@@ -7,47 +7,49 @@ using UnityEngine.UI;
 public class UpgradeManager : MonoBehaviour {
 
 	[SerializeField]
-	private PlayerControls[] players;
+	private PlayerControls[] players = default;
 
 	[SerializeField]
-	private List<Buff> buffs;
+	private List<Buff> buffs = default;
 
 	private Buff currentBuff;
 
 	[SerializeField]
-	private WaveManager waveManager;
+	private WaveManager waveManager = default;
 
 	[SerializeField]
-	private GameObject upgradeScreenCanvas;
+	private GameObject upgradeScreenCanvas = default;
 
 	[SerializeField]
-	private Slider timerUI;
+	private GameObject timerUI = default;
 
 	[SerializeField]
-	private Image upgradeImage;
+	private Image upgradeImage = default;
 
 	[SerializeField]
-	private Text upgradeDescription;
+	private Text upgradeDescription = default;
 
 	[SerializeField]
-	private float minigameTimer;
+	private float minigameTimer = default;
 
 	[SerializeField]
-	private float afterMinigameTimer;
+	private float afterMinigameTimer = default;
 
 	private float currentTimer;
 
 	private int state = -1;
 
-	private PlayerControls winnerPlayer = default;
+	private PlayerControls winnerPlayer;
 
 	public bool currentlyUpgrading = false;
 
 	public bool endgame = false;
 
-	private bool inputEnabled = false;
+	//private bool inputEnabled = false;
 
 	private bool[] firstFrame;
+
+	private bool[] reduceOnNextFrame;
 
 	/*
  	 *  Bloc dedie a la gestion d'input avec le New Input System (2019) 
@@ -150,13 +152,18 @@ public class UpgradeManager : MonoBehaviour {
 			pc.minigameScore = (minUpgradeCount - pc.UpgradeCount) * 5;
 			pc.minigameScoreUI.text = "" + pc.minigameScore;
 			pc.minigameScoreUI.color = new Color(144, 144, 144);
+			pc.minigameScoreFullUI.transform.localScale = new Vector3(	Mathf.Pow(1.2f/1.185f, pc.minigameScore),
+																		Mathf.Pow(1.2f/1.185f, pc.minigameScore),
+																		Mathf.Pow(1.2f/1.185f, pc.minigameScore));
 		}
 	}
 
 	void Start() {
 		firstFrame = new bool[players.Length];
+		reduceOnNextFrame = new bool[players.Length];
 		for(int i = 0; i < firstFrame.Length; i++) {
 			firstFrame[i] = false;
+			reduceOnNextFrame[i] = false;
 		}
 	}
 	
@@ -167,14 +174,22 @@ public class UpgradeManager : MonoBehaviour {
 
 			if (currentTimer > 0) {
 				currentTimer -= Time.deltaTime;
-				timerUI.value = Mathf.InverseLerp(0, 7, currentTimer);
+				timerUI.transform.localScale = new Vector3(1, Mathf.InverseLerp(0, 7, currentTimer), 1);
 
 				for (int i = 0; i < players.Length; i++) {
 					PlayerControls pc = players[i];
+
+					if(reduceOnNextFrame[i]) {
+						reduceOnNextFrame[i] = false;
+						Vector3 scale = pc.minigameScoreFullUI.transform.localScale;
+						pc.minigameScoreFullUI.transform.localScale = pc.minigameScoreFullUI.transform.localScale / 1.185f;
+					}
 					string label = string.Concat(Constants.INTERACT, pc.playerPrefix);
 
 					if (Input.GetAxisRaw(label) > 0 && firstFrame[i]) {
 						pc.minigameScore++;
+						pc.minigameScoreFullUI.transform.localScale = pc.minigameScoreFullUI.transform.localScale * 1.2f;
+						reduceOnNextFrame[i] = true;
 						pc.minigameScoreUI.text = pc.minigameScore.ToString();
 						SoundManager.PlaySoundMinigameHit();
 						firstFrame[i] = false;
@@ -186,7 +201,7 @@ public class UpgradeManager : MonoBehaviour {
 				}
 			} else {
 				state = 1;
-				inputEnabled = false;
+				//inputEnabled = false;
 			}
 
 

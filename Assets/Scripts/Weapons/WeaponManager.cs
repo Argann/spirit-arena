@@ -22,8 +22,8 @@ public class WeaponManager : MonoBehaviour {
 			lastSpawnMs = now;
 			nextSpawnMs = spawnTimerMs + (long)Random.Range(-spawnTimerDeltaMs, spawnTimerDeltaMs);
 			int i = (int)(Random.value * weapons.Length);
-			float spawnY = Random.Range(Camera.main.ScreenToWorldPoint(new Vector2(0, 0)).y, Camera.main.ScreenToWorldPoint(new Vector2(25, Screen.height - 25)).y);
-            float spawnX = Random.Range(Camera.main.ScreenToWorldPoint(new Vector2(0, 0)).x, Camera.main.ScreenToWorldPoint(new Vector2(Screen.width - 25, 25)).x);
+			float spawnY = Random.Range(Camera.main.ScreenToWorldPoint(new Vector2(0, 0)).y, Camera.main.ScreenToWorldPoint(new Vector2(50, Screen.height - 200)).y);
+            float spawnX = Random.Range(Camera.main.ScreenToWorldPoint(new Vector2(0, 0)).x, Camera.main.ScreenToWorldPoint(new Vector2(Screen.width - 50, 50)).x);
             Instantiate(weapons[i], new Vector2(spawnX, spawnY), Quaternion.identity);
 		}
 	}

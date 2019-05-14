@@ -6,10 +6,10 @@ using UnityEngine.SceneManagement;
 
 public class IntroManager : MonoBehaviour {
 	[SerializeField]
-	private string mainMenuSceneName;
+	private string mainMenuSceneName = default;
 
 	[SerializeField]
-	private Button PlayButton;
+	private Button PlayButton = default;
 
 	// Use this for initialization
 	void Start () {
