@@ -1479,6 +1479,7 @@ GameObject:
   - component: {fileID: 402050351}
   - component: {fileID: 402050353}
   - component: {fileID: 402050352}
+  - component: {fileID: 402050354}
   m_Layer: 0
   m_Name: tete
   m_TagString: Untagged
@@ -1543,6 +1544,23 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 402050350}
   m_CullTransparentMesh: 0
+--- !u!114 &402050354
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 402050350}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 548c79aef2753454bae0352b72def328, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerNumber: 0
+  spritePhysical: {fileID: 7101589535870847012, guid: 9e7cc2cacc7bb5c42b9d8095af4f3548,
+    type: 3}
+  spriteSpirit: {fileID: -9203572970033439087, guid: 9e7cc2cacc7bb5c42b9d8095af4f3548,
+    type: 3}
 --- !u!1 &403001425
 GameObject:
   m_ObjectHideFlags: 0
@@ -9153,6 +9171,7 @@ GameObject:
   - component: {fileID: 2036404106}
   - component: {fileID: 2036404108}
   - component: {fileID: 2036404107}
+  - component: {fileID: 2036404109}
   m_Layer: 0
   m_Name: tete
   m_TagString: Untagged
@@ -9216,6 +9235,23 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2036404105}
   m_CullTransparentMesh: 0
+--- !u!114 &2036404109
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2036404105}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 548c79aef2753454bae0352b72def328, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerNumber: 1
+  spritePhysical: {fileID: 710420843840499250, guid: 9e7cc2cacc7bb5c42b9d8095af4f3548,
+    type: 3}
+  spriteSpirit: {fileID: -883127930659918636, guid: 9e7cc2cacc7bb5c42b9d8095af4f3548,
+    type: 3}
 --- !u!1 &2051340658
 GameObject:
   m_ObjectHideFlags: 0
