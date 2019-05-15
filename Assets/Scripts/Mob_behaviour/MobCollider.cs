@@ -27,17 +27,16 @@ public class MobCollider : MonoBehaviour {
 
 			float dealtDamages = Mathf.Min(lifePoints, bullet.damages);
 			bullet.player.Points = bullet.player.Points + (int)(dealtDamages * 100);
+			Destroy(bullet.gameObject);
 			if (isIntro) dealtDamages = 1f;
 			lifePoints -= dealtDamages;
 			if (!isIntro) SoundManager.PlaySoundHit();
 			if (lifePoints <= 0)
 			{
 				if (!isIntro) WaveManager.DeleteEnemy(gameObject);
-				GetComponent<Animator>().SetBool("Dead", true);
 				damage = 0;
 				isDead = true;
 			}
-			Destroy(bullet.gameObject);
 
 		} else if (coll.GetComponent<Collider2D>().tag == "Player" && !isDead) {
 			// Si le monstre touche un joueur
@@ -48,7 +47,6 @@ public class MobCollider : MonoBehaviour {
 			}
 			else {
 				if (!isIntro) WaveManager.DeleteEnemy(gameObject);
-				GetComponent<Animator>().SetBool("Dead", true);
 				damage = 0;
 			}
 		}
