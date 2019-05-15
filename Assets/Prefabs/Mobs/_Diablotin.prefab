@@ -47,6 +47,7 @@ GameObject:
   - component: {fileID: 6287337671688279299}
   - component: {fileID: 7943062197282661584}
   - component: {fileID: 4292238558361225741}
+  - component: {fileID: 4983596141474005990}
   m_Layer: 0
   m_Name: _Diablotin
   m_TagString: Physical
@@ -4998,6 +4999,18 @@ MonoBehaviour:
   isBoss: 1
   isDead: 0
   isIntro: 0
+--- !u!114 &4983596141474005990
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1625326611165800971}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc74005e1df5de144b5d31e44150aaa9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1625326611414379491
 GameObject:
   m_ObjectHideFlags: 0
