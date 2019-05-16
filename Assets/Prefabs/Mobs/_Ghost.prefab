@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8633879286721702168}
   - component: {fileID: 8633879286721702175}
+  - component: {fileID: 3328877380023258851}
   m_Layer: 0
   m_Name: Bouche
   m_TagString: Untagged
@@ -80,6 +81,25 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &3328877380023258851
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8633879286721702169}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d575afd64224c194199bb039bb3f4010, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &8633879287912512092
 GameObject:
   m_ObjectHideFlags: 0
@@ -90,6 +110,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8633879287912498595}
   - component: {fileID: 8633879287912498594}
+  - component: {fileID: 5270047237230115020}
   m_Layer: 0
   m_Name: Yeux
   m_TagString: Untagged
@@ -160,6 +181,25 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &5270047237230115020
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8633879287912512092}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d575afd64224c194199bb039bb3f4010, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &8633879288232237014
 GameObject:
   m_ObjectHideFlags: 0
@@ -174,6 +214,7 @@ GameObject:
   - component: {fileID: 8566690147124940711}
   - component: {fileID: 3585871819138014688}
   - component: {fileID: 8606139381583622617}
+  - component: {fileID: 3823583222473252897}
   m_Layer: 0
   m_Name: _Ghost
   m_TagString: Spirit
@@ -5031,6 +5072,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc74005e1df5de144b5d31e44150aaa9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &3823583222473252897
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8633879288232237014}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 650a42d974295da4ba3f3474e95550d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animators:
+  - {fileID: 8633879288497184422}
+  - {fileID: 5270047237230115020}
+  - {fileID: 3328877380023258851}
 --- !u!1 &8633879288497184423
 GameObject:
   m_ObjectHideFlags: 0
