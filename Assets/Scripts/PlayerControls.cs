@@ -234,7 +234,7 @@ public class PlayerControls : MonoBehaviour {
     {
         if (takingDamagesFrameCount == 0)
         {
-            lifePoints -= (n - armor < 1) ? 1 : n - armor;
+            lifePoints -= n - armor;
             hpBar.fillAmount  = lifePoints / maxLifePoints;
             takingDamagesFrameCount = takingDamageColorFrames;
         }
