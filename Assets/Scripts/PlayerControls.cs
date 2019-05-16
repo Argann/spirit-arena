@@ -131,7 +131,6 @@ public class PlayerControls : MonoBehaviour {
     private Vector2 movement = new Vector2(0,0);
 
     // =================================================
-    private Animator animator;
     
     // since we use axis (needed for key mapping), we have to
     // detect button press by ourselves...
@@ -211,7 +210,6 @@ public class PlayerControls : MonoBehaviour {
 
         hpBar.fillAmount  = 1;
 		gameObject.GetComponent<Rigidbody2D>().freezeRotation = true;
-        animator = GetComponent<Animator>();
         sprite = GetComponent<SpriteRenderer>();
         
         horizontalInputLabel    = string.Concat(Constants.MOV_HORIZONTAL, playerPrefix);
@@ -226,7 +224,7 @@ public class PlayerControls : MonoBehaviour {
     public int takingDamageColorFrames = 10;
     private int takingDamagesFrameCount = 0;
 
-    private SpriteRenderer sprite;
+    public SpriteRenderer sprite;
     private Color previousColor = Color.black;
 
     /*
@@ -239,8 +237,6 @@ public class PlayerControls : MonoBehaviour {
             lifePoints -= (n - armor < 1) ? 1 : n - armor;
             hpBar.fillAmount  = lifePoints / maxLifePoints;
             takingDamagesFrameCount = takingDamageColorFrames;
-            previousColor = sprite.color;
-            sprite.color = Color.red;
         }
     }
 
@@ -271,10 +267,6 @@ public class PlayerControls : MonoBehaviour {
         if (takingDamagesFrameCount > 0)
         {
             takingDamagesFrameCount--;
-            if (takingDamagesFrameCount == 0)
-            {
-                sprite.color = previousColor;
-            }
         }
 
         if (lifePoints <= 0) {
@@ -284,29 +276,14 @@ public class PlayerControls : MonoBehaviour {
                 points /= 2;
                 SoundManager.PlaySoundDeath();
             }
-            animator.SetBool("Dead", true);
-            animator.SetBool("Running", false);
             movement = Vector2.zero;
         } else {
             firstFrameDead = true;
-            animator.SetBool("Dead", false);
-
-            if (movement.Equals(Vector2.zero)) {
-                animator.SetBool("Running", false);
-            } else {
-                animator.SetBool("Running", true);
-            }
 
             if(movement.x > 0) {
-                transform.localScale = new Vector3(-5, transform.localScale.y, transform.localScale.z);
+                transform.localScale = new Vector3(-1, transform.localScale.y, transform.localScale.z);
             } else if (movement.x < 0) {
-                transform.localScale = new Vector3(5, transform.localScale.y, transform.localScale.z);
-            }
-
-            if (isSpirit) {
-                animator.SetBool("Spirit", true);
-            } else {
-                animator.SetBool("Spirit", false);            
+                transform.localScale = new Vector3(1, transform.localScale.y, transform.localScale.z);
             }
 
             // ------ attacks ------

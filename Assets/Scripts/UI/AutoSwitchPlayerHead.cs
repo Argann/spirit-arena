@@ -16,6 +16,7 @@ public class AutoSwitchPlayerHead : MonoBehaviour {
 
     // Start is called before the first frame update
     void Start() {
+        imageUI = GetComponent<Image>();
         currentPlayer = MobManager.GetPlayer(playerNumber).GetComponent<PlayerControls>();
         previousStateSpirit = currentPlayer.IsSpirit;
 

@@ -1,0 +1,317 @@
+fileFormatVersion: 2
+guid: 837eaa2170739f34f9ceea8513ca2cad
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 7663715729500204266
+    second: J1 aura_0
+  - first:
+      213: -1954232221917973737
+    second: J1 aura_1
+  - first:
+      213: 3456840291882460465
+    second: J1 aura_2
+  - first:
+      213: -5054997685118919252
+    second: J1 aura_3
+  - first:
+      213: 4328301872465579835
+    second: J1 aura_4
+  - first:
+      213: 1549885804477844189
+    second: J1 aura_5
+  - first:
+      213: -740152529568278623
+    second: J1 aura_6
+  - first:
+      213: -2931059291631808893
+    second: J1 aura_7
+  - first:
+      213: -4581324460593285695
+    second: J1 aura_8
+  externalObjects: {}
+  serializedVersion: 10
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - serializedVersion: 2
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: J1 aura_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 15
+        width: 357
+        height: 642
+      alignment: 9
+      pivot: {x: 0.43, y: 0.25}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4352558d4dab3fa45a6d270e84cc405c
+      internalID: 7663715729500204266
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: J1 aura_1
+      rect:
+        serializedVersion: 2
+        x: 357
+        y: 15
+        width: 357
+        height: 642
+      alignment: 9
+      pivot: {x: 0.43, y: 0.25}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a3bc06c4a0804d443bcdcfb2f2c9a394
+      internalID: -1954232221917973737
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: J1 aura_2
+      rect:
+        serializedVersion: 2
+        x: 714
+        y: 15
+        width: 357
+        height: 642
+      alignment: 9
+      pivot: {x: 0.43, y: 0.25}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2577236527be4bc4a8875f17a77e9565
+      internalID: 3456840291882460465
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: J1 aura_3
+      rect:
+        serializedVersion: 2
+        x: 1071
+        y: 15
+        width: 357
+        height: 642
+      alignment: 9
+      pivot: {x: 0.43, y: 0.25}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9246fcb8dc6df4f4db790a23d75f43ca
+      internalID: -5054997685118919252
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: J1 aura_4
+      rect:
+        serializedVersion: 2
+        x: 1428
+        y: 15
+        width: 357
+        height: 642
+      alignment: 9
+      pivot: {x: 0.43, y: 0.25}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4478061b7c0f2b246ba7ebb0a844a731
+      internalID: 4328301872465579835
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: J1 aura_5
+      rect:
+        serializedVersion: 2
+        x: 1785
+        y: 15
+        width: 357
+        height: 642
+      alignment: 9
+      pivot: {x: 0.43, y: 0.25}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9079585ae7b6dac4d84151ee1b9b419f
+      internalID: 1549885804477844189
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: J1 aura_6
+      rect:
+        serializedVersion: 2
+        x: 2142
+        y: 15
+        width: 357
+        height: 642
+      alignment: 9
+      pivot: {x: 0.43, y: 0.25}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3fbaa2917a052ee4c929a13a038a1f66
+      internalID: -740152529568278623
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: J1 aura_7
+      rect:
+        serializedVersion: 2
+        x: 2499
+        y: 15
+        width: 357
+        height: 642
+      alignment: 9
+      pivot: {x: 0.43, y: 0.25}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 44db5ea0d734f2f47aa3b4a313a8f011
+      internalID: -2931059291631808893
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: J1 aura_8
+      rect:
+        serializedVersion: 2
+        x: 2856
+        y: 15
+        width: 357
+        height: 642
+      alignment: 9
+      pivot: {x: 0.43, y: 0.25}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7ec64607eb5612d4ca00883686cef4ba
+      internalID: -4581324460593285695
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 6ca72bfd26ecbc24db2d9a4ba994486f
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
