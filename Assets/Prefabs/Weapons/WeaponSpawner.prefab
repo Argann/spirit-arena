@@ -1,21 +1,11 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &100100000
-Prefab:
-  m_ObjectHideFlags: 1
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications: []
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1037686827420634}
-  m_IsPrefabAsset: 1
 --- !u!1 &1037686827420634
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4557758650660724}
@@ -29,9 +19,10 @@ GameObject:
   m_IsActive: 1
 --- !u!4 &4557758650660724
 Transform:
-  m_ObjectHideFlags: 1
+  m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1037686827420634}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -10.355055, y: 4.217191, z: -0.028132636}
@@ -42,9 +33,10 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &114586721770414946
 MonoBehaviour:
-  m_ObjectHideFlags: 1
+  m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1037686827420634}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -52,10 +44,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weapons:
-  - {fileID: 1866093702822964, guid: b5ef26e8311427041bda3ab7833039b8, type: 2}
-  - {fileID: 1248775777450254, guid: 2cc4f0665905b5842b1bec5b7f9c1f6e, type: 2}
-  - {fileID: 1973382037876434, guid: a067a57b9192d1a48ba11545827da6dc, type: 2}
-  - {fileID: 1077436701060412, guid: d5c5d4f67e6a9ac44a9140d771ebc2c6, type: 2}
+  - {fileID: 1973382037876434, guid: a1fa87a5454977646a652d8ba92828aa, type: 3}
+  - {fileID: 1973382037876434, guid: 9dc27c95cc7624640b00b86b99aa6673, type: 3}
+  - {fileID: 1973382037876434, guid: a067a57b9192d1a48ba11545827da6dc, type: 3}
+  - {fileID: 1973382037876434, guid: d62179a21df972b40b1c4c7b0d5ecf1a, type: 3}
   spawnTimerMs: 5000
   spawnTimerDeltaMs: 2000
   nextSpawnMs: 0
