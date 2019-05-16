@@ -240,6 +240,11 @@ public class PlayerControls : MonoBehaviour {
         }
     }
 
+    public void Heal(int n) {
+        lifePoints = Mathf.Min(maxLifePoints, lifePoints + n);
+        hpBar.fillAmount  = lifePoints / maxLifePoints;
+    }
+
     /*
      * Update est appelé à chaque frame
      * Ici :

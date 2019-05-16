@@ -2759,6 +2759,22 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 114586721770414946, guid: 9e02ed8cd1bf99b41bd5c969cda4834b,
+        type: 3}
+      propertyPath: weapons.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114586721770414946, guid: 9e02ed8cd1bf99b41bd5c969cda4834b,
+        type: 3}
+      propertyPath: weapons.Array.data[4]
+      value: 
+      objectReference: {fileID: 1973382037876434, guid: a72d48d45399cb24bb4733fe9257cc68,
+        type: 3}
+    - target: {fileID: 114586721770414946, guid: 9e02ed8cd1bf99b41bd5c969cda4834b,
+        type: 3}
+      propertyPath: spawnTimerDeltaMs
+      value: 500
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9e02ed8cd1bf99b41bd5c969cda4834b, type: 3}
 --- !u!4 &607938005 stripped
