@@ -73,7 +73,8 @@ MonoBehaviour:
   - description: +1 Max Health
     type: 5
     mult: 1
-    image: {fileID: 21300000, guid: c0ec4ffc17921ee41a65dad26e6de507, type: 3}
+    image: {fileID: -5365800500679840340, guid: 7bb3d8a665825fc4899b6d2e74b885b6,
+      type: 3}
   waveManager: {fileID: 0}
   upgradeScreenCanvas: {fileID: 0}
   timerUI: {fileID: 0}

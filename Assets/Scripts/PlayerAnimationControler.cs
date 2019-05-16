@@ -12,6 +12,9 @@ public class PlayerAnimationControler : MonoBehaviour {
     private PlayerControls playerControls;
     private bool previousFrameIsSpirit = false;
 
+    private Animator physicalAnimator;
+    private float previousHealth;
+
     // Start is called before the first frame update
     void Start() {
         playerControls = GetComponent<PlayerControls>();
@@ -20,6 +23,9 @@ public class PlayerAnimationControler : MonoBehaviour {
         spiritObject.SetActive(previousFrameIsSpirit);
         physicalObject.SetActive(!previousFrameIsSpirit);
 
+        physicalAnimator = physicalObject.GetComponent<Animator>();
+
+        previousHealth = playerControls.lifePoints;
     }
 
     // Update is called once per frame
@@ -28,7 +34,15 @@ public class PlayerAnimationControler : MonoBehaviour {
             previousFrameIsSpirit = playerControls.IsSpirit;
             spiritObject.SetActive(previousFrameIsSpirit);
             physicalObject.SetActive(!previousFrameIsSpirit);
-
         }
+
+        if (previousHealth > playerControls.lifePoints) {
+            physicalAnimator.SetTrigger("Hit");
+        }
+
+        physicalAnimator.SetBool("Dead", playerControls.lifePoints == 0);
+
+
+        previousHealth = playerControls.lifePoints;
     }
 }
